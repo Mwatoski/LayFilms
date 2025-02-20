@@ -1,0 +1,658 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body {
+    font-family: sans-serif; /* Choose a clean font */
+    line-height: 1.6;
+    color: #333; /* Dark text color - still keep a neutral base */
+}
+
+/* Navigation styles with green accent */
+nav {
+    background-color: #f8f8f8;
+    padding: 10px 20px; /* Reduced padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+}
+@media (max-width: 768px) {
+    nav {
+        padding: 8px 15px; /* Slightly smaller padding on mobile */
+    }
+}
+.scroll-down {
+    position: absolute; /* Position relative to the nearest parent with position: relative */
+    bottom:-33vh; /* Moves it near the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Centers it horizontally */
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.arrow-bounce {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.arrow-bounce a {
+    color: white;
+    font-size: 24px;
+    animation: bounce 1.5s infinite;
+    text-decoration: none;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #066046; /* Green for the logo - subtle brand color */
+}
+nav ul {
+    list-style: none;
+    display: flex;
+}
+nav li {
+    margin-left: 20px;
+}
+nav a {
+    text-decoration: none;
+    color: #555; /* Neutral link color initially */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+nav a:hover {
+    color: #066046; /* Green on hover - interactive accent */
+}
+
+/* Hero section styles - mostly unchanged */
+.hero {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+     /* Adjust this value as needed */
+    
+    
+    
+    
+}
+#hero-text {
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffcc00;
+    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffaa00, 0 0 15px #ff7700;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffaa00, 0 0 15px #ff7700; }
+    100% { text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffaa00, 0 0 30px #ff7700; }
+}
+
+
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+/* Button style with orange accent */
+.button {
+    display: inline-block;
+    background-color: #f37721; /* Orange for the button - call to action accent */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    position: relative;
+    top: 60px;
+   
+}
+
+.button:hover {
+    background-color: #e06a18; /* Slightly darker orange on hover */
+}
+
+
+/* Portfolio grid styles - no color changes here, keeping it visually focused */
+#portfolio-grid {
+    padding: 50px;
+    text-align: center;
+}
+
+.portfolio-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.portfolio-itemp img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.hamburger {
+    cursor: pointer;
+    display: none; /* Hide by default, will be shown on mobile */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.hamburger .bar {
+    height: 4px;
+    width: 100%;
+    background-color: #333;
+    transition: transform 0.3s ease;
+}
+
+/* When active, change the bars to make an X */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Navigation links, hidden on mobile by default */
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    position: static;
+    top: 100%;
+    left: 0;
+    width: auto;
+    background-color: #f8f8f8;
+    text-align: center;
+    box-shadow: none;
+    z-index: 1001; /* Ensures it appears above the hero section */
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+}
+
+/* Media query for smaller screens -  adjustments for responsiveness, colors maintained */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: row; /* Keep logo and hamburger in a row */
+        justify-content: space-between; /* Space logo and hamburger */
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger icon on smaller screens */
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #f8f8f8;
+        text-align: center;
+        padding: 30px 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active { /* Class to show nav links (toggled by JavaScript) */
+        display: flex; /* Make nav links visible when 'active' class is added */
+    }
+    .nav-links li {
+        margin: 15px 0; /* Space out the links vertically */
+    }
+
+
+    nav li {
+        margin: 15px 0; /* Vertical spacing for links in mobile menu */
+    }
+
+
+    .hero {
+        height: 400px; /* Adjust hero height for mobile */
+    }
+    .hero-content h1 {
+        font-size: 2em; /* Adjust hero text size for mobile */
+    }
+}
+
+/* Hero image background styles - no color changes here, just image and overlay */
+.hero-image-bg {
+    position: relative;
+    height: 800px;
+    background-image: url('../images/photo1.webp'); /* Make sure path is correct */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    background-color: #2a2a2a;
+}
+
+.hero-image-bg::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay maintained */
+}
+
+
+.hero-image-bg .hero-content {
+    position: relative;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.hero-image-bg .hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero-image-bg .button {
+    display: inline-block;
+    background-color: #f37721; /* Orange button maintained */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+em {
+    color: #066046;
+    font-style: normal;
+  }
+  #aboutUs-section {
+    padding: 80px 0;
+    background-color: #f8f8f8; /* Light background for contrast */
+    text-align: center;
+}
+
+.section-heading h6 {
+    font-size: 1.2em;
+    color: #066046;
+    margin-bottom: 10px;
+}
+
+.section-heading h4 {
+    font-size: 2.2em;
+    font-weight: bold;
+}
+
+.clients-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Spacing between client items */
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.client-item {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 360px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.client-item:hover {
+    transform: scale(1.05);
+}
+
+/* Image Container */
+.client-item .thumb {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Set a fixed height */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f8f8; /* Light background to handle transparent areas */
+}
+
+/* Ensuring Whole Image is Visible */
+.client-item .thumb img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain; /* Prevents cropping */
+    border-radius: 10px 10px 0 0;
+}
+
+
+.client-item .thumb .winner,
+.client-item .thumb .price {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.client-item .down-content {
+    padding: 20px;
+}
+
+.client-item h4 {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.client-item span {
+    display: block;
+    font-size: 0.95em;
+    color: #555;
+    font-style: italic;
+}
+
+.border-button {
+    margin-top: 50px;
+}
+
+.border-button a {
+    display: inline-block;
+    background: linear-gradient(135deg, #f37721, #e06a18);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.border-button a:hover {
+    background: linear-gradient(135deg, #e06a18, #f37721);
+    transform: scale(1.1);
+}
+.see-more {
+    display: inline-block;
+    color: #f37721;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.see-more:hover {
+    color: #e06a18;
+    text-decoration: underline;
+}
+#portfolio-grid {
+    text-align: center;
+    padding: 50px 20px;
+    background: #f9f9f9;
+}
+
+.section-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.portfolio-filter {
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background: #f37721;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #e06a18;
+}
+
+/* Grid Layout */
+.portfolio-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Portfolio Item */
+.portfolio-item {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+}
+.portfolio-itemp {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.portfolio-itemp:hover {
+    transform: translateY(-5px);
+}
+
+/* Thumbnail with Hover Effect */
+.portfolio-thumb {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.portfolio-thumb img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.portfolio-thumb:hover img {
+    transform: scale(1.05);
+}
+
+/* Play Icon Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.portfolio-thumb:hover .overlay {
+    opacity: 1;
+}
+
+.overlay i {
+    font-size: 3em;
+    color: rgb(3, 3, 3);
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+.footer {
+    background-color: #fcfcfc;
+    color: #010101;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: auto;
+    text-align: left;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.footer-column h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    border-bottom: 2px solid #ffcc00;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-column a {
+    display: block;
+    color: #060606;
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: #ffcc00;
+}
+
+.social-icons a {
+    display: inline-block;
+    font-size: 20px;
+    margin-right: 10px;
+    color: #ffcc00;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #070707;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid #555;
+    padding-top: 15px;
+}
+
+
+.floating-message-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366; /* WhatsApp Green */
+    color: white;
+    font-size: 24px;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.floating-message-icon:hover {
+    background: #1ebe57;
+    transform: scale(1.1);
+}
+.portfolio-filter {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background: #f37721; /* Dark background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #066046; /* Netflix-style red */
+    color: white;
+}
