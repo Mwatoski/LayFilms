@@ -6,31 +6,7 @@ hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');  // Toggle navigation links visibility
     hamburger.classList.toggle('active'); // Animate the hamburger
 });
-document.addEventListener("DOMContentLoaded", function () {
-    const textElement = document.getElementById("hero-text");
-    const subtitleElement = document.querySelector(".hero-content h2"); // Target the subtitle
-    const text = "Welcome to Lay Films Production";
-    let index = 0;
 
-    function typeText() {
-        if (index < text.length) {
-            textElement.textContent += text.charAt(index);
-            index++;
-            setTimeout(typeText, 100); // Adjust typing speed
-        } else {
-            setTimeout(() => {
-                subtitleElement.style.opacity = "1"; // Make subtitle visible
-                subtitleElement.style.transform = "translateY(0)"; // Slide it in
-            }, 1000); // Delay before subtitle appears
-        }
-    }
-
-    subtitleElement.style.opacity = "0"; // Hide subtitle initially
-    subtitleElement.style.transform = "translateY(20px)"; // Start slightly lower
-    subtitleElement.style.transition = "opacity 1s ease, transform 1s ease";
-
-    typeText(); // Start typing animation
-});
 document.addEventListener("DOMContentLoaded", function () {
     const filterButtons = document.querySelectorAll(".filter-btn");
     const portfolioItems = document.querySelectorAll(".portfolio-item");
@@ -62,6 +38,13 @@ document.querySelector(".scroll-btn").addEventListener("click", function(e) {
 });
 
 
-
-
+particlesJS("particles-js", {
+    particles: {
+        number: { value: 80 },
+        size: { value: 3 },
+        move: { speed: 2 },
+        opacity: { value: 0.7 },
+        line_linked: { enable: false }
+    }
+});
 

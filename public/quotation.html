@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Lay Films Productions - Professional film production, videography, and motion graphics services in Kenya. Capture your story with stunning visuals!">
+    <meta name="keywords" content="film production, videography, motion graphics, cinematography, Lay Films, corporate videos, commercial ads, event filming, Kenya">
+    <meta name="author" content="Lay Films Productions">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="./Assets/css/styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="./Assets/images/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>>
+    <title>Lay Films Productions</title>
+    
+    <style>
+        .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+    </style>
+        /* Add your custom CSS styles here */
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="./Assets/images/LayF.png" alt="Lay Films">
+                
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html"></i> Home</a></li>
+                <li><a href="#AboutUs"></i> About Us</a></li>
+                <li><a href="#"></i> Products</a></li>
+                <li><a href="#portfolio-grid"></i> Portfolio</a></li>
+                <li><a href="#footer"></i> Contact Us</a></li>
+                
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+
+    </header>
+
+    <!-- Quotation Form Section -->
+    <section id="request-quotation" class="request-quotation">
+        <div class="container">
+            <h2>Request a Quotation</h2>
+            <p>Fill in the form below to get a personalized quote for our services.</p>
+
+            <form id="quotation-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="service">Select a Service</label>
+                    <select id="service" name="service" required>
+                        <option value="">-- Please choose a service --</option>
+                        <option value="corporate-events">Corporate Events</option>
+                        <option value="videography">High-Quality Videography</option>
+                        <option value="promo-videos">Creative Promo Videos/ Ads</option>
+                        <option value="event-coverage">Event Coverage (e.g., Weddings)</option>
+                        
+                        <option value="business-marketing">Business Marketing</option>
+                        
+                        <option value="creative-reels">Creative Reels (Picnics, Birthdays, Baby Showers, etc.)</option>
+                        <option value="photography">Professional Photography</option>
+                    </select>
+                </div>
+                
+            
+                <div class="form-group">
+                    <label for="details">Project Details</label>
+                    <textarea id="details" name="details" rows="5" placeholder="Describe your project needs"></textarea>
+                </div>
+            
+                <button type="submit" class="btn-quote">Submit Request</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="./Assets/javascript/script.js"></script>
+</body>
+<footer class="footer" id="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <a href="about.html">About Us</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/people/Lay-Films-Production-Company/100091605957522/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.twitter.com/LayFilms" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/lay_films_productions" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://youtube.com/@layfilmsproductions?si=RrGIje_SKaFr1AbA" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@layfilmsproductions?_t=ZM-8u8TOE5lLjq&_r=1" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.linkedin.com/in/wandera-edwin-505bb8351/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <p><i class="fa-solid fa-phone"></i> <a href="tel:+254707942420">+254 707 942 420</a></p>
+            <p><i class="fa-solid fa-phone"></i> <a href="tel:+254703538225">+254 703 538 225</a></p>
+            <p><i class="fa-solid fa-envelope"></i> <a href="mailto:info@layfilms.com">info@layfilms.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Tutortide. All rights reserved.</p>
+    </div>
+</footer>
+<script>
+    document.getElementById("quotation-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default submission
+
+        // Get form values
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let phone = document.getElementById("phone").value.trim();
+        let service = document.getElementById("service").value;
+        let details = document.getElementById("details").value.trim();
+
+        // Validate required fields
+        if (!name || !email || !phone || !service) {
+            alert("Please fill in all required fields.");
+            return;
+        }
+
+        // Send email via Formspree (or replace with backend email handler)
+        let formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("phone", phone);
+        formData.append("service", service);
+        formData.append("details", details);
+
+        fetch("https://formspree.io/f/meoavpbv", {  // Replace with actual Formspree ID
+            method: "POST",
+            body: formData,
+            headers: { "Accept": "application/json" }
+        }).then(response => {
+            if (response.ok) {
+                alert("Your request has been sent successfully!");
+                window.location.href = "./index.html";
+            } else {
+                alert("There was an error submitting your request. Please try again.");
+            }
+        }).catch(error => alert("Error: " + error));
+    });
+</script>
+</html>
