@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Lay Films Productions Official Merchandise - Premium branded apparel and accessories. Show your support with our exclusive collection.">
+    <meta name="keywords" content="Lay Films merchandise, branded apparel, film production merch, custom cups, hoodies, t-shirts, Kenya">
+    <meta name="author" content="Lay Films Productions">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Shop | Lay Films Productions Official Merchandise</title>
+
+    <link rel="stylesheet" href="./Assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="./Assets/images/lay.svg">
+    
+    <style>
+        /* Shop Page Specific Styles */
+        .shop-hero {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .shop-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .shop-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .shop-hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .shop-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(25, 210, 124, 0.1);
+            color: #19d27c;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(25, 210, 124, 0.2);
+        }
+
+        /* Products Grid */
+        .shop-products {
+            padding: 80px 2rem;
+            background: #000;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid #333;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(25, 210, 124, 0.2);
+            border-color: #19d27c;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #19d27c;
+            color: #000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background: #2a2a2a;
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #19d27c;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-old-price {
+            text-decoration: line-through;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+            margin-left: 0.5rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .buy-button {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: #19d27c;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .buy-button:hover {
+            background: #16b86a;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-button {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .whatsapp-button:hover {
+            background: #1ebe57;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .shop-features {
+            padding: 60px 2rem;
+            background: #0a0a0a;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #19d27c;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* Light Mode Support */
+        body.light-mode .shop-hero,
+        body.light-mode .shop-products,
+        body.light-mode .shop-features {
+            background: #ffffff;
+        }
+
+        body.light-mode .shop-hero h1,
+        body.light-mode .product-title,
+        body.light-mode .feature-title {
+            color: #111;
+        }
+
+        body.light-mode .shop-hero p,
+        body.light-mode .product-description,
+        body.light-mode .feature-description {
+            color: #333;
+        }
+
+        body.light-mode .product-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+
+        body.light-mode .product-info {
+            color: #111;
+        }
+
+        body.light-mode .product-description {
+            color: #666;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .shop-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .shop-hero p {
+                font-size: 1.1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .product-actions {
+                flex-direction: column;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="./Assets/images/LayF.png" alt="Lay Films" class="logo-img">
+                </a>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#work" class="nav-link">WORK</a>
+                </li>
+                <li class="nav-item">
+                    <a href="shop.html" class="nav-link">SHOP</a>
+                </li>
+                <li class="nav-item">
+                    <a href="resources.html" class="nav-link">RESOURCES</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">CONTACT</a>
+                </li>
+                <!-- Desktop Theme Toggle -->
+                <li class="nav-item theme-toggle-desktop">
+                    <div class="theme-toggle">
+                        <input type="checkbox" id="dark-mode-toggle" class="toggle-checkbox">
+                        <label for="dark-mode-toggle" class="toggle-label">
+                            <span class="toggle-handle"></span>
+                            <span class="sun-icon">☀️</span>
+                            <span class="moon-icon">🌙</span>
+                        </label>
+                    </div>
+                </li>
+                <!-- Mobile Theme Toggle -->
+                <li class="nav-item theme-toggle-mobile">
+                    <div class="theme-toggle">
+                        <input type="checkbox" id="dark-mode-toggle-mobile" class="toggle-checkbox">
+                        <label for="dark-mode-toggle-mobile" class="toggle-label">
+                            <span class="toggle-handle"></span>
+                            <span class="sun-icon">☀️</span>
+                            <span class="moon-icon">🌙</span>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+
+            <button class="hamburger" type="button" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="shop-hero">
+        <div class="shop-hero-content">
+            <div class="shop-badge">
+                <span class="badge-dot"></span>
+                Official Merchandise
+            </div>
+            <h1>Wear The Vision</h1>
+            <p>Premium Lay Films Productions merchandise - Show your support with our exclusive collection of apparel and accessories designed for creators and film enthusiasts.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="shop-products">
+        <div class="products-grid">
+            <!-- Premium T-Shirt -->
+            <div class="product-card">
+                <div class="product-badge">Bestseller</div>
+                <img src="./Assets/images/merch-tshirt.jpg" alt="Lay Films Premium T-Shirt" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Premium T-Shirt</h3>
+                    <p class="product-description">High-quality cotton t-shirt with the iconic Lay Films logo. Comfortable, durable, and perfect for everyday wear.</p>
+                    <div class="product-price">
+                        KSh 1,500 <span class="product-old-price">KSh 2,000</span>
+                    </div>
+                    <div class="product-actions">
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Premium%20T-Shirt" 
+                           class="whatsapp-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hoodie -->
+            <div class="product-card">
+                <div class="product-badge">New</div>
+                <img src="./Assets/images/merch-hoodie.jpg" alt="Lay Films Hoodie" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Comfort Hoodie</h3>
+                    <p class="product-description">Stay warm and stylish with our premium hoodie. Features embroidered logo and comfortable fit for all-day wear.</p>
+                    <div class="product-price">
+                        KSh 3,500 <span class="product-old-price">KSh 4,000</span>
+                    </div>
+                    <div class="product-actions">
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Comfort%20Hoodie" 
+                           class="whatsapp-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Mug -->
+            <div class="product-card">
+                <img src="./Assets/images/merch-mug.jpg" alt="Lay Films Custom Mug" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Custom Ceramic Mug</h3>
+                    <p class="product-description">Start your creative day with our custom-designed ceramic mug. Perfect for coffee, tea, or brainstorming sessions.</p>
+                    <div class="product-price">
+                        KSh 800 <span class="product-old-price">KSh 1,000</span>
+                    </div>
+                    <div class="product-actions">
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Custom%20Ceramic%20Mug" 
+                           class="whatsapp-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cap -->
+            <div class="product-card">
+                <img src="./Assets/images/merch-cap.jpg" alt="Lay Films Cap" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Logo Cap</h3>
+                    <p class="product-description">Adjustable baseball cap with embroidered Lay Films logo. Perfect for outdoor shoots and casual style.</p>
+                    <div class="product-price">
+                        KSh 1,200
+                    </div>
+                    <div class="product-actions">
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Logo%20Cap" 
+                           class="whatsapp-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tote Bag -->
+            <div class="product-card">
+                <img src="./Assets/images/merch-tote.jpg" alt="Lay Films Tote Bag" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Canvas Tote Bag</h3>
+                    <p class="product-description">Eco-friendly canvas tote bag with printed Lay Films design. Perfect for carrying gear, groceries, or daily essentials.</p>
+                    <div class="product-price">
+                        KSh 900
+                    </div>
+                    <div class="product-actions">
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Canvas%20Tote%20Bag" 
+                           class="whatsapp-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sticker Pack -->
+            <div class="product-card">
+                <div class="product-badge">Popular</div>
+                <img src="./Assets/images/merch-stickers.jpg" alt="Lay Films Sticker Pack" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Sticker Pack</h3>
+                    <p class="product-description">Set of 10 high-quality vinyl stickers featuring Lay Films designs. Perfect for laptops, cameras, and creative spaces.</p>
+                    <div class="product-price">
+                        KSh 500
+                    </div>
+                    <div class="product-actions">
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Sticker%20Pack" 
+                           class="whatsapp-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="shop-features">
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <h3 class="feature-title">Free Delivery</h3>
+                <p class="feature-description">Free shipping within Nairobi for orders above KSh 3,000. Fast and reliable delivery across Kenya.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h3 class="feature-title">Premium Quality</h3>
+                <p class="feature-description">All products are made from high-quality materials designed to last and maintain their appearance.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3 class="feature-title">Official Merchandise</h3>
+                <p class="feature-description">Authentic Lay Films Productions merchandise with official branding and designs.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3 class="feature-title">Customer Support</h3>
+                <p class="feature-description">Dedicated support team ready to assist with any questions about sizing, orders, or delivery.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="about.html">About Us</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/people/Lay-Films-Production-Company/100091605957522/" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://www.twitter.com/LayFilms" target="_blank">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/lay_films_productions" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/@layfilmsproductions?si=RrGIje_SKaFr1AbA" target="_blank">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@layfilmsproductions?_t=ZM-8u8TOE5lLjq&_r=1" target="_blank">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/wandera-edwin-505bb8351/" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p><i class="fa-solid fa-phone"></i> +254 707 942 420</p>
+                <p><i class="fa-solid fa-envelope"></i> info@layfilmsproductions.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tutortide. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20would%20like%20to%20inquire%20about%20your%20merchandise." 
+       class="floating-message-icon" target="_blank">
+        <i class="fa-solid fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="./Assets/javascript/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Lay Films Productions - Professional Motion Graphics & Animation Services in Kenya. Creative visual storytelling through animation.">
+    <meta name="keywords" content="motion graphics, animation, visual effects, kinetic typography, explainer videos, Kenya, Lay Films">
+    <meta name="author" content="Lay Films Productions">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Motion Graphics | Lay Films Productions | Creative Animation Services</title>
+
+    <link rel="stylesheet" href="./Assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="./Assets/images/lay.svg">
+    <style>
+        /* Motion Graphics Page Specific Styles */
+        .motion-hero {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .motion-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .motion-hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .motion-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .motion-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(25, 210, 124, 0.1);
+            color: #19d27c;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(25, 210, 124, 0.2);
+        }
+
+        /* Video Grid Layout */
+        .motion-showcase {
+            padding: 80px 2rem;
+            background: #000;
+        }
+
+        .motion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .motion-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #1a1a1a;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+        }
+
+        .motion-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(25, 210, 124, 0.2);
+        }
+
+        .motion-video-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .motion-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .motion-item:hover .motion-video {
+            transform: scale(1.05);
+        }
+
+        .motion-info {
+            padding: 2rem;
+            background: linear-gradient(to top, #000, transparent);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            color: white;
+        }
+
+        .motion-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .motion-description {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+        }
+
+        /* Services Section */
+        .motion-services {
+            padding: 80px 2rem;
+            background: #0a0a0a;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #1a1a1a;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #19d27c;
+            background: #1f1f1f;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #19d27c;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .motion-cta {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, #000 0%, #19d27c 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: white;
+            color: #000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Light Mode Support */
+        body.light-mode .motion-hero,
+        body.light-mode .motion-showcase,
+        body.light-mode .motion-services {
+            background: #ffffff;
+        }
+
+        body.light-mode .motion-hero h1,
+        body.light-mode .service-title,
+        body.light-mode .cta-content h2 {
+            color: #111;
+        }
+
+        body.light-mode .motion-hero p,
+        body.light-mode .motion-description,
+        body.light-mode .service-description,
+        body.light-mode .cta-content p {
+            color: #333;
+        }
+
+        body.light-mode .motion-item {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+
+        body.light-mode .service-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+
+        body.light-mode .motion-info {
+            background: linear-gradient(to top, #fff, transparent);
+            color: #111;
+        }
+
+        body.light-mode .motion-description {
+            color: #666;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .motion-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .motion-hero p {
+                font-size: 1.1rem;
+            }
+
+            .motion-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .motion-video-container {
+                height: 250px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+
+            .motion-hero {
+                min-height: 60vh;
+            }
+        }
+        /* Add this to your existing CSS */
+.motion-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.motion-item:hover .motion-image {
+    transform: scale(1.05);
+}
+
+.motion-video-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: #1a1a1a; /* Fallback background */
+}
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="./Assets/images/LayF.png" alt="Lay Films" class="logo-img">
+                </a>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#work" class="nav-link">WORK</a>
+                </li>
+                <li class="nav-item">
+                    <a href="shop.html" class="nav-link">SHOP</a>
+                </li>
+                <li class="nav-item">
+                    <a href="resources.html" class="nav-link">RESOURCES</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">CONTACT</a>
+                </li>
+                <!-- Desktop Theme Toggle -->
+                <li class="nav-item theme-toggle-desktop">
+                    <div class="theme-toggle">
+                        <input type="checkbox" id="dark-mode-toggle" class="toggle-checkbox">
+                        <label for="dark-mode-toggle" class="toggle-label">
+                            <span class="toggle-handle"></span>
+                            <span class="sun-icon">☀️</span>
+                            <span class="moon-icon">🌙</span>
+                        </label>
+                    </div>
+                </li>
+                <!-- Mobile Theme Toggle -->
+                <li class="nav-item theme-toggle-mobile">
+                    <div class="theme-toggle">
+                        <input type="checkbox" id="dark-mode-toggle-mobile" class="toggle-checkbox">
+                        <label for="dark-mode-toggle-mobile" class="toggle-label">
+                            <span class="toggle-handle"></span>
+                            <span class="sun-icon">☀️</span>
+                            <span class="moon-icon">🌙</span>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+
+            <button class="hamburger" type="button" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+     
+      
+    
+
+    <!-- Motion Graphics Showcase -->
+    <!-- Replace the entire motion-showcase section with this: -->
+<section class="motion-showcase">
+    <div class="motion-grid">
+        <!-- Motion Graphics Item 1 -->
+        <div class="motion-item">
+            <div class="motion-video-container">
+                <img src="./Assets/images/M1.webp" alt="Kinetic Typography" class="motion-image">
+            </div>
+            <div class="motion-info">
+                <h3 class="motion-title">Kinetic Typography</h3>
+                <p class="motion-description">Dynamic text animations that bring your message to life with rhythm and style.</p>
+            </div>
+        </div>
+
+        <!-- Motion Graphics Item 2 -->
+        <div class="motion-item">
+            <div class="motion-video-container">
+                <video autoplay loop muted playsinline class="motion-video">
+                        <source src="./Assets/images/motion.mp4" type="video/mp4">
+                        <img src="./Assets/images/M1.webp" alt="Motion Graphics Project 2">
+                    </video>
+            </div>
+            <div class="motion-info">
+                <h3 class="motion-title">Explainer Videos</h3>
+                <p class="motion-description">Simplify complex concepts with engaging animated explainer videos.</p>
+            </div>
+        </div>
+
+        <!-- Motion Graphics Item 3 -->
+        <div class="motion-item">
+            <div class="motion-video-container">
+                <img src="./Assets/images/M2.png" alt="Kinetic Typography" class="motion-image">
+            </div>
+            <div class="motion-info">
+                <h3 class="motion-title">Logo Animations</h3>
+                <p class="motion-description">Memorable brand introductions with custom logo animations.</p>
+            </div>
+        </div>
+
+        <!-- Motion Graphics Item 4 -->
+        <div class="motion-item">
+            <div class="motion-video-container">
+                <img src="./Assets/images/M3.jpg" alt="Kinetic Typography" class="motion-image">
+            </div>
+            <div class="motion-info">
+                <h3 class="motion-title">Social Media Animations</h3>
+                <p class="motion-description">Eye-catching animations optimized for social media platforms.</p>
+            </div>
+        </div>
+
+        <!-- Motion Graphics Item 5 -->
+        <div class="motion-item">
+            <div class="motion-video-container">
+                <img src="./Assets/images/M5.jpg" alt="Kinetic Typography" class="motion-image">
+            </div>
+            <div class="motion-info">
+                <h3 class="motion-title">Product Animations</h3>
+                <p class="motion-description">Showcase your products with stunning 3D animations and visual effects.</p>
+            </div>
+        </div>
+
+        <!-- Motion Graphics Item 6 -->
+        <div class="motion-item">
+            <div class="motion-video-container">
+                <img src="./Assets/images/M6.jpg" alt="Kinetic Typography" class="motion-image">
+            </div>
+            <div class="motion-info">
+                <h3 class="motion-title">Infographic Animations</h3>
+                <p class="motion-description">Transform data and statistics into engaging animated infographics.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Services Section -->
+    <section class="motion-services">
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+                <h3 class="service-title">2D Animation</h3>
+                <p class="service-description">Traditional and digital 2D animations that tell compelling stories with character and charm.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cube"></i>
+                </div>
+                <h3 class="service-title">3D Motion Graphics</h3>
+                <p class="service-description">Immersive 3D animations and visual effects that add depth and dimension to your projects.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-text-height"></i>
+                </div>
+                <h3 class="service-title">Kinetic Typography</h3>
+                <p class="service-description">Animated text that moves with purpose, enhancing your message through motion.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="service-title">Data Visualization</h3>
+                <p class="service-description">Transform complex data into clear, engaging animated charts and infographics.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3 class="service-title">Commercial Animations</h3>
+                <p class="service-description">Attention-grabbing animated commercials that drive engagement and conversions.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="service-title">Educational Content</h3>
+                <p class="service-description">Engaging educational animations that make learning interactive and memorable.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="about.html">About Us</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/people/Lay-Films-Production-Company/100091605957522/" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://www.twitter.com/LayFilms" target="_blank">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/lay_films_productions" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/@layfilmsproductions?si=RrGIje_SKaFr1AbA" target="_blank">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@layfilmsproductions?_t=ZM-8u8TOE5lLjq&_r=1" target="_blank">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/wandera-edwin-505bb8351/" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p><i class="fa-solid fa-phone"></i> +254 707 942 420</p>
+                <p><i class="fa-solid fa-envelope"></i> info@layfilmsproductions.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lay Films Productions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20would%20like%20to%20inquire%20about%20your%20motion%20graphics%20services." 
+       class="floating-message-icon" target="_blank">
+        <i class="fa-solid fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="./Assets/javascript/script.js"></script>
+</body>
+</html>

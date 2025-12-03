@@ -1,479 +1,588 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
-    <meta name="description" content="Lay Films Productions - Professional film production, videography, and motion graphics services in Kenya. Capture your story with stunning visuals!">
-<meta name="keywords" content="film production, videography, motion graphics, cinematography, Lay Films, corporate videos, commercial ads, event filming, Kenya">
-<meta name="author" content="Lay Films Productions">
+    <meta name="description"
+        content="Lay Films Productions - Professional film production, videography, and motion graphics services in Kenya. Capture your story with stunning visuals!">
+    <meta name="keywords"
+        content="film production, videography, motion graphics, cinematography, Lay Films, corporate videos, commercial ads, event filming, Kenya">
+    <meta name="author" content="Lay Films Productions">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Lay Films Productions | Best Film & Videography Services in Kenya</title>
-    
-    <link rel="stylesheet" href="./Assets/css/styles.css"> 
+
+    <link rel="stylesheet" href="./Assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="./Assets/images/lay.svg">
+    <!-- In your head section, make sure you have this -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Add this right after your viewport meta tag -->
+    <style>
+        /* Mobile-first fixes */
+        @media (max-width: 768px) {
+
+            html,
+            body {
+                overflow-x: hidden;
+                width: 100%;
+                position: relative;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                padding: 1rem !important;
+            }
+
+            .hero-title {
+                font-size: 2.5rem !important;
+                line-height: 1.2 !important;
+            }
+        }
+
+        /* FIX FOR HERO IMAGES TRANSFORMATION */
+        .hero-images .img {
+            transform: none !important;
+            /* Reset all conflicting transforms */
+        }
+
+        /* Apply the specific transforms you want */
+        .hero-images .img1 {
+            transform: rotate(-5deg) translateX(-80px) translateY(10px) !important;
+            z-index: 3;
+        }
+
+        .hero-images .img2 {
+            transform: rotate(2deg) translateY(-10px) !important;
+            z-index: 2;
+        }
+
+        .hero-images .img3 {
+            transform: rotate(6deg) translateX(80px) translateY(10px) !important;
+            z-index: 1;
+        }
+
+        /* Hover effects */
+        .hero-images:hover .img1 {
+            transform: rotate(-10deg) translateX(-220px) translateY(-10px) scale(0.95) !important;
+            filter: brightness(1.05);
+        }
+
+        .hero-images:hover .img2 {
+            transform: rotate(0deg) translateY(-10px) scale(1.06) !important;
+            filter: brightness(1.08);
+        }
+
+        .hero-images:hover .img3 {
+            transform: rotate(10deg) translateX(220px) translateY(-10px) scale(0.95) !important;
+            filter: brightness(1.05);
+        }
+
+        /* Mobile responsive - only adjust for small screens */
+    </style>
 
 
- 
-    
+
 </head>
-    
+
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="./Assets/images/LayF.png" alt="Lay Films">
-                
-            </div>
-            <ul class="nav-links">
-                <li><a href="#"></i> Home</a></li>
-                <li><a href="#AboutUs"></i> About Us</a></li>
-                <li><a href="#"></i> Products</a></li>
-                <li><a href="#portfolio-grid"></i> Portfolio</a></li>
-                <li><a href="#footer"></i> Contact Us</a></li>
-                
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <header class="hero-section">
+        <!-- New Minimalist Navigation -->
+        <!-- New Minimalist Navigation -->
+        <!-- Replace your entire nav section with this -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <!-- Logo on the left -->
+                <div class="nav-logo">
+                    <img src="./Assets/images/LayF.png" alt="Lay Films" class="logo-img">
+                </div>
+
+                <!-- Navigation Menu in center -->
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#work" class="nav-link">WORK</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="shop.html" class="nav-link">SHOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link">RESOURCES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">CONTACT</a>
+                    </li>
+                    <!-- Desktop Theme Toggle - visible on large screens -->
+                    <li class="nav-item theme-toggle-desktop">
+                        <div class="theme-toggle">
+                            <input type="checkbox" id="dark-mode-toggle" class="toggle-checkbox">
+                            <label for="dark-mode-toggle" class="toggle-label">
+                                <span class="toggle-handle"></span>
+                                <span class="sun-icon">☀️</span>
+                                <span class="moon-icon">🌙</span>
+                            </label>
+                        </div>
+                    </li>
+                    <!-- Mobile Theme Toggle - visible only on small screens -->
+                    <li class="nav-item theme-toggle-mobile">
+                        <div class="theme-toggle">
+                            <input type="checkbox" id="dark-mode-toggle-mobile" class="toggle-checkbox">
+                            <label for="dark-mode-toggle-mobile" class="toggle-label">
+                                <span class="toggle-handle"></span>
+                                <span class="sun-icon">☀️</span>
+                                <span class="moon-icon">🌙</span>
+                            </label>
+                            
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Hamburger Button on the far right -->
+                <button class="hamburger" type="button" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
             </div>
         </nav>
-        
-        <div class="hero hero-image-bg">
-            <div id="particles-js"></div>
-        
-            <div class="hero-overlay"></div> <!-- Adds a stylish overlay -->
-        
-            <div class="hero hero-image-bg">
-                <div id="particles-js"></div>
-            
-                <div class="hero-overlay"></div> 
-            
-                <div class="hero-content">
 
-            
-                    <ul class="services-list">
-                        <li><h1>We Offer the Best!</h1></li>
-                        <li><h2>@ Lay Films Productions</h2></li>
-                        <li>📷 Professional Photography</li>
-                        <li>🎥 High-Quality Videography</li>
-                        <li>🎞️ Creative Promo Videos</li>
-                        <li>🎊 Event Coverage Services</li>
-                        <li></li>
-                        <li></li>
-                        <li><a href="./quotation.html" class="btn-quote">Request a Quote</a></li>
-                    </ul>
-            
-                    
-            
-                    <div class="scroll-down">
-                        <p>Scroll down to see our work</p>
-                        <div class="arrow-bounce">
-                            <a href="#portfolio">
-                                <i class="fa-solid fa-chevron-down"></i>
+        <div class="hero-content">
+            <div class="text">
+                <div class="availability">
+                    <span class="dot"></span> Available for Inquiries
+                </div>
+
+                <h1 class="hero-title">
+                    Modern <br />
+                    <span>Renaissance</span>
+                </h1>
+
+                <h3 class="tagline">PERHAPS TODAY ✨</h3>
+                <p class="intro">
+                    Hello, I'm <strong>Lay Films</strong> — a Kenya-based production house.
+                    We craft <strong>cinematic stories</strong> through <strong>video</strong>,
+                    <strong>photography</strong> & <strong>motion design</strong> that captivate and inspire.
+                </p>
+
+                <a href="mailto:info@layfilmsproductions.com" class="message-btn">
+                    <img src="./Assets/images/potrait8.jpg" alt="Lay Films Avatar" /> Send me a message
+                </a>
+            </div>
+
+            <div class="hero-images">
+                <!-- Thumbnail 1 -->
+                <img src="./Assets/images/potrait4.jpg" alt="Extreme Collection shoot" class="img img1" />
+
+                <!-- Thumbnail 2 -->
+                <img src="./Assets/images/photo1.webp" alt="Zeraki commercial" class="img img2" />
+
+                <!-- Thumbnail 3 -->
+                <img src="./Assets/images/T31.jpg" alt="Abdinassir Foundation event" class="img img3" />
+            </div>
+
+        </div>
+
+
+
+        <main>
+
+
+            <!-- Modern Portfolio Showcase Section -->
+            <section id="work" class="portfolio-showcase">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Our <em>Work</em></h2>
+                        <p class="section-subtitle">A showcase of our creative projects across different domains</p>
+                    </div>
+
+                    <!-- Portfolio Grid -->
+                    <div class="portfolio-grid-large">
+                        <!-- Corporate Events -->
+                        <div class="portfolio-category" data-category="corporate">
+                            <a href="#corporate-work" class="category-link">
+                                <div class="category-media">
+                                    <img src="./Assets/images/T25.jpg" alt="Corporate Events" class="category-image">
+                                    <video autoplay loop muted playsinline class="category-video">
+                                        <source src="./Assets/videos/corporate-preview.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="category-overlay">
+                                        <div class="category-info">
+                                            <h3 class="category-title">Events</h3>
+                                            <p class="category-count">15+ Projects</p>
+                                            <a href="events.html" class="view-button">View Reels →</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </a>
                         </div>
+
+                        <!-- Commercial Adverts -->
+                        <div class="portfolio-category" data-category="commercial">
+                            <a href="#commercial-work" class="category-link">
+                                <div class="category-media">
+                                    <img src="./Assets/images/fg.png" alt="Commercial Adverts" class="category-image">
+                                    <div class="category-overlay">
+                                        <div class="category-info">
+                                            <h3 class="category-title">Commercial Adverts</h3>
+                                            <p class="category-count">12+ Projects</p>
+                                            <a href="commercialadverts.html" class="view-button">View Reels →</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Motion Graphics -->
+                        <div class="portfolio-category" data-category="motion">
+                            <a href="#motion-work" class="category-link">
+                                <div class="category-media">
+                                    <video autoplay loop muted playsinline class="category-video">
+                                        <source src="./Assets/images/motion.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="category-overlay">
+                                        <div class="category-info">
+                                            <h3 class="category-title">Motion Graphics</h3>
+                                            <p class="category-count">8+ Projects</p>
+                                            <a href="motionGraphics.html" class="view-button">View Reels →</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- NGO Events -->
+
+
+
+                        <!-- ✅ NEW - Use this -->
+                        <div class="portfolio-category" data-category="reels">
+                            <div class="category-media">
+                                <img src="./Assets/images/potrait5.jpg" alt="Social Media Reels" class="category-image">
+                                <div class="category-overlay">
+                                    <div class="category-info">
+                                        <h3 class="category-title">Social Media Reels</h3>
+                                        <p class="category-count">30+ Projects</p>
+                                        <a href="reels.html" class="view-button">View Reels →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-        </div>
-        
-        
-        
-        
-    </header>
 
-    <main>
-        <section id="aboutUs-section" class="closed-contests">
-            <div class="container">
-                <div class="row">
-                    <!-- Left Side: Text Content -->
-                    <div>
-                        <h2>
-                            <em>Lay Films Productions:</em> Who Are <em>We?</em>
+            </section>
+            <!-- Services Section -->
+            <!-- Services Section -->
+            <section class="gk-services" id="services">
+                <div class="gk-left">
+                    <div class="services-header">
+                        <h2 class="gk-gray">Services that</h2>
+                        <h2 class="gk-black">shape your story.</h2>
+                    </div>
+
+                    <div class="toolbox-section">
+                        <p class="gk-tool-title">My creative toolbox</p>
+                        <div class="gk-tools">
+                            <div class="gk-tool" data-tool="Premiere Pro">
+                                <span>Pr</span>
+                            </div>
+                            <div class="gk-tool" data-tool="After Effects">
+                                <span>Ae</span>
+                            </div>
+                            <div class="gk-tool" data-tool="Photoshop">
+                                <span>Ps</span>
+                            </div>
+                            <div class="gk-tool" data-tool="DaVinci Resolve">
+                                <span>DR</span>
+                            </div>
+                            <div class="gk-tool" data-tool="Lightroom">
+                                <span>Lr</span>
+                            </div>
+                            <div class="gk-tool" data-tool="InDesign">
+                                <span>Id</span>
+                            </div>
+                            <div class="gk-tool" data-tool="Final Cut Pro">
+                                <span>Fc</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gk-right">
+                    <ul class="services-list">
+                        <li class="service-item">
+                            <span class="gk-circle">🎬</span>
+                            <div class="service-content">
+                                <span class="service-name">Cinematography / Directing</span>
+                                <span class="service-desc">Professional camera work and artistic direction</span>
+                            </div>
+                        </li>
+                        <li class="service-item">
+                            <span class="gk-circle">🖊️</span>
+                            <div class="service-content">
+                                <span class="service-name">Creative Direction & Shot Planning</span>
+                                <span class="service-desc">Strategic vision and meticulous composition</span>
+                            </div>
+                        </li>
+                        <li class="service-item">
+                            <span class="gk-circle">💻</span>
+                            <div class="service-content">
+                                <span class="service-name">Video Editing & Motion Design</span>
+                                <span class="service-desc">Seamless storytelling with dynamic graphics</span>
+                            </div>
+                        </li>
+                        <li class="service-item">
+                            <span class="gk-circle">🎚️</span>
+                            <div class="service-content">
+                                <span class="service-name">Color Grading & Lookbuilding</span>
+                                <span class="service-desc">Distinctive visual styles and mood creation</span>
+                            </div>
+                        </li>
+                        <li class="service-item">
+                            <span class="gk-circle">📸</span>
+                            <div class="service-content">
+                                <span class="service-name">Photography & Retouching</span>
+                                <span class="service-desc">Stunning stills with professional enhancement</span>
+                            </div>
+                        </li>
+                        <li class="service-item">
+                            <span class="gk-circle">🔊</span>
+                            <div class="service-content">
+                                <span class="service-name">Sound Design & Audio Polish</span>
+                                <span class="service-desc">Crystal clear audio and immersive soundscapes</span>
+                            </div>
+                        </li>
+                        <li class="service-item">
+                            <span class="gk-circle">🖨️</span>
+                            <div class="service-content">
+                                <span class="service-name">Design & Layout for Print/Digital</span>
+                                <span class="service-desc">Professional design for all media platforms</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <!-- Story Section with Image -->
+
+            <section class="story-section" id="about">
+                <div class="story-container">
+                    <div class="story-header">
+                        <div class="story-badge">
+                            <span class="badge-dot"></span>
+                            Our Story
+                        </div>
+                        <h2 class="story-title">
+                            Modern renaissance in <em>visual storytelling</em>
                         </h2>
                     </div>
-                    <div class="clients-container">
-                        <div class="clients-content">
-                            
-                            <p>
-                                <strong>Lay Films Productions</strong> is a leading film and photography company dedicated to 
-                                capturing moments, telling stories, and bringing ideas to life. Our passion for visual 
-                                storytelling drives us to deliver <strong>high-quality, cinematic experiences</strong> tailored to your needs.
-                            </p>
-                            <p>
-                                Whether you need <strong>professional photography, cinematic videography, or cutting-edge 
-                                post-production editing</strong>, our team ensures <strong>excellence, creativity, and reliability</strong> in every project.
-                            </p>
+
+                    <div class="story-content">
+                        <div class="story-layout">
+                            <!-- Photo Column -->
+                            <div class="story-photo">
+                                <div class="photo-container">
+                                    <img src="./Assets/images/potrait8.jpg" alt="Lay Films Director"
+                                        class="portrait-image" />
+                                    <div class="photo-overlay"></div>
+                                </div>
+                                <div class="photo-caption">
+                                    <strong>Behind the Lens</strong>
+                                    <span>Capturing stories that matter</span>
+                                </div>
+                            </div>
+
+                            <!-- Content Column -->
+                            <div class="story-main">
+                                <div class="story-text">
+                                    <p class="lead">I picked up a camera over a decade ago — and never looked back.</p>
+
+                                    <p>What started with film stills for the feeling grew into cinematic videos,
+                                        campaigns, and branded storytelling. I move between photography, filmmaking, and
+                                        creative direction—always chasing the best way to tell each story.</p>
+
+                                    <p>Being a modern renaissance creator means pushing creative boundaries. From
+                                        cinematic portraits to punchy reels and full campaigns, I aim to build work that
+                                        feels distinct—something that breaks the scroll and makes you pause.</p>
+
+                                    <div class="story-highlight">
+                                        <div class="highlight-icon">✨</div>
+                                        <p>Details matter because they carry intention. Every frame, every edit, every
+                                            beat has to serve the story. If it doesn't, it doesn't stay.</p>
+                                    </div>
+                                </div>
+
+                                <div class="story-stats">
+    <div class="stat-item">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">200+</div>
+        <div class="stat-label">Projects Completed</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">400+</div>
+        <div class="stat-label">Happy Clients</div>
+    </div>
+</div>
+                            </div>
+                        </div>
+
+                        <div class="story-footer">
+
+                            <div class="story-signature">
+                                <div class="signature-content">
+                                    <strong>Lay Films Productions</strong>
+                                    <span>Kenya-based film production house & creative studio</span>
+                                </div>
+                                <div class="signature-cta">
+                                    <a href="quotation.html" class="cta-link">
+                                        Start your project with us→
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <section id="stats-section" class="stats">
-                        <div class="container">
-                            <div class="stats-row">
-                                <div class="stat-box">
-                                    <h2><span class="counter" data-target="200">0</span>+</h2>
-                                    <p>Events Covered</p>
-                                </div>
-                                <div class="stat-box">
-                                    <h2><span class="counter" data-target="623">0</span>+</h2>
-                                    <p>Happy Clients</p>
-                                </div>
-                                <div class="stat-box">
-                                    <h2><span class="counter" data-target="9">0</span>.0</h2>
-                                    <p>Rating</p>
-                                </div>
-                                <div class="stat-box">
-                                    <h2><span class="counter" data-target="6">0</span>+</h2>
-                                    <p>Years of Operation</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                </div>
+            </section>
 
+
+        </main>
+        <!-- Embedded Reel Showcase -->
+
+
+        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20would%20like%20to%20inquire%20about%20your%20services."
+            class="floating-message-icon" target="_blank">
+            <i class="fa-solid fa-brands fa-whatsapp"></i>
+        </a>
+        <footer class="footer" id="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="about.html">About Us</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="contact.html">Contact</a>
                 </div>
-            </div>
-        </section>
-        
-        <section id="aboutUs-section" class="closed-contests">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                       
-                            <h2><em>About Us:</em> A Glimpse <em>of Excellence</em></h2>
-                       
-                    </div>
-        
-                    <div class="col-lg-12">
-                        <div class="clients-container">
-                            <div class="client-item">
-                                <h2>Motion <em>Graphics</em></h2>
-                                <div class="portfolio-itemp" >
-                                    <div class="portfolio-item" data-category="corporate">
-                                        <div class="portfolio-thumb">
-                                            <video autoplay loop muted playsinline class="custom-video">
-                                                <source src="./Assets/images/motion.mp4" type="video/mp4">
-                                                
-                                                Your browser does not support the video tag.
-                                            </video>
-                                            <div class="overlay">
-                                                <i class="fa fa-play-circle"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                   
-                                    
-                                    
-                                    <div class="client-details">
-                                        <h4>Client: Beauty Kuche</h4>
-                                        
-                                        <p>"LayFilms isn't just about videography and filmmaking—we also specialize in motion graphics! Whether it's dynamic title sequences, animated logos, or eye-catching visual effects, we bring stories to life with motion. Our team blends creativity with precision to deliver high-quality animations that enhance any project."
-                                        </p>
-                                        
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <div class="client-item">
-                                <h3>Corporate Clients</h3>
-                                <div class="portfolio-itemp">
-                                    
-                                    <a href="https://youtube.com/shorts/SCNf5V6UBCg?feature=share" class="video-link">
-                                        <div class="portfolio-thumb">
-                                            <img src="./Assets/images/T25.jpg" alt="Corporate Video">
-                                            <div class="overlay">
-                                                <i class="fa fa-play-circle"></i>
-                                            </div>
-                                        </div>
-                                        
-                                    </a>
-                                    <div class="client-details">
-                                        
-                                        <h4>Client: Extreme Collection</h4>
-                                        <p>"The Lay Films transformed our brand story into a stunning visual experience. The quality, creativity, and attention to detail exceeded our expectations. Our video now sets us apart in the market!"</p>
-                                        <a href="https://youtube.com/shorts/SCNf5V6UBCg?feature=share" class="see-more">See What We Did →</a>
-                                    </div>
-                                </div>
-                               
-                            </div>
-        
-                            <div class="client-item">
-                                <h3>Commercial Adverts</h3>
-                                <div class="portfolio-itemp" >
-                                    <a href="https://www.youtube.com/watch?v=N29ux5r5vA8" class="video-link">
-                                        <div class="portfolio-thumb">
-                                            <img src="./Assets/images/fg.png" alt="Corporate Video">
-                                            <div class="overlay">
-                                                <i class="fa fa-play-circle"></i>
-                                            </div>
-                                        </div>
-                                        
-                                    </a>
-                                    <div class="client-details">
-                                        <h4>Client: Zeraki</h4>
-                                        <p>"Lay Films transformed our vision into a cinematic masterpiece. Their expertise in visual storytelling brought our corporate advert to life with precision and creativity. Every frame captured our brand's essence, delivering a top-tier production that exceeded expectations."</p>
-                                        <a href="https://www.youtube.com/watch?v=N29ux5r5vA8" class="see-more">See What We Did →</a>
-                                    </div>
-                                </div>
-                                
-                            </div>
-        
-                            <div class="client-item">
-                                <h3>Events: NGOs </h3>
-                                <div class="portfolio-itemp" >
-                                    <a href="https://youtu.be/Rou9oWlFAPI" class="video-link">
-                                        <div class="portfolio-thumb">
-                                            <img src="https://img.youtube.com/vi/Rou9oWlFAPI/maxresdefault.jpg" alt="Corporate Video">
-                                            <div class="overlay">
-                                                <i class="fa fa-play-circle"></i>
-                                            </div>
-                                        </div>
-                                        
-                                    </a>
-                                    <div class="client-details">
-                                        <h4>Client: Abdinassir Yussuf Foundation</h4>
-                                        <p>"Lay Films truly understood our mission of empowering women and youth. They didn’t just film our work—they told our story with emotion, depth, and stunning visuals. Their professionalism and storytelling transformed our impact into a powerful visual message."
-                                        </p>
-                                        <a href="https://youtu.be/Rou9oWlFAPI" class="see-more">See What We Did →</a>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <br/>
-                            
-                            
-                            
-                            
-                        </div>
-                    </div>
-        
-                   
-                </div>
-            </div>
-        </section>
-        
-        <section id="portfolio-grid" id="portfolio-grid">
-            <div class="container">
-                <h2 class="section-title">Our Videography Portfolio</h2>
-        
-                <!-- Portfolio Filter Buttons -->
-                <div class="portfolio-filter">
-                    <button class="filter-btn active" data-category="all">All</button>
-                    <button class="filter-btn" data-category="corporate">Corporate</button>
-                    <button class="filter-btn" data-category="events">Events</button>
-                    <button class="filter-btn" data-category="commercial">Commercial</button>
-                </div>
-        
-                <!-- Portfolio Grid -->
-                <div class="portfolio-items">
-                    
-        
-                    <div class="portfolio-item" data-category="commercial">
-                        <a href="https://www.youtube.com/shorts/4nUWiYxwubI" class="video-link">
-                            <div class="portfolio-thumb">
-                                <img src="https://img.youtube.com/vi/4nUWiYxwubI/maxresdefault.jpg" alt="Commercial Ad">
-                                <div class="overlay">
-                                    <i class="fa fa-play-circle"></i>
-                                </div>
-                            </div>
-                            
-                        </a>
-                    </div>
-        
-                    <div class="portfolio-item" data-category="events">
-                        <a href="https://youtu.be/vux1b2dFE_w?si=9lQztQ4fND6qWWrN" class="video-link">
-                            <div class="portfolio-thumb">
-                                <img src="https://img.youtube.com/vi/vux1b2dFE_w/maxresdefault.jpg" alt="events Video">
-                                <div class="overlay">
-                                    <i class="fa fa-play-circle"></i>
-                                </div>
-                            </div>
-                            
-                        </a>
-                    </div>
-                    <div class="portfolio-item" data-category="events">
-                        <a href="https://youtube.com/shorts/NnjntF4-eAY?feature=share" class="video-link">
-                            <div class="portfolio-thumb">
-                                <img src="https://img.youtube.com/vi/NnjntF4-eAY/maxresdefault.jpg" alt="events Video">
-                                <div class="overlay">
-                                    <i class="fa fa-play-circle"></i>
-                                </div>
-                            </div>
-                            
-                        </a>
-                    </div>
-        
-                    <div class="portfolio-item" data-category="commercial">
-                        <a href="https://youtube.com/shorts/SCNf5V6UBCg?feature=share" class="video-link">
-                            <div class="portfolio-thumb">
-                                <img src="https://img.youtube.com/vi/SCNf5V6UBCg/maxresdefault.jpg" alt="events Video">
-                                <div class="overlay">
-                                    <i class="fa fa-play-circle"></i>
-                                </div>
-                            </div>
-                            
-                        </a>
-                    </div>
-        
-                    <div class="portfolio-item" data-category="corporate">
-                        <a href="https://www.youtube.com/watch?v=FYCc3KABkYc" class="video-link">
-                            <div class="portfolio-thumb">
-                                <img src="./Assets/images/kbc.png" alt="corporate">
-                                <div class="overlay">
-                                    <i class="fa fa-play-circle"></i>
-                                </div>
-                            </div>
-                            
-                        </a>
-                    </div>
-                    <div class="portfolio-item" data-category="corporate">
-                        <a >
-                            <div class="portfolio-thumb">
-                                <img src="./Assets/images/T37.jpg" alt="Corporate Video">
-                                <div class="overlay">
-                                    <i class="fa fa-play-circle"></i>
-                                </div>
-                            </div>
-                            
-                        </a>
+
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/people/Lay-Films-Production-Company/100091605957522/"
+                            target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.twitter.com/LayFilms" target="_blank"><i
+                                class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/lay_films_productions" target="_blank"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@layfilmsproductions?si=RrGIje_SKaFr1AbA" target="_blank"><i
+                                class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@layfilmsproductions?_t=ZM-8u8TOE5lLjq&_r=1" target="_blank"><i
+                                class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/in/wandera-edwin-505bb8351/" target="_blank"><i
+                                class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        
 
-        
-    </main>
-    <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20would%20like%20to%20inquire%20about%20your%20services." 
-   class="floating-message-icon" 
-   target="_blank">
-    <i class="fa-solid fa-message"></i>
-</a>
-
-    
-    
-
-    <footer class="footer" id="footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <a href="about.html">About Us</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html">Contact</a>
-            </div>
-    
-            <div class="footer-column">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/people/Lay-Films-Production-Company/100091605957522/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.twitter.com/LayFilms" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="https://www.instagram.com/lay_films_productions" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://youtube.com/@layfilmsproductions?si=RrGIje_SKaFr1AbA" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="https://www.tiktok.com/@layfilmsproductions?_t=ZM-8u8TOE5lLjq&_r=1" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="https://www.linkedin.com/in/wandera-edwin-505bb8351/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    
+                <div class="footer-column " id="contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fa-solid fa-phone"> </i>  +254 707 942 420</p>
+                    <p> <i class="fa-solid fa-envelope"> </i> info@layfilmsproductions.com</p>
                 </div>
             </div>
-    
-            <div class="footer-column">
-                <h3>Contact Us</h3>
-                <p><i class="fa-solid fa-phone" href="tel:+254707942420" ></i> +254 707 942 420</p><br>
-                <p><i class="fa-solid fa-phone"></i> +254 703 538 225</p><br>
-                <p><i class="fa-solid fa-envelope"> </i>  info@layfilmsproductions.com</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lay Films Productions. All rights reserved.</p>
             </div>
-        </div>
-    
-        <div class="footer-bottom">
-            <p>&copy; 2025 Tutortide. All rights reserved.</p>
-        </div>
-    </footer>
-    
+        </footer>
 
-    
-    
-    <script src="./Assets/javascript/script.js"></script>
 
-     </body>
-     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            particlesJS("particles-js", {
-                particles: {
-                    number: {
-                        value: 80, // Adjust the number of particles
-                        density: {
-                            enable: true,
-                            value_area: 800
-                        }
-                    },
-                    shape: {
-                        type: "circle"
-                    },
-                    opacity: {
-                        value: 0.5
-                    },
-                    size: {
-                        value: 3
-                    },
-                    move: {
-                        speed: 2,
-                        direction: "none"
-                    },
-                    line_linked: {
-                        enable: false
+
+
+
+
+
+
+
+        <script src="./Assets/javascript/script.js"></script>
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 80, // Adjust the number of particles
+                    density: {
+                        enable: true,
+                        value_area: 800
                     }
                 },
-                interactivity: {
-                    events: {
-                        onhover: {
-                            enable: true,
-                            mode: "repulse"
-                        }
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.5
+                },
+                size: {
+                    value: 3
+                },
+                move: {
+                    speed: 2,
+                    direction: "none"
+                },
+                line_linked: {
+                    enable: false
+                }
+            },
+            interactivity: {
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
                     }
                 }
-            });
-        });
-        document.addEventListener("DOMContentLoaded", function () {
-    const counters = document.querySelectorAll(".counter");
-    let started = false; // Ensures animation runs only once
-
-    const animateCounters = () => {
-        counters.forEach(counter => {
-            const target = +counter.getAttribute("data-target");
-            let count = 0;
-            const speed = target / 100; // Adjust speed for smoother effect
-
-            const updateCount = () => {
-                if (count < target) {
-                    count += speed;
-                    counter.innerText = Math.ceil(count);
-                    requestAnimationFrame(updateCount);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-
-            updateCount();
-        });
-    };
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !started) {
-                started = true; // Prevents multiple triggers
-                animateCounters();
             }
         });
-    }, { threshold: 0.5 });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const counters = document.querySelectorAll(".counter");
+        let started = false; // Ensures animation runs only once
 
-    observer.observe(document.querySelector("#stats-section"));
-});
-    </script>
-    
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute("data-target");
+                let count = 0;
+                const speed = target / 100; // Adjust speed for smoother effect
+
+                const updateCount = () => {
+                    if (count < target) {
+                        count += speed;
+                        counter.innerText = Math.ceil(count);
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+
+                updateCount();
+            });
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !started) {
+                    started = true; // Prevents multiple triggers
+                    animateCounters();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector("#stats-section"));
+    });
+</script>
+
 </html>

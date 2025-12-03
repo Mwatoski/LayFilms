@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Lay Films Productions - Professional Equipment & Studio Resources. Explore our state-of-the-art gear, cameras, lighting, and studio facilities.">
+    <meta name="keywords"
+        content="film equipment, camera gear, studio rental, lighting equipment, professional cameras, film production gear, Kenya">
+    <meta name="author" content="Lay Films Productions">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Our Equipment | Lay Films Productions | Professional Studio Resources</title>
+
+    <link rel="stylesheet" href="./Assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="./Assets/images/lay.svg">
+
+    <style>
+        /* Resources Page Specific Styles */
+        .resources-hero {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .resources-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .resources-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .resources-hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .resources-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(25, 210, 124, 0.1);
+            color: #19d27c;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(25, 210, 124, 0.2);
+        }
+
+        /* Equipment Categories */
+        .equipment-categories {
+            padding: 80px 2rem;
+            background: #000;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid #333;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(25, 210, 124, 0.2);
+            border-color: #19d27c;
+        }
+
+        .category-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            background: #2a2a2a;
+        }
+
+        .category-info {
+            padding: 2rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-icon {
+            color: #19d27c;
+            font-size: 1.2rem;
+        }
+
+        .category-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .category-specs {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* Featured Equipment */
+        .featured-equipment {
+            padding: 80px 2rem;
+            background: #0a0a0a;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .equipment-card {
+            background: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+        }
+
+        .equipment-card:hover {
+            transform: translateY(-5px);
+            border-color: #19d27c;
+            box-shadow: 0 10px 30px rgba(25, 210, 124, 0.15);
+        }
+
+        .equipment-image {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+            background: #2a2a2a;
+        }
+
+        .equipment-info {
+            padding: 1.5rem;
+        }
+
+        .equipment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .equipment-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-right: 1rem;
+        }
+
+        .equipment-tag {
+            background: rgba(25, 210, 124, 0.1);
+            color: #19d27c;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .equipment-specs {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .equipment-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .equipment-status {
+            color: #19d27c;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #19d27c;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .inquiry-btn {
+            background: #19d27c;
+            color: #000;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .inquiry-btn:hover {
+            background: #16b86a;
+            transform: translateY(-2px);
+        }
+
+        /* Studio Section */
+        .studio-section {
+            padding: 80px 2rem;
+            background: #000;
+        }
+
+        .studio-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .studio-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .studio-info h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .studio-info p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .studio-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature i {
+            color: #19d27c;
+            font-size: 1.2rem;
+        }
+
+        .feature span {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        /* Rental Section */
+        .rental-section {
+            padding: 80px 2rem;
+            background: linear-gradient(135deg, #000 0%, #19d27c 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .rental-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rental-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .rental-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .rental-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 3rem 0;
+        }
+
+        .rental-feature {
+            text-align: center;
+        }
+
+        .rental-feature i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .rental-feature h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .rental-btn {
+            background: white;
+            color: #000;
+            padding: 1.2rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .rental-btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-3px);
+        }
+
+        /* Light Mode Support */
+        body.light-mode .resources-hero,
+        body.light-mode .equipment-categories,
+        body.light-mode .featured-equipment,
+        body.light-mode .studio-section {
+            background: #ffffff;
+        }
+
+        body.light-mode .resources-hero h1,
+        body.light-mode .category-title,
+        body.light-mode .section-header h2,
+        body.light-mode .equipment-title,
+        body.light-mode .studio-info h2,
+        body.light-mode .rental-content h2 {
+            color: #111;
+        }
+
+        body.light-mode .resources-hero p,
+        body.light-mode .category-description,
+        body.light-mode .section-header p,
+        body.light-mode .equipment-specs,
+        body.light-mode .studio-info p,
+        body.light-mode .rental-content p,
+        body.light-mode .feature span {
+            color: #333;
+        }
+
+        body.light-mode .category-card,
+        body.light-mode .equipment-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+
+        body.light-mode .category-description,
+        body.light-mode .equipment-specs,
+        body.light-mode .category-specs {
+            color: #666;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .resources-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .resources-hero p {
+                font-size: 1.1rem;
+            }
+
+            .categories-grid,
+            .equipment-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .studio-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .studio-image {
+                height: 300px;
+            }
+
+            .studio-features {
+                grid-template-columns: 1fr;
+            }
+
+            .rental-features {
+                grid-template-columns: 1fr;
+            }
+
+            .rental-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="./Assets/images/LayF.png" alt="Lay Films" class="logo-img">
+                </a>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#work" class="nav-link">WORK</a>
+                </li>
+                <li class="nav-item">
+                    <a href="shop.html" class="nav-link">SHOP</a>
+                </li>
+                <li class="nav-item">
+                    <a href="resources.html" class="nav-link">RESOURCES</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">CONTACT</a>
+                </li>
+                <!-- Desktop Theme Toggle -->
+                <li class="nav-item theme-toggle-desktop">
+                    <div class="theme-toggle">
+                        <input type="checkbox" id="dark-mode-toggle" class="toggle-checkbox">
+                        <label for="dark-mode-toggle" class="toggle-label">
+                            <span class="toggle-handle"></span>
+                            <span class="sun-icon">☀️</span>
+                            <span class="moon-icon">🌙</span>
+                        </label>
+                    </div>
+                </li>
+                <!-- Mobile Theme Toggle -->
+                <li class="nav-item theme-toggle-mobile">
+                    <div class="theme-toggle">
+                        <input type="checkbox" id="dark-mode-toggle-mobile" class="toggle-checkbox">
+                        <label for="dark-mode-toggle-mobile" class="toggle-label">
+                            <span class="toggle-handle"></span>
+                            <span class="sun-icon">☀️</span>
+                            <span class="moon-icon">🌙</span>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+
+            <button class="hamburger" type="button" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="resources-hero">
+        <div class="resources-hero-content">
+            <div class="resources-badge">
+                <span class="badge-dot"></span>
+                Professional Equipment
+            </div>
+            <h1>State-of-the-Art Gear</h1>
+            <p>Explore our comprehensive collection of professional cameras, lighting equipment, audio gear, and studio
+                facilities designed to deliver exceptional results for every project.</p>
+        </div>
+    </section>
+
+    <!-- Equipment Categories -->
+    <section class="equipment-categories">
+        <div class="categories-grid">
+            <!-- Cameras -->
+            <div class="category-card">
+                <img src="./Assets/images/cameras.jpg" alt="Professional Cameras" class="category-image">
+                <div class="category-info">
+                    <h3 class="category-title">
+                        <i class="fas fa-camera category-icon"></i>
+                        Cameras
+                    </h3>
+                    <p class="category-description">High-end cinema cameras and DSLRs for cinematic storytelling and
+                        professional photography.</p>
+                    <div class="category-specs">
+                        <span class="spec-item">8K Resolution</span>
+                        <span class="spec-item">Full Frame</span>
+                        <span class="spec-item">Log Profiles</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lighting -->
+            <div class="category-card">
+                <img src="./Assets/images/lighting.jpg" alt="Lighting Equipment" class="category-image">
+                <div class="category-info">
+                    <h3 class="category-title">
+                        <i class="fas fa-lightbulb category-icon"></i>
+                        Lighting
+                    </h3>
+                    <p class="category-description">Professional LED panels, studio lights, and modifiers for perfect
+                        illumination in any environment.</p>
+                    <div class="category-specs">
+                        <span class="spec-item">Bi-color LED</span>
+                        <span class="spec-item">DMX Control</span>
+                        <span class="spec-item">Softboxes</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audio -->
+            <div class="category-card">
+                <img src="./Assets/images/audio.jpg" alt="Audio Equipment" class="category-image">
+                <div class="category-info">
+                    <h3 class="category-title">
+                        <i class="fas fa-volume-up category-icon"></i>
+                        Audio
+                    </h3>
+                    <p class="category-description">Professional audio recording equipment for crystal-clear sound
+                        quality in any production.</p>
+                    <div class="category-specs">
+                        <span class="spec-item">Shotgun Mics</span>
+                        <span class="spec-item">Lavaliers</span>
+                        <span class="spec-item">Mixers</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lenses -->
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Camera Lenses" class="category-image">
+                <div class="category-info">
+                    <h3 class="category-title">
+                        <i class="fas fa-search category-icon"></i>
+                        Lenses
+                    </h3>
+                    <p class="category-description">Prime, zoom, and specialty lenses to capture every shot with
+                        precision and artistic flair.</p>
+                    <div class="category-specs">
+                        <span class="spec-item">Prime Lenses</span>
+                        <span class="spec-item">Zoom Range</span>
+                        <span class="spec-item">Cinema Glass</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Studio -->
+            <div class="category-card">
+                <img src="./Assets/images/Greenscreen.jpg" alt="Studio Equipment" class="category-image">
+                <div class="category-info">
+                    <h3 class="category-title">
+                        <i class="fas fa-video category-icon"></i>
+                        Studio
+                    </h3>
+                    <p class="category-description">Complete studio setup with green screen, backdrops, and professional
+                        shooting space.</p>
+                    <div class="category-specs">
+                        <span class="spec-item">Green Screen</span>
+                        <span class="spec-item">Cyclorama</span>
+                        <span class="spec-item">Dressing Room</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accessories -->
+            <div class="category-card">
+                <img src="./Assets/images/Accessories.jpg" alt="Production Accessories" class="category-image">
+                <div class="category-info">
+                    <h3 class="category-title">
+                        <i class="fas fa-tools category-icon"></i>
+                        Accessories
+                    </h3>
+                    <p class="category-description">Gimbals, sliders, tripods, and essential accessories for smooth,
+                        professional production.</p>
+                    <div class="category-specs">
+                        <span class="spec-item">Gimbals</span>
+                        <span class="spec-item">Sliders</span>
+                        <span class="spec-item">Tripods</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Equipment -->
+    <section class="featured-equipment">
+        <div class="section-header">
+            <h2>Featured Equipment</h2>
+            <p>Our top-tier gear that ensures professional quality for every production.</p>
+        </div>
+
+        <div class="equipment-grid">
+            <!-- Camera 1 -->
+            <div class="equipment-card">
+                <img src="./Assets/images/sony.png" alt="Sony FX6 Cinema Camera" class="equipment-image">
+                <div class="equipment-info">
+                    <div class="equipment-header">
+                        <h3 class="equipment-title">Sony FX6 Cinema Camera</h3>
+                        <span class="equipment-tag">Flagship</span>
+                    </div>
+                    <p class="equipment-specs">Full-frame cinema camera with 4K 120p recording, dual base ISO, and
+                        professional audio inputs. Perfect for cinematic productions.</p>
+                    <div class="equipment-meta">
+                        <div class="equipment-status">
+                            <span class="status-dot"></span> Available for Rental
+                        </div>
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I'm%20interested%20in%20renting%20the%20Sony%20FX6%20Camera"
+                            class="inquiry-btn" target="_blank">
+                            <i class="fas fa-calendar"></i> Inquire
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Camera 2 -->
+            <div class="equipment-card">
+                <img src="./Assets/images/Canon.jpg" alt="Canon EOS R5" class="equipment-image">
+                <div class="equipment-info">
+                    <div class="equipment-header">
+                        <h3 class="equipment-title">Canon EOS R5</h3>
+                        <span class="equipment-tag">Hybrid</span>
+                    </div>
+                    <p class="equipment-specs">Mirrorless camera with 8K video recording, 45MP sensor, and in-body
+                        stabilization. Ideal for photography and videography.</p>
+                    <div class="equipment-meta">
+                        <div class="equipment-status">
+                            <span class="status-dot"></span> Available for Rental
+                        </div>
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I'm%20interested%20in%20renting%20the%20Canon%20EOS%20R5"
+                            class="inquiry-btn" target="_blank">
+                            <i class="fas fa-calendar"></i> Inquire
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lighting -->
+            <div class="equipment-card">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Aputure 300D LED Light" class="equipment-image">
+                <div class="equipment-info">
+                    <div class="equipment-header">
+                        <h3 class="equipment-title">Aputure 300D LED Light</h3>
+                        <span class="equipment-tag">Lighting</span>
+                    </div>
+                    <p class="equipment-specs">High-output bi-color LED light with daylight quality output. DMX
+                        controllable with various modifiers available.</p>
+                    <div class="equipment-meta">
+                        <div class="equipment-status">
+                            <span class="status-dot"></span> Available for Rental
+                        </div>
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I'm%20interested%20in%20renting%20the%20Aputure%20300D%20Light"
+                            class="inquiry-btn" target="_blank">
+                            <i class="fas fa-calendar"></i> Inquire
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audio -->
+            <div class="equipment-card">
+                <img src="./Assets/images/Rode.jpg" alt="Rode Wireless Go II" class="equipment-image">
+                <div class="equipment-info">
+                    <div class="equipment-header">
+                        <h3 class="equipment-title">Rode Wireless Go II</h3>
+                        <span class="equipment-tag">Audio</span>
+                    </div>
+                    <p class="equipment-specs">Dual-channel wireless microphone system with built-in recording. Perfect
+                        for interviews, vlogging, and on-location audio.</p>
+                    <div class="equipment-meta">
+                        <div class="equipment-status">
+                            <span class="status-dot"></span> Available for Rental
+                        </div>
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I'm%20interested%20in%20renting%20the%20Rode%20Wireless%20Go%20II"
+                            class="inquiry-btn" target="_blank">
+                            <i class="fas fa-calendar"></i> Inquire
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gimbal -->
+            <div class="equipment-card">
+                <img src="./Assets/images/DJI.jpg" alt="DJI RS 3 Pro Gimbal" class="equipment-image">
+                <div class="equipment-info">
+                    <div class="equipment-header">
+                        <h3 class="equipment-title">DJI RS 3 Pro Gimbal</h3>
+                        <span class="equipment-tag">Stabilization</span>
+                    </div>
+                    <p class="equipment-specs">Professional 3-axis gimbal with 4.5kg payload capacity, LiDAR focusing,
+                        and wireless transmission.</p>
+                    <div class="equipment-meta">
+                        <div class="equipment-status">
+                            <span class="status-dot"></span> Available for Rental
+                        </div>
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I'm%20interested%20in%20renting%20the%20DJI%20RS%203%20Pro%20Gimbal"
+                            class="inquiry-btn" target="_blank">
+                            <i class="fas fa-calendar"></i> Inquire
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drone -->
+            <div class="equipment-card">
+                <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="DJI Mavic 3 Cine" class="equipment-image">
+                <div class="equipment-info">
+                    <div class="equipment-header">
+                        <h3 class="equipment-title">DJI Mavic 3 Cine</h3>
+                        <span class="equipment-tag">Aerial</span>
+                    </div>
+                    <p class="equipment-specs">Professional drone with 4/3 CMOS Hasselblad camera, 5.1K video, and
+                        46-minute flight time.</p>
+                    <div class="equipment-meta">
+                        <div class="equipment-status">
+                            <span class="status-dot"></span> Available for Rental
+                        </div>
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I'm%20interested%20in%20renting%20the%20DJI%20Mavic%203%20Cine%20Drone"
+                            class="inquiry-btn" target="_blank">
+                            <i class="fas fa-calendar"></i> Inquire
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio Section -->
+    <section class="studio-section">
+        <div class="studio-content">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Lay Films Studio" class="studio-image">
+            <div class="studio-info">
+                <h2>Our Professional Studio</h2>
+                <p>Fully equipped production studio with green screen capabilities, professional lighting setup, and
+                    comfortable client area. Perfect for interviews, product shoots, and creative projects.</p>
+
+                <div class="studio-features">
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Green Screen Wall</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Professional Lighting Grid</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Soundproofed Environment</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Client Waiting Area</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Dressing Room</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Equipment Storage</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rental Section -->
+    <section class="rental-section">
+        <div class="rental-content">
+            <h2>Equipment Rental Services</h2>
+            <p>Need professional gear for your project? Rent our equipment with flexible packages and expert support.
+            </p>
+
+            <div class="rental-features">
+                <div class="rental-feature">
+                    <i class="fas fa-clock"></i>
+                    <h3>Flexible Rental</h3>
+                    <p>Daily, weekly, and monthly rates</p>
+                </div>
+                <div class="rental-feature">
+                    <i class="fas fa-truck"></i>
+                    <h3>Delivery Available</h3>
+                    <p>Equipment delivery to your location</p>
+                </div>
+                <div class="rental-feature">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Training Included</h3>
+                    <p>Basic operation training provided</p>
+                </div>
+
+            </div>
+
+            <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I'm%20interested%20in%20equipment%20rental"
+                class="rental-btn" target="_blank">
+                <i class="fas fa-calendar-alt"></i> Request Rental Quote
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="about.html">About Us</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/people/Lay-Films-Production-Company/100091605957522/"
+                        target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://www.twitter.com/LayFilms" target="_blank">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/lay_films_productions" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/@layfilmsproductions?si=RrGIje_SKaFr1AbA" target="_blank">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@layfilmsproductions?_t=ZM-8u8TOE5lLjq&_r=1" target="_blank">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/wandera-edwin-505bb8351/" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p><i class="fa-solid fa-phone"></i> +254 707 942 420</p>
+                <p><i class="fa-solid fa-envelope"></i> info@layfilmsproductions.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lay Films Productions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20have%20a%20question%20about%20your%20equipment."
+        class="floating-message-icon" target="_blank">
+        <i class="fa-solid fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="./Assets/javascript/script.js"></script>
+</body>
+
+</html>

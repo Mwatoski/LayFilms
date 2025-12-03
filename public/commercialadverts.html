@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Lay Films Productions - Professional film production, videography, and motion graphics services in Kenya. Capture your story with stunning visuals!">
+    <meta name="keywords"
+        content="film production, videography, motion graphics, cinematography, Lay Films, corporate videos, commercial ads, event filming, Kenya">
+    <meta name="author" content="Lay Films Productions">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Lay Films Productions | Best Film & Videography Services in Kenya</title>
+
+    <link rel="stylesheet" href="./Assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="./Assets/images/lay.svg">
+    <!-- In your head section, make sure you have this -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Add this right after your viewport meta tag -->
+    <style>
+        /* Mobile-first fixes */
+        @media (max-width: 768px) {
+
+            html,
+            body {
+                overflow-x: hidden;
+                width: 100%;
+                position: relative;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                padding: 1rem !important;
+            }
+
+            .hero-title {
+                font-size: 2.5rem !important;
+                line-height: 1.2 !important;
+            }
+        }
+
+        /* FIX FOR HERO IMAGES TRANSFORMATION */
+        .hero-images .img {
+            transform: none !important;
+            /* Reset all conflicting transforms */
+        }
+
+        /* Apply the specific transforms you want */
+        .hero-images .img1 {
+            transform: rotate(-5deg) translateX(-80px) translateY(10px) !important;
+            z-index: 3;
+        }
+
+        .hero-images .img2 {
+            transform: rotate(2deg) translateY(-10px) !important;
+            z-index: 2;
+        }
+
+        .hero-images .img3 {
+            transform: rotate(6deg) translateX(80px) translateY(10px) !important;
+            z-index: 1;
+        }
+
+        /* Hover effects */
+        .hero-images:hover .img1 {
+            transform: rotate(-10deg) translateX(-220px) translateY(-10px) scale(0.95) !important;
+            filter: brightness(1.05);
+        }
+
+        .hero-images:hover .img2 {
+            transform: rotate(0deg) translateY(-10px) scale(1.06) !important;
+            filter: brightness(1.08);
+        }
+
+        .hero-images:hover .img3 {
+            transform: rotate(10deg) translateX(220px) translateY(-10px) scale(0.95) !important;
+            filter: brightness(1.05);
+        }
+
+        /* Mobile responsive - only adjust for small screens */
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <header class="hero-section">
+        <!-- New Minimalist Navigation -->
+        <!-- New Minimalist Navigation -->
+        <!-- Replace your entire nav section with this -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <!-- Logo on the left -->
+                <div class="nav-logo">
+                    <img src="./Assets/images/LayF.png" alt="Lay Films" class="logo-img">
+                </div>
+
+                <!-- Navigation Menu in center -->
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#work" class="nav-link">WORK</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="shop.html" class="nav-link">SHOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="resources.html" class="nav-link">RESOURCES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">CONTACT</a>
+                    </li>
+                    <!-- Desktop Theme Toggle - visible on large screens -->
+                    <li class="nav-item theme-toggle-desktop">
+                        <div class="theme-toggle">
+                            <input type="checkbox" id="dark-mode-toggle" class="toggle-checkbox">
+                            <label for="dark-mode-toggle" class="toggle-label">
+                                <span class="toggle-handle"></span>
+                                <span class="sun-icon">☀️</span>
+                                <span class="moon-icon">🌙</span>
+                            </label>
+                        </div>
+                    </li>
+                    <!-- Mobile Theme Toggle - visible only on small screens -->
+                    <li class="nav-item theme-toggle-mobile">
+                        <div class="theme-toggle">
+                            <input type="checkbox" id="dark-mode-toggle-mobile" class="toggle-checkbox">
+                            <label for="dark-mode-toggle-mobile" class="toggle-label">
+                                <span class="toggle-handle"></span>
+                                <span class="sun-icon">☀️</span>
+                                <span class="moon-icon">🌙</span>
+                            </label>
+                            
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Hamburger Button on the far right -->
+                <button class="hamburger" type="button" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+
+        <main class="photography-portfolio">
+    <!-- Full-screen Hero Showcase -->
+    <section class="hero-showcase">
+        <div class="showcase-slider">
+            <div class="slide active">
+                <img src="./Assets/images/Wedding1.png" alt="Featured Event" class="slide-image">
+                <div class="slide-overlay">
+                    <h1>Commercial Adverts</h1>
+                    <p>Moments Captured, Stories Told</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curated Gallery - No filters, just best work -->
+    <section class="curated-gallery">
+        <!-- Feature 1 - Full width showcase -->
+        <div class="gallery-item feature-item">
+            <img src="./Assets/images/T37.jpg" alt="Premium Corporate Event" class="gallery-image">
+            <div class="gallery-overlay">
+                <span class="gallery-caption">Corporate Excellence</span>
+            </div>
+        </div>
+
+        <!-- Two-column showcase -->
+        <div class="gallery-row">
+            <div class="gallery-item">
+                <img src="./Assets/images/T31.jpg" alt="Luxury Wedding" class="gallery-image">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">Elegant Weddings</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./Assets/images/T2.jpg" alt="Commercial Shoot" class="gallery-image">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">Commercial Vision</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Highlight Reel -->
+        <div class="gallery-item video-highlight">
+            <div class="video-poster" data-video="BEST_EVENT_VIDEO_ID">
+                <img src="./Assets/images/T37.jpg" alt="Event Highlights" class="gallery-image">
+                <div class="video-play-overlay">
+                    <div class="play-circle">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <span class="video-label">Watch Highlights</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Three-column showcase -->
+        <div class="gallery-row triple">
+            <div class="gallery-item">
+                <img src="./Assets/images/potrait6.jpg" alt="Event Moment" class="gallery-image">
+            </div>
+            <div class="gallery-item">
+                <img src="./Assets/images/potrait7.jpg" alt="Event Moment" class="gallery-image">
+            </div>
+            <div class="gallery-item">
+                <img src="./Assets/images/potrait9.jpg" alt="Event Moment" class="gallery-image">
+            </div>
+        </div>
+
+        <!-- Another full-width feature -->
+        <div class="gallery-item feature-item">
+            <img src="./Assets/images/T29.jpg" alt="Grand Event" class="gallery-image">
+            <div class="gallery-overlay">
+                <span class="gallery-caption">Grand Celebrations</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimal Contact CTA -->
+    <section class="portfolio-cta">
+        <div class="cta-content">
+            <h2>Ready to Capture Your Event?</h2>
+            <a href="contact.html" class="cta-button">Book Your Shoot</a>
+        </div>
+    </section>
+
+    <!-- Full-screen Lightbox -->
+    <div class="lightbox">
+        <button class="lightbox-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-nav lightbox-prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav lightbox-next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="video-modal">
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="video-container">
+                <iframe width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20would%20like%20to%20inquire%20about%20your%20services."
+            class="floating-message-icon" target="_blank">
+            <i class="fa-solid fa-brands fa-whatsapp"></i>
+        </a>
+        <footer class="footer" id="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="about.html">About Us</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/people/Lay-Films-Production-Company/100091605957522/"
+                            target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.twitter.com/LayFilms" target="_blank"><i
+                                class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/lay_films_productions" target="_blank"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@layfilmsproductions?si=RrGIje_SKaFr1AbA" target="_blank"><i
+                                class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@layfilmsproductions?_t=ZM-8u8TOE5lLjq&_r=1" target="_blank"><i
+                                class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/in/wandera-edwin-505bb8351/" target="_blank"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column " id="contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fa-solid fa-phone"> </i>  +254 707 942 420</p>
+                    <p> <i class="fa-solid fa-envelope"> </i> info@layfilmsproductions.com</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lay Films Productions. All rights reserved.</p>
+            </div>
+        </footer>
+
+
+
+
+
+
+
+
+
+        <script src="./Assets/javascript/script.js"></script>
+
+</body>
+
+
+</html>

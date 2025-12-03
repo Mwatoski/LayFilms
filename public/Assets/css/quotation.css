@@ -1,0 +1,874 @@
+
+/* ===== QUOTATION PAGE STYLES ===== */
+/* Maintains navigation/footer from main styles.css */
+/* Focuses only on quotation page specific styles */
+
+/* ===== 1. QUOTATION HERO SECTION ===== */
+.quotation-hero {
+    min-height: 100vh;
+    padding: 140px 2rem 80px;
+    background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.quotation-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(25, 210, 124, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(25, 210, 124, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.quotation-container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.quotation-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Hero Text */
+.quotation-text {
+    color: white;
+}
+
+.quotation-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(25, 210, 124, 0.1);
+    color: #19d27c;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(25, 210, 124, 0.2);
+}
+
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    background: #19d27c;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.quotation-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: white;
+    letter-spacing: -1px;
+}
+
+.quotation-title em {
+    font-style: normal;
+    color: #19d27c;
+    font-weight: 600;
+}
+
+.quotation-subtitle {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+.quotation-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+}
+
+.feature-icon {
+    width: 24px;
+    height: 24px;
+    background: #19d27c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+/* Form Container */
+.quotation-form-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 50px 40px;
+    box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+.form-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Form Styles */
+#quotation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.required::after {
+    content: '*';
+    color: #e74c3c;
+    margin-left: 2px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 1.2rem 1.5rem;
+    border: 2px solid #e9ecef;
+    border-radius: 16px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: #fff;
+    color: #333;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #19d27c;
+    box-shadow: 0 0 0 4px rgba(25, 210, 124, 0.15);
+    transform: translateY(-2px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.5;
+}
+
+/* Service Selection */
+.service-selection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.service-option {
+    position: relative;
+}
+
+.service-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.service-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    background: #fff;
+}
+
+.service-label:hover {
+    border-color: #19d27c;
+    transform: translateY(-2px);
+}
+
+.service-option input:checked + .service-label {
+    border-color: #19d27c;
+    background: rgba(25, 210, 124, 0.05);
+    box-shadow: 0 5px 20px rgba(25, 210, 124, 0.2);
+}
+
+.service-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #19d27c;
+}
+
+.service-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+/* Submit Button */
+.form-actions {
+    margin-top: 2rem;
+}
+
+.btn-quote {
+    width: 100%;
+    background: #19d27c;
+    color: white;
+    border: none;
+    padding: 1.4rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-quote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-quote:hover::before {
+    left: 100%;
+}
+
+.btn-quote:hover {
+    background: #16bb6d;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(25, 210, 124, 0.4);
+}
+
+.btn-quote:active {
+    transform: translateY(-1px);
+}
+
+/* ===== 2. PROCESS SECTION ===== */
+.process-section {
+    padding: 100px 2rem;
+    background: #000;
+}
+
+.process-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.process-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.process-title {
+    font-size: 3.2rem;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.process-title em {
+    font-style: normal;
+    color: #19d27c;
+    font-weight: 400;
+}
+
+.process-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    counter-reset: step;
+}
+
+.process-step {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.process-step:hover {
+    transform: translateY(-10px);
+    border-color: rgba(25, 210, 124, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: #19d27c;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 30px;
+    position: relative;
+}
+
+.step-number::before {
+    counter-increment: step;
+    content: counter(step);
+}
+
+.step-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.step-description {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+/* ===== 3. LIGHT MODE SUPPORT ===== */
+/* Body background for light mode */
+body.light-mode {
+    background: #f8f9fa;
+    color: #333;
+}
+
+body.light-mode .quotation-hero {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+body.light-mode .quotation-hero::before {
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(25, 210, 124, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(25, 210, 124, 0.02) 0%, transparent 50%);
+}
+
+body.light-mode .quotation-text {
+    color: #111;
+}
+
+body.light-mode .quotation-subtitle {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+body.light-mode .feature-item {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+body.light-mode .quotation-form-container {
+    background: white;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .process-section {
+    background: #f8f9fa;
+}
+
+body.light-mode .process-title {
+    color: #111;
+}
+
+body.light-mode .process-subtitle {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+body.light-mode .process-step {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .process-step:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .step-title {
+    color: #111;
+}
+
+body.light-mode .step-description {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/* Light mode styles for the main quotation section */
+body.light-mode .request-quotation {
+    background: #f8f9fa;
+}
+
+body.light-mode .request-quotation .container {
+    background: white;
+    color: #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .request-quotation h2 {
+    color: #111;
+}
+
+body.light-mode .request-quotation p {
+    color: #666;
+}
+
+body.light-mode .request-quotation .form-group label {
+    color: #333;
+}
+
+body.light-mode .request-quotation .form-group input,
+body.light-mode .request-quotation .form-group select,
+body.light-mode .request-quotation .form-group textarea {
+    background: #fff;
+    color: #333;
+    border-color: #e9ecef;
+}
+
+body.light-mode .request-quotation .form-group input:focus,
+body.light-mode .request-quotation .form-group select:focus,
+body.light-mode .request-quotation .form-group textarea:focus {
+    border-color: #19d27c;
+    box-shadow: 0 0 0 4px rgba(25, 210, 124, 0.15);
+}
+
+/* ===== 4. MOBILE RESPONSIVE ===== */
+@media screen and (max-width: 968px) {
+    .quotation-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .quotation-text {
+        text-align: center;
+    }
+    
+    .quotation-features {
+        align-items: center;
+    }
+    
+    .feature-item {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .quotation-hero {
+        padding: 120px 1rem 60px;
+        min-height: auto;
+    }
+    
+    .quotation-title {
+        font-size: 2.5rem;
+    }
+    
+    .quotation-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .quotation-form-container {
+        padding: 40px 30px;
+    }
+    
+    .form-title {
+        font-size: 1.8rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+    }
+    
+    .service-selection {
+        grid-template-columns: 1fr;
+    }
+    
+    .process-section {
+        padding: 80px 1rem;
+    }
+    
+    .process-title {
+        font-size: 2.5rem;
+    }
+    
+    .process-steps {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .process-step {
+        padding: 30px 25px;
+    }
+    
+    /* Mobile styles for request-quotation section */
+    .request-quotation .container {
+        margin: 20px 1rem;
+        padding: 30px 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .quotation-hero {
+        padding: 100px 0.5rem 40px;
+    }
+    
+    .quotation-title {
+        font-size: 2.2rem;
+    }
+    
+    .quotation-form-container {
+        padding: 30px 25px;
+        border-radius: 20px;
+    }
+    
+    .form-title {
+        font-size: 1.6rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 1rem 1.2rem;
+    }
+    
+    .btn-quote {
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .process-title {
+        font-size: 2rem;
+    }
+    
+    .request-quotation .container {
+        margin: 10px 0.5rem;
+        padding: 25px 15px;
+    }
+}
+
+/* ===== 5. FORM VALIDATION STYLES ===== */
+.form-group input:invalid:not(:focus):not(:placeholder-shown),
+.form-group select:invalid:not(:focus),
+.form-group textarea:invalid:not(:focus):not(:placeholder-shown) {
+    border-color: #e74c3c;
+}
+
+.form-group input:valid:not(:focus):not(:placeholder-shown),
+.form-group select:valid:not(:focus),
+.form-group textarea:valid:not(:focus):not(:placeholder-shown) {
+    border-color: #19d27c;
+}
+
+/* Loading State */
+.btn-quote.loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+}
+
+.btn-quote.loading::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: 50%;
+    margin-left: -12px;
+    margin-top: -12px;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.8s ease infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Success Message */
+.success-message {
+    background: #19d27c;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: slideDown 0.3s ease;
+    box-shadow: 0 10px 30px rgba(25, 210, 124, 0.3);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Error Message */
+.error-message {
+    background: #e74c3c;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: slideDown 0.3s ease;
+}
+
+/* ===== 6. ACCESSIBILITY ===== */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.btn-quote:focus,
+.service-label:focus {
+    outline: 2px solid #19d27c;
+    outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .quotation-hero::before,
+    .btn-quote::before,
+    .process-step,
+    .service-label,
+    .form-group input,
+    .form-group select,
+    .form-group textarea,
+    .btn-quote {
+        transition: none;
+        animation: none;
+    }
+    
+    .btn-quote:hover,
+    .process-step:hover,
+    .service-label:hover,
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        transform: none;
+    }
+}
+
+/* ===== 7. PRINT STYLES ===== */
+@media print {
+    .quotation-hero {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .quotation-form-container {
+        box-shadow: none !important;
+        border: 2px solid #333 !important;
+    }
+    
+    .btn-quote {
+        background: #333 !important;
+        color: white !important;
+    }
+}
+
+/* ===== 8. REQUEST QUOTATION SECTION STYLES ===== */
+.request-quotation {
+    padding: 80px 2rem;
+    background: #000;
+    min-height: calc(100vh - 200px);
+}
+
+.request-quotation .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.request-quotation h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.request-quotation p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.request-quotation .form-group label {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+}
+
+.request-quotation .form-group input,
+.request-quotation .form-group select,
+.request-quotation .form-group textarea {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.request-quotation .form-group input::placeholder,
+.request-quotation .form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.request-quotation .form-group input:focus,
+.request-quotation .form-group select:focus,
+.request-quotation .form-group textarea:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #19d27c;
+    box-shadow: 0 0 0 4px rgba(25, 210, 124, 0.2);
+}
+
+.request-quotation select option {
+    background: #333;
+    color: white;
+}
+
+/* Light mode styles for request-quotation section */
+body.light-mode .request-quotation {
+    background: #f8f9fa;
+}
+
+body.light-mode .request-quotation .container {
+    background: white;
+    color: #333;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .request-quotation h2 {
+    color: #111;
+}
+
+body.light-mode .request-quotation p {
+    color: #666;
+}
+
+body.light-mode .request-quotation .form-group label {
+    color: #333;
+}
+
+body.light-mode .request-quotation .form-group input,
+body.light-mode .request-quotation .form-group select,
+body.light-mode .request-quotation .form-group textarea {
+    background: #fff;
+    color: #333;
+    border-color: #e9ecef;
+}
+
+body.light-mode .request-quotation .form-group input::placeholder,
+body.light-mode .request-quotation .form-group textarea::placeholder {
+    color: #999;
+}
+
+body.light-mode .request-quotation .form-group input:focus,
+body.light-mode .request-quotation .form-group select:focus,
+body.light-mode .request-quotation .form-group textarea:focus {
+    background: #fff;
+    border-color: #19d27c;
+    box-shadow: 0 0 0 4px rgba(25, 210, 124, 0.15);
+}
+
+body.light-mode .request-quotation select option {
+    background: white;
+    color: #333;
+}
