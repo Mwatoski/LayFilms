@@ -3,16 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Lay Films Productions Official Merchandise - Premium branded apparel and accessories. Show your support with our exclusive collection.">
-    <meta name="keywords" content="Lay Films merchandise, branded apparel, film production merch, custom cups, hoodies, t-shirts, Kenya">
+    <meta name="description"
+        content="Lay Films Productions Official Merchandise - Premium branded apparel and accessories. Show your support with our exclusive collection.">
+    <meta name="keywords"
+        content="Lay Films merchandise, branded apparel, film production merch, custom cups, hoodies, t-shirts, Kenya">
     <meta name="author" content="Lay Films Productions">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Shop | Lay Films Productions Official Merchandise</title>
 
     <link rel="stylesheet" href="./Assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="./Assets/images/lay.svg">
-    
+
     <style>
         /* Shop Page Specific Styles */
         .shop-hero {
@@ -103,14 +106,97 @@
             border-radius: 15px;
             font-size: 0.8rem;
             font-weight: 600;
-            z-index: 2;
+            z-index: 10;
+        }
+
+        /* Product Image Carousel */
+        .product-image-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            background: #2a2a2a;
+        }
+
+        .product-carousel {
+            width: 100%;
+            height: 100%;
+            position: relative;
         }
 
         .product-image {
             width: 100%;
-            height: 300px;
+            height: 100%;
             object-fit: cover;
-            background: #2a2a2a;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .product-image.active {
+            opacity: 1;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 5;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #19d27c;
+            transform: scale(1.2);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15px;
+            z-index: 5;
+        }
+
+        .carousel-btn {
+            width: 36px;
+            height: 36px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .product-card:hover .carousel-btn {
+            opacity: 1;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(25, 210, 124, 0.8);
+            border-color: #19d27c;
         }
 
         .product-info {
@@ -202,9 +288,9 @@
             margin: 0 auto;
         }
 
-        .feature-item {
+        .feature-items {
             text-align: center;
-            padding: 2rem;
+
         }
 
         .feature-icon {
@@ -279,6 +365,14 @@
             .features-grid {
                 grid-template-columns: 1fr;
             }
+
+            .carousel-nav {
+                display: none;
+            }
+
+            .carousel-controls {
+                display: flex;
+            }
         }
     </style>
 </head>
@@ -346,63 +440,123 @@
                 Official Merchandise
             </div>
             <h1>Wear The Vision</h1>
-            <p>Premium Lay Films Productions merchandise - Show your support with our exclusive collection of apparel and accessories designed for creators and film enthusiasts.</p>
+            <p>Premium Lay Films Productions merchandise - Show your support with our exclusive collection of apparel
+                and accessories designed for creators and film enthusiasts.</p>
         </div>
     </section>
 
     <!-- Products Section -->
     <section class="shop-products">
         <div class="products-grid">
-            <!-- Premium T-Shirt -->
+            <!-- Premium T-Shirt (3 images) -->
             <div class="product-card">
                 <div class="product-badge">Bestseller</div>
-                <img src="./Assets/images/merch-tshirt.jpg" alt="Lay Films Premium T-Shirt" class="product-image">
+                <div class="product-image-container">
+                    <div class="product-carousel" data-product="tshirt">
+                        <img src="./Assets/images/shirt1.jpg" alt="Lay Films T-Shirt Front View"
+                            class="product-image active">
+                        <img src="./Assets/images/shirt2.jpg" alt="Lay Films T-Shirt Side View" class="product-image">
+                        <img src="./Assets/images/shirt3.jpg" alt="Lay Films T-Shirt Back View" class="product-image">
+                        <div class="carousel-nav">
+                            <button class="carousel-btn prev-btn" data-product="tshirt">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn next-btn" data-product="tshirt">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="carousel-controls">
+                            <span class="carousel-dot active" data-index="0" data-product="tshirt"></span>
+                            <span class="carousel-dot" data-index="1" data-product="tshirt"></span>
+                            <span class="carousel-dot" data-index="2" data-product="tshirt"></span>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">Premium T-Shirt</h3>
-                    <p class="product-description">High-quality cotton t-shirt with the iconic Lay Films logo. Comfortable, durable, and perfect for everyday wear.</p>
+                    <p class="product-description">High-quality cotton t-shirt with the iconic Lay Films logo.
+                        Comfortable, durable, and perfect for everyday wear.</p>
                     <div class="product-price">
                         KSh 1,500 <span class="product-old-price">KSh 2,000</span>
                     </div>
                     <div class="product-actions">
-                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Premium%20T-Shirt" 
-                           class="whatsapp-button" target="_blank">
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Premium%20T-Shirt"
+                            class="whatsapp-button" target="_blank">
                             <i class="fab fa-whatsapp"></i> Order
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Hoodie -->
+            <!-- Hoodie (2 images) -->
             <div class="product-card">
                 <div class="product-badge">New</div>
-                <img src="./Assets/images/merch-hoodie.jpg" alt="Lay Films Hoodie" class="product-image">
+                <div class="product-image-container">
+                    <div class="product-carousel" data-product="hoodie">
+                        <img src="./Assets/images/hoody1.jpg" alt="Lay Films Hoodie Front View"
+                            class="product-image active">
+                        <img src="./Assets/images/hoody3.jpg" alt="Lay Films Hoodie Back View" class="product-image">
+                        <div class="carousel-nav">
+                            <button class="carousel-btn prev-btn" data-product="hoodie">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn next-btn" data-product="hoodie">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="carousel-controls">
+                            <span class="carousel-dot active" data-index="0" data-product="hoodie"></span>
+                            <span class="carousel-dot" data-index="1" data-product="hoodie"></span>
+                        </div>
+                    </div>
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">Comfort Hoodie</h3>
-                    <p class="product-description">Stay warm and stylish with our premium hoodie. Features embroidered logo and comfortable fit for all-day wear.</p>
+                    <p class="product-description">Stay warm and stylish with our premium hoodie. Features embroidered
+                        logo and comfortable fit for all-day wear.</p>
                     <div class="product-price">
                         KSh 3,500 <span class="product-old-price">KSh 4,000</span>
                     </div>
                     <div class="product-actions">
-                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Comfort%20Hoodie" 
-                           class="whatsapp-button" target="_blank">
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Comfort%20Hoodie"
+                            class="whatsapp-button" target="_blank">
                             <i class="fab fa-whatsapp"></i> Order
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Custom Mug -->
+            <!-- Custom Mug (2 images) -->
             <div class="product-card">
-                <img src="./Assets/images/merch-mug.jpg" alt="Lay Films Custom Mug" class="product-image">
+                <div class="product-image-container">
+                    <div class="product-carousel" data-product="mug">
+                        <img src="./Assets/images/cup1.jpg" alt="Lay Films Mug Front View" class="product-image active">
+                        <img src="./Assets/images/cup2.jpg" alt="Lay Films Mug Side View" class="product-image">
+                        <div class="carousel-nav">
+                            <button class="carousel-btn prev-btn" data-product="mug">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn next-btn" data-product="mug">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="carousel-controls">
+                            <span class="carousel-dot active" data-index="0" data-product="mug"></span>
+                            <span class="carousel-dot" data-index="1" data-product="mug"></span>
+                        </div>
+                    </div>
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">Custom Ceramic Mug</h3>
-                    <p class="product-description">Start your creative day with our custom-designed ceramic mug. Perfect for coffee, tea, or brainstorming sessions.</p>
+                    <p class="product-description">Start your creative day with our custom-designed ceramic mug. Perfect
+                        for coffee, tea, or brainstorming sessions.</p>
                     <div class="product-price">
                         KSh 800 <span class="product-old-price">KSh 1,000</span>
                     </div>
                     <div class="product-actions">
-                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Custom%20Ceramic%20Mug" 
-                           class="whatsapp-button" target="_blank">
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Custom%20Ceramic%20Mug"
+                            class="whatsapp-button" target="_blank">
                             <i class="fab fa-whatsapp"></i> Order
                         </a>
                     </div>
@@ -410,54 +564,115 @@
             </div>
 
             <!-- Cap -->
+            <!-- Cap (2 images) -->
             <div class="product-card">
-                <img src="./Assets/images/merch-cap.jpg" alt="Lay Films Cap" class="product-image">
+                <div class="product-image-container">
+                    <div class="product-carousel" data-product="cap">
+                        <img src="./Assets/images/cap1.jpg" alt="Lay Films Cap Front View" class="product-image active">
+                        <img src="./Assets/images/cap2.jpg" alt="Lay Films Cap Side View" class="product-image">
+                        <div class="carousel-nav">
+                            <button class="carousel-btn prev-btn" data-product="cap">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn next-btn" data-product="cap">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="carousel-controls">
+                            <span class="carousel-dot active" data-index="0" data-product="cap"></span>
+                            <span class="carousel-dot" data-index="1" data-product="cap"></span>
+                        </div>
+                    </div>
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">Logo Cap</h3>
-                    <p class="product-description">Adjustable baseball cap with embroidered Lay Films logo. Perfect for outdoor shoots and casual style.</p>
+                    <p class="product-description">Adjustable baseball cap with embroidered Lay Films logo. Perfect for
+                        outdoor shoots and casual style.</p>
                     <div class="product-price">
                         KSh 1,200
                     </div>
                     <div class="product-actions">
-                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Logo%20Cap" 
-                           class="whatsapp-button" target="_blank">
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Logo%20Cap"
+                            class="whatsapp-button" target="_blank">
                             <i class="fab fa-whatsapp"></i> Order
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Tote Bag -->
+            <!-- Tote Bag (3 images) -->
             <div class="product-card">
-                <img src="./Assets/images/merch-tote.jpg" alt="Lay Films Tote Bag" class="product-image">
+                <div class="product-image-container">
+                    <div class="product-carousel" data-product="tote">
+                        <img src="./Assets/images/toteBag.jpg" alt="Lay Films Tote Bag Front View"
+                            class="product-image active">
+                        <img src="./Assets/images/toteBag2.jpg" alt="Lay Films Tote Bag Side View"
+                            class="product-image">
+                        <img src="./Assets/images/toteBag3.jpg" alt="Lay Films Tote Bag Interior" class="product-image">
+                        <div class="carousel-nav">
+                            <button class="carousel-btn prev-btn" data-product="tote">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn next-btn" data-product="tote">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="carousel-controls">
+                            <span class="carousel-dot active" data-index="0" data-product="tote"></span>
+                            <span class="carousel-dot" data-index="1" data-product="tote"></span>
+                            <span class="carousel-dot" data-index="2" data-product="tote"></span>
+                        </div>
+                    </div>
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">Canvas Tote Bag</h3>
-                    <p class="product-description">Eco-friendly canvas tote bag with printed Lay Films design. Perfect for carrying gear, groceries, or daily essentials.</p>
+                    <p class="product-description">Eco-friendly canvas tote bag with printed Lay Films design. Perfect
+                        for carrying gear, groceries, or daily essentials.</p>
                     <div class="product-price">
                         KSh 900
                     </div>
                     <div class="product-actions">
-                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Canvas%20Tote%20Bag" 
-                           class="whatsapp-button" target="_blank">
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Canvas%20Tote%20Bag"
+                            class="whatsapp-button" target="_blank">
                             <i class="fab fa-whatsapp"></i> Order
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Sticker Pack -->
+            <!-- Sticker Pack (2 images) -->
             <div class="product-card">
                 <div class="product-badge">Popular</div>
-                <img src="./Assets/images/merch-stickers.jpg" alt="Lay Films Sticker Pack" class="product-image">
+                <div class="product-image-container">
+                    <div class="product-carousel" data-product="sticker">
+                        <img src="./Assets/images/sticker1.jpg" alt="Lay Films Sticker Pack Full Set"
+                            class="product-image active">
+                        <img src="./Assets/images/sticker 2.jpg" alt="Lay Films Individual Stickers"
+                            class="product-image">
+                        <div class="carousel-nav">
+                            <button class="carousel-btn prev-btn" data-product="sticker">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn next-btn" data-product="sticker">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="carousel-controls">
+                            <span class="carousel-dot active" data-index="0" data-product="sticker"></span>
+                            <span class="carousel-dot" data-index="1" data-product="sticker"></span>
+                        </div>
+                    </div>
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">Sticker Pack</h3>
-                    <p class="product-description">Set of 10 high-quality vinyl stickers featuring Lay Films designs. Perfect for laptops, cameras, and creative spaces.</p>
+                    <p class="product-description">Set of 10 high-quality vinyl stickers featuring Lay Films designs.
+                        Perfect for laptops, cameras, and creative spaces.</p>
                     <div class="product-price">
                         KSh 500
                     </div>
                     <div class="product-actions">
-                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Sticker%20Pack" 
-                           class="whatsapp-button" target="_blank">
+                        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20want%20to%20buy%20the%20Sticker%20Pack"
+                            class="whatsapp-button" target="_blank">
                             <i class="fab fa-whatsapp"></i> Order
                         </a>
                     </div>
@@ -469,36 +684,40 @@
     <!-- Features Section -->
     <section class="shop-features">
         <div class="features-grid">
-            <div class="feature-item">
+            <div class="feature-items">
                 <div class="feature-icon">
                     <i class="fas fa-shipping-fast"></i>
                 </div>
                 <h3 class="feature-title">Free Delivery</h3>
-                <p class="feature-description">Free shipping within Nairobi for orders above KSh 3,000. Fast and reliable delivery across Kenya.</p>
+                <p class="feature-description">Free shipping within Nairobi for orders above KSh 3,000. Fast and
+                    reliable delivery across Kenya.</p>
             </div>
 
-            <div class="feature-item">
+            <div class="feature-items">
                 <div class="feature-icon">
                     <i class="fas fa-tshirt"></i>
                 </div>
                 <h3 class="feature-title">Premium Quality</h3>
-                <p class="feature-description">All products are made from high-quality materials designed to last and maintain their appearance.</p>
+                <p class="feature-description">All products are made from high-quality materials designed to last and
+                    maintain their appearance.</p>
             </div>
 
-            <div class="feature-item">
+            <div class="feature-items">
                 <div class="feature-icon">
                     <i class="fas fa-award"></i>
                 </div>
                 <h3 class="feature-title">Official Merchandise</h3>
-                <p class="feature-description">Authentic Lay Films Productions merchandise with official branding and designs.</p>
+                <p class="feature-description">Authentic Lay Films Productions merchandise with official branding and
+                    designs.</p>
             </div>
 
-            <div class="feature-item">
+            <div class="feature-items">
                 <div class="feature-icon">
                     <i class="fas fa-headset"></i>
                 </div>
                 <h3 class="feature-title">Customer Support</h3>
-                <p class="feature-description">Dedicated support team ready to assist with any questions about sizing, orders, or delivery.</p>
+                <p class="feature-description">Dedicated support team ready to assist with any questions about sizing,
+                    orders, or delivery.</p>
             </div>
         </div>
     </section>
@@ -516,7 +735,8 @@
             <div class="footer-column">
                 <h3>Follow Us</h3>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/people/Lay-Films-Production-Company/100091605957522/" target="_blank">
+                    <a href="https://www.facebook.com/people/Lay-Films-Production-Company/100091605957522/"
+                        target="_blank">
                         <i class="fa-brands fa-facebook"></i>
                     </a>
                     <a href="https://www.twitter.com/LayFilms" target="_blank">
@@ -550,11 +770,162 @@
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20would%20like%20to%20inquire%20about%20your%20merchandise." 
-       class="floating-message-icon" target="_blank">
+    <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20would%20like%20to%20inquire%20about%20your%20merchandise."
+        class="floating-message-icon" target="_blank">
         <i class="fa-solid fa-brands fa-whatsapp"></i>
     </a>
 
     <script src="./Assets/javascript/script.js"></script>
+    <script>
+        // Image Carousel Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize all carousels
+            initCarousels();
+
+            // Add auto-rotation functionality
+            startAutoRotation();
+        });
+
+        function initCarousels() {
+            const carousels = document.querySelectorAll('.product-carousel');
+
+            carousels.forEach(carousel => {
+                const product = carousel.dataset.product;
+                const images = carousel.querySelectorAll('.product-image');
+                const dots = document.querySelectorAll(`.carousel-dot[data-product="${product}"]`);
+                const prevBtn = document.querySelector(`.prev-btn[data-product="${product}"]`);
+                const nextBtn = document.querySelector(`.next-btn[data-product="${product}"]`);
+
+                let currentIndex = 0;
+
+                // Function to show image by index
+                function showImage(index) {
+                    images.forEach((img, i) => {
+                        img.classList.toggle('active', i === index);
+                    });
+
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+
+                    currentIndex = index;
+                }
+
+                // Dot click events
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        showImage(index);
+                        resetAutoRotation(product);
+                    });
+                });
+
+                // Previous button
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        let newIndex = currentIndex - 1;
+                        if (newIndex < 0) newIndex = images.length - 1;
+                        showImage(newIndex);
+                        resetAutoRotation(product);
+                    });
+                }
+
+                // Next button
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        let newIndex = currentIndex + 1;
+                        if (newIndex >= images.length) newIndex = 0;
+                        showImage(newIndex);
+                        resetAutoRotation(product);
+                    });
+                }
+
+                // Store carousel data for auto-rotation
+                carousel.dataset.currentIndex = '0';
+                carousel.dataset.imagesCount = images.length;
+            });
+        }
+
+        // Auto-rotation intervals storage
+        const rotationIntervals = {};
+
+        function startAutoRotation() {
+            const carousels = document.querySelectorAll('.product-carousel');
+
+            carousels.forEach(carousel => {
+                const product = carousel.dataset.product;
+                const imagesCount = parseInt(carousel.dataset.imagesCount);
+
+                if (imagesCount > 1) {
+                    // Start auto-rotation for this carousel
+                    rotationIntervals[product] = setInterval(() => {
+                        rotateCarousel(product);
+                    }, 4000); // Rotate every 4 seconds
+                }
+            });
+        }
+
+        function rotateCarousel(product) {
+            const carousel = document.querySelector(`.product-carousel[data-product="${product}"]`);
+            const images = carousel.querySelectorAll('.product-image');
+            const dots = document.querySelectorAll(`.carousel-dot[data-product="${product}"]`);
+
+            let currentIndex = parseInt(carousel.dataset.currentIndex);
+            let newIndex = currentIndex + 1;
+
+            if (newIndex >= images.length) newIndex = 0;
+
+            // Update images
+            images.forEach((img, i) => {
+                img.classList.toggle('active', i === newIndex);
+            });
+
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === newIndex);
+            });
+
+            // Update stored index
+            carousel.dataset.currentIndex = newIndex.toString();
+        }
+
+        function resetAutoRotation(product) {
+            // Clear existing interval
+            if (rotationIntervals[product]) {
+                clearInterval(rotationIntervals[product]);
+            }
+
+            // Restart interval
+            rotationIntervals[product] = setInterval(() => {
+                rotateCarousel(product);
+            }, 4000);
+
+            // Update stored index
+            const carousel = document.querySelector(`.product-carousel[data-product="${product}"]`);
+            const activeImage = carousel.querySelector('.product-image.active');
+            const images = carousel.querySelectorAll('.product-image');
+            const currentIndex = Array.from(images).indexOf(activeImage);
+            carousel.dataset.currentIndex = currentIndex.toString();
+        }
+
+        // Pause rotation on hover
+        document.querySelectorAll('.product-carousel').forEach(carousel => {
+            const product = carousel.dataset.product;
+
+            carousel.addEventListener('mouseenter', () => {
+                if (rotationIntervals[product]) {
+                    clearInterval(rotationIntervals[product]);
+                }
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                if (parseInt(carousel.dataset.imagesCount) > 1) {
+                    rotationIntervals[product] = setInterval(() => {
+                        rotateCarousel(product);
+                    }, 4000);
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>

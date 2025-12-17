@@ -20,88 +20,6 @@ body {
 body {
     font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     line-height: 1.6;
-    color: #111;
-    background: #fff;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* ===== 2. NAVIGATION ===== */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(20px);
-    z-index: 1000;
-    transition: background 0.3s ease;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
-}
-
-.nav-logo {
-    z-index: 1002;
-}
-
-.logo-img {
-    height: 50px;
-    width: auto;
-    transition: transform 0.3s ease;
-}
-
-.logo-img:hover {
-    transform: scale(1.05);
-}
-
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-link {
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.95rem;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-    position: relative;
-    padding: 0.5rem 0;
-}
-
-.nav-link:hover {
-    color: white;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: white;
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-/* Theme Toggle */
-.theme-toggle-desktop {
-    display: flex;
 }
 
 .theme-toggle {
@@ -718,31 +636,20 @@ body:not(.light-mode) .gk-services .gk-right li {
     color: #19d27c;
 }
 
-
 /* Story Layout with Photo */
 .story-layout {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    grid-template-columns: 400px 1fr;
+    gap: 4rem;
     align-items: start;
     margin-bottom: 2.5rem;
 }
 
-/* Desktop: Image on left, text on right */
-@media (min-width: 769px) {
-    .story-layout {
-        grid-template-columns: 400px 1fr;
-        gap: 4rem;
-    }
-}
-
-
-
 /* Photo Styles */
 .story-photo {
-    position: relative;
+    position: sticky;
+    top: 120px;
 }
-
 
 .photo-container {
     position: relative;
@@ -1463,6 +1370,11 @@ body.light-mode .gk-services .gk-right li {
 
     .story-title {
         font-size: 2.3rem;
+    }
+
+    .story-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
 
     .story-photo {
@@ -2350,191 +2262,17 @@ body.light-mode .gallery-image {
     transform: scale(1.1);
 }
 
-/* ===== FOOTER STYLES ===== */
-.footer {
-    background: #000;
-    color: white;
-    padding: 60px 2rem 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+/* CSS Implementation with Data URLs */
+body {
+    /* Default cursor - Lion head with paw */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M24 8C14 8 6 16 6 26c0 4 2 8 5 10-1 2-4 4-4 6v4h34v-4c0-2-3-4-4-6 3-2 5-6 5-10 0-10-8-18-18-18z" fill="%23F39C12"/><circle cx="18" cy="22" r="3" fill="%23000"/><circle cx="30" cy="22" r="3" fill="%23000"/><path d="M20 30h8" stroke="%23000" stroke-width="2"/><circle cx="38" cy="38" r="8" fill="%23F39C12" stroke="%23D35400" stroke-width="1.5"/><circle cx="36" cy="36" r="2" fill="%23000"/><circle cx="38" cy="40" r="2" fill="%23000"/><circle cx="40" cy="36" r="2" fill="%23000"/></svg>') 24 24, auto;
 }
 
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
-    margin-bottom: 40px;
-}
-
-.footer-column h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.footer-column h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 2px;
-    background: #19d27c;
-}
-
-.footer-column a {
-    display: block;
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    margin-bottom: 12px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.footer-column a:hover {
-    color: #19d27c;
-    transform: translateX(5px);
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.social-icons a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 18px;
-    transition: all 0.3s ease;
-    margin-bottom: 0;
-}
-
-.social-icons a:hover {
-    background: #19d27c;
-    border-color: #19d27c;
-    color: white;
-    transform: translateY(-4px) scale(1.1);
-    box-shadow: 0 8px 20px rgba(25, 210, 124, 0.4);
-}
-
-.footer-column p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.footer-column p i {
-    color: #19d27c;
-    font-size: 16px;
-    width: 20px;
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 30px;
-    text-align: center;
-}
-
-.footer-bottom p {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 14px;
-    margin: 0;
-}
-
-/* Light Mode Footer */
-body.light-mode .footer {
-    background: #f8f9fa;
-    color: #111;
-    border-top-color: rgba(0, 0, 0, 0.1);
-}
-
-body.light-mode .footer-column h3 {
-    color: #111;
-}
-
-body.light-mode .footer-column a {
-    color: rgba(0, 0, 0, 0.7);
-}
-
-body.light-mode .footer-column a:hover {
-    color: #19d27c;
-}
-
-body.light-mode .social-icons a {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0.8);
-}
-
-body.light-mode .social-icons a:hover {
-    background: #19d27c;
-    border-color: #19d27c;
-    color: white;
-}
-
-body.light-mode .footer-column p {
-    color: rgba(0, 0, 0, 0.7);
-}
-
-body.light-mode .footer-bottom {
-    border-top-color: rgba(0, 0, 0, 0.1);
-}
-
-body.light-mode .footer-bottom p {
-    color: rgba(0, 0, 0, 0.5);
-}
-
-/* Footer Responsive */
-@media (max-width: 968px) {
-    .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-    }
-}
-
-@media (max-width: 640px) {
-    .footer {
-        padding: 40px 1rem 20px;
-    }
-
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .footer-column {
-        text-align: center;
-    }
-
-    .footer-column h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .footer-column a {
-        display: inline-block;
-    }
-
-    .social-icons {
-        justify-content: center;
-    }
-
-    .footer-column p {
-        justify-content: center;
-    }
+/* Interactive elements - More detailed lion */
+a,
+button,
+.product-card,
+.buy-button,
+.whatsapp-button {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56"><path d="M28 8C16 8 6 18 6 30c0 5 3 9 7 11-2 3-6 5-6 8v5h38v-5c0-3-4-5-6-8 4-2 7-6 7-11 0-12-10-22-22-22z" fill="%23E74C3C"/><circle cx="20" cy="26" r="3.5" fill="%23000"/><circle cx="36" cy="26" r="3.5" fill="%23000"/><path d="M22 35h12" stroke="%23000" stroke-width="3"/><circle cx="45" cy="45" r="10" fill="%23E74C3C" stroke="%23C0392B" stroke-width="2"/><circle cx="42" cy="42" r="3" fill="%23000"/><circle cx="45" cy="48" r="3" fill="%23000"/><circle cx="48" cy="42" r="3" fill="%23000"/><path d="M40 52h10" stroke="%23C0392B" stroke-width="1.5"/></svg>') 28 28, pointer;
 }

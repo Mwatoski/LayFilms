@@ -1,35 +1,26 @@
 // ===========================
-// REELS PAGE - Hover-to-Play JavaScript (Large Screens) + Auto-play (Mobile)
+// REELS PAGE - Auto-play on Focus + Click to Unmute
 // ===========================
 
-(function() {
+(function () {
     'use strict';
-    
+
     // State management
     const videoPlayers = new Map();
     let observer = null;
-    let isLargeScreen = window.innerWidth > 1024;
-    
+
     // DOM elements
     const reelItems = document.querySelectorAll('.reel-item');
-    
-    // ===========================
-    // Detect Screen Size
-    // ===========================
-    
-    function checkScreenSize() {
-        isLargeScreen = window.innerWidth > 1024;
-    }
-    
+
     // ===========================
     // Initialize Video Players
     // ===========================
-    
+
     function initializeReels() {
         reelItems.forEach((item, index) => {
             const videoId = item.dataset.videoId;
             const thumb = item.querySelector('.reel-thumb');
-            
+
             // Create video container
             const videoWrapper = document.createElement('div');
             videoWrapper.className = 'video-player-wrapper';
@@ -43,7 +34,7 @@
                 pointer-events: none;
                 transition: opacity 0.3s ease;
             `;
-            
+
             const videoFrame = document.createElement('iframe');
             videoFrame.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&mute=1&autoplay=0&controls=1&modestbranding=1&rel=0&playsinline=1`;
             videoFrame.style.cssText = `
@@ -53,116 +44,149 @@
             `;
             videoFrame.allow = 'autoplay; encrypted-media';
             videoFrame.allowFullscreen = true;
-            
+
+            // Create volume indicator
+            const volumeIndicator = document.createElement('div');
+            volumeIndicator.className = 'volume-indicator muted';
+            volumeIndicator.innerHTML = '<i class="fas fa-volume-mute"></i>';
+
             videoWrapper.appendChild(videoFrame);
+            videoWrapper.appendChild(volumeIndicator);
             thumb.appendChild(videoWrapper);
-            
+
             // Store player reference
             videoPlayers.set(item, {
                 wrapper: videoWrapper,
                 iframe: videoFrame,
+                volumeIndicator: volumeIndicator,
                 isPlaying: false,
+                isMuted: true,
                 videoId: videoId
             });
         });
     }
-    
+
     // ===========================
     // Play/Pause Video
     // ===========================
-    
+
     function playVideo(item) {
         const player = videoPlayers.get(item);
         if (!player || player.isPlaying) return;
-        
+
         const playOverlay = item.querySelector('.play-overlay');
         const thumb = item.querySelector('.reel-thumb img');
-        
+
         // Show video player
         player.wrapper.style.opacity = '1';
         player.wrapper.style.pointerEvents = 'all';
-        
+        player.wrapper.classList.add('playing');
+
         // Hide thumbnail and play button
         if (playOverlay) playOverlay.style.opacity = '0';
         if (thumb) thumb.style.opacity = '0';
-        
-        // Send play command to iframe
+
+        // Send play command to iframe (muted by default)
         player.iframe.contentWindow.postMessage(JSON.stringify({
             event: 'command',
             func: 'playVideo',
             args: []
         }), '*');
-        
+
+        // Ensure muted state
+        player.iframe.contentWindow.postMessage(JSON.stringify({
+            event: 'command',
+            func: 'mute',
+            args: []
+        }), '*');
+
         player.isPlaying = true;
+        player.isMuted = true;
+        updateVolumeIndicator(player);
     }
-    
+
     function pauseVideo(item) {
         const player = videoPlayers.get(item);
         if (!player || !player.isPlaying) return;
-        
+
         const playOverlay = item.querySelector('.play-overlay');
         const thumb = item.querySelector('.reel-thumb img');
-        
+
         // Hide video player
         player.wrapper.style.opacity = '0';
         player.wrapper.style.pointerEvents = 'none';
-        
+        player.wrapper.classList.remove('playing');
+
         // Show thumbnail and play button
         if (playOverlay) playOverlay.style.opacity = '';
         if (thumb) thumb.style.opacity = '1';
-        
+
         // Send pause command to iframe
         player.iframe.contentWindow.postMessage(JSON.stringify({
             event: 'command',
             func: 'pauseVideo',
             args: []
         }), '*');
-        
+
         player.isPlaying = false;
     }
-    
+
     // ===========================
-    // Hover Handlers for Large Screens
+    // Mute/Unmute Toggle
     // ===========================
-    
-    function setupHoverHandlers() {
-        reelItems.forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                if (isLargeScreen) {
-                    // Only play on hover for large screens
-                    playVideo(item);
-                }
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                if (isLargeScreen) {
-                    // Pause when mouse leaves on large screens
-                    pauseVideo(item);
-                }
-            });
-        });
+
+    function toggleMute(item) {
+        const player = videoPlayers.get(item);
+        if (!player || !player.isPlaying) return;
+
+        if (player.isMuted) {
+            // Unmute
+            player.iframe.contentWindow.postMessage(JSON.stringify({
+                event: 'command',
+                func: 'unMute',
+                args: []
+            }), '*');
+            player.isMuted = false;
+        } else {
+            // Mute
+            player.iframe.contentWindow.postMessage(JSON.stringify({
+                event: 'command',
+                func: 'mute',
+                args: []
+            }), '*');
+            player.isMuted = true;
+        }
+
+        updateVolumeIndicator(player);
     }
-    
+
+    function updateVolumeIndicator(player) {
+        if (player.isMuted) {
+            player.volumeIndicator.className = 'volume-indicator muted';
+            player.volumeIndicator.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        } else {
+            player.volumeIndicator.className = 'volume-indicator unmuted';
+            player.volumeIndicator.innerHTML = '<i class="fas fa-volume-up"></i>';
+        }
+    }
+
     // ===========================
-    // Intersection Observer for Mobile Auto-play
+    // Intersection Observer for Auto-play
     // ===========================
-    
+
     function setupIntersectionObserver() {
         const options = {
             root: null,
             rootMargin: '0px',
             threshold: 0.6 // 60% of video must be visible
         };
-        
+
         observer = new IntersectionObserver((entries) => {
-            // Only use intersection observer for mobile/tablet
-            if (isLargeScreen) return;
-            
             entries.forEach(entry => {
                 const item = entry.target;
-                
+
                 if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
-                    // Video is in focus - play it (mobile only)
+                    // Video is in focus - play it muted
                     playVideo(item);
                 } else {
                     // Video is out of focus - pause it
@@ -170,57 +194,56 @@
                 }
             });
         }, options);
-        
+
         // Observe all reel items
         reelItems.forEach(item => {
             observer.observe(item);
         });
     }
-    
+
     // ===========================
-    // Manual Click to Play (Mobile)
+    // Click Handler for Mute/Unmute
     // ===========================
-    
+
     function setupClickHandlers() {
         reelItems.forEach(item => {
-            item.addEventListener('click', function(e) {
+            item.addEventListener('click', function (e) {
                 // Don't trigger if clicking on iframe controls
                 if (e.target.tagName === 'IFRAME') return;
-                
-                // Only allow manual click on mobile/tablet
-                if (isLargeScreen) return;
-                
+
                 const player = videoPlayers.get(item);
                 if (!player) return;
-                
+
                 if (player.isPlaying) {
-                    pauseVideo(item);
+                    // Toggle mute/unmute
+                    toggleMute(item);
                 } else {
+                    // If not playing, start playing (this shouldn't happen with auto-play)
                     // Pause all other videos
                     reelItems.forEach(otherItem => {
                         if (otherItem !== item) {
                             pauseVideo(otherItem);
                         }
                     });
-                    
+
                     playVideo(item);
-                    
+
                     // Scroll video into view smoothly
-                    item.scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'center' 
+                    item.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
                     });
                 }
             });
         });
     }
-    
+
     // ===========================
     // Pause on Page Visibility Change
     // ===========================
-    
+
     function setupVisibilityHandler() {
-        document.addEventListener('visibilitychange', function() {
+        document.addEventListener('visibilitychange', function () {
             if (document.hidden) {
                 // Page is hidden - pause all videos
                 reelItems.forEach(item => {
@@ -229,59 +252,35 @@
             }
         });
     }
-    
-    // ===========================
-    // Handle Window Resize
-    // ===========================
-    
-    function setupResizeHandler() {
-        let resizeTimeout;
-        
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimeout);
-            
-            resizeTimeout = setTimeout(function() {
-                const wasLargeScreen = isLargeScreen;
-                checkScreenSize();
-                
-                // If screen size category changed, pause all videos
-                if (wasLargeScreen !== isLargeScreen) {
-                    reelItems.forEach(item => {
-                        pauseVideo(item);
-                    });
-                }
-            }, 250);
-        });
-    }
-    
+
     // ===========================
     // Navigation Functions
     // ===========================
-    
+
     function initNavigation() {
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('.nav-link');
-        
+
         // Hamburger menu toggle
         if (hamburger && navMenu) {
-            hamburger.addEventListener('click', function() {
+            hamburger.addEventListener('click', function () {
                 hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
                 document.body.style.overflow = hamburger.classList.contains('active') ? 'hidden' : '';
             });
-            
+
             // Close menu when clicking nav links
             navLinks.forEach(link => {
-                link.addEventListener('click', function() {
+                link.addEventListener('click', function () {
                     hamburger.classList.remove('active');
                     navMenu.classList.remove('active');
                     document.body.style.overflow = '';
                 });
             });
-            
+
             // Close menu when clicking outside
-            document.addEventListener('click', function(e) {
+            document.addEventListener('click', function (e) {
                 if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
                     hamburger.classList.remove('active');
                     navMenu.classList.remove('active');
@@ -289,7 +288,7 @@
                 }
             });
         }
-        
+
         // Theme toggle
         const themeToggle = document.getElementById('dark-mode-toggle');
         if (themeToggle) {
@@ -299,24 +298,24 @@
                 document.body.classList.add('light-mode');
                 themeToggle.checked = true;
             }
-            
-            themeToggle.addEventListener('change', function() {
+
+            themeToggle.addEventListener('change', function () {
                 document.body.classList.toggle('light-mode');
                 localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
             });
         }
     }
-    
+
     // ===========================
     // Smooth Scroll
     // ===========================
-    
+
     function initSmoothScroll() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
                 if (href === '#') return;
-                
+
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
@@ -328,56 +327,55 @@
             });
         });
     }
-    
+
     // ===========================
     // Initialize Everything
     // ===========================
-    
+
     function init() {
         // Wait for DOM to be fully loaded
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', init);
             return;
         }
-        
-        console.log('Initializing Reels Page...');
-        
-        // Check initial screen size
-        checkScreenSize();
-        
+
+        console.log('Initializing Reels Page with Auto-play on Focus...');
+
         // Initialize components
         initializeReels();
-        setupHoverHandlers(); // Hover for large screens
-        setupIntersectionObserver(); // Auto-play for mobile
-        setupClickHandlers(); // Manual click for mobile
+        setupIntersectionObserver(); // Auto-play for all screens
+        setupClickHandlers(); // Click to mute/unmute
         setupVisibilityHandler();
-        setupResizeHandler();
         initNavigation();
         initSmoothScroll();
-        
-        console.log(`Reels Page Initialized Successfully! (${isLargeScreen ? 'Large Screen - Hover Mode' : 'Mobile - Auto-play Mode'})`);
+
+        console.log('Reels Page Initialized Successfully! (Auto-play on Focus + Click to Unmute)');
     }
-    
+
     // ===========================
     // Cleanup on Page Unload
     // ===========================
-    
-    window.addEventListener('beforeunload', function() {
+
+    window.addEventListener('beforeunload', function () {
         // Pause all videos
         reelItems.forEach(item => {
             pauseVideo(item);
         });
-        
+
         // Disconnect observer
         if (observer) {
             observer.disconnect();
         }
     });
-    
+
     // Start initialization
     init();
-    
+
 })();
+
+// ===========================
+// Hamburger Menu (Duplicate Handler - Keep for Compatibility)
+// ===========================
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 

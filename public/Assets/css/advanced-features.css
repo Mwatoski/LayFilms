@@ -1,0 +1,433 @@
+/* ===========================
+   ADVANCED UI FEATURES
+   Page Transitions, Custom Cursor, Particles
+   =========================== */
+
+/* ===== PAGE TRANSITION ANIMATIONS ===== */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%);
+    z-index: 99999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s var(--ease-out);
+}
+
+.page-transition.active {
+    opacity: 1;
+}
+
+/* Fade transition */
+body.fade-transition {
+    animation: fadeIn 0.5s var(--ease-out);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide transition */
+.slide-transition-enter {
+    animation: slideInFromRight 0.6s var(--ease-smooth);
+}
+
+.slide-transition-exit {
+    animation: slideOutToLeft 0.6s var(--ease-smooth);
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutToLeft {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+/* ===== ENHANCED THEME TOGGLE ANIMATION ===== */
+.theme-toggle-label {
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle-label::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: var(--primary-500);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s var(--ease-out), height 0.6s var(--ease-out);
+}
+
+.toggle-checkbox:checked+.theme-toggle-label::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Animated sun and moon */
+.sun-icon,
+.moon-icon {
+    transition: all 0.4s var(--ease-bounce);
+}
+
+.toggle-checkbox:checked+.toggle-label .sun-icon {
+    transform: rotate(180deg) scale(0.8);
+}
+
+.toggle-checkbox:checked+.toggle-label .moon-icon {
+    transform: rotate(-180deg) scale(1.2);
+}
+
+/* ===== CUSTOM CURSOR ===== */
+.custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-500);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+    opacity: 0;
+    mix-blend-mode: difference;
+}
+
+.custom-cursor.active {
+    opacity: 1;
+}
+
+.custom-cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: var(--primary-500);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transition: transform 0.1s ease;
+    opacity: 0;
+}
+
+.custom-cursor-dot.active {
+    opacity: 1;
+}
+
+/* Cursor states */
+.custom-cursor.hover {
+    transform: scale(2);
+    background: rgba(25, 210, 124, 0.1);
+}
+
+.custom-cursor.click {
+    transform: scale(0.8);
+}
+
+/* Hide default cursor when custom cursor is active */
+body.custom-cursor-enabled {
+    cursor: none;
+}
+
+body.custom-cursor-enabled a,
+body.custom-cursor-enabled button,
+body.custom-cursor-enabled .portfolio-category,
+body.custom-cursor-enabled .view-button {
+    cursor: none;
+}
+
+/* ===== PARTICLE BACKGROUND ===== */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-400);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float-particle linear infinite;
+}
+
+@keyframes float-particle {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.3;
+    }
+
+    90% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(-100vh) translateX(var(--particle-drift));
+        opacity: 0;
+    }
+}
+
+/* Particle glow effect */
+.particle::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: radial-gradient(circle, var(--primary-400), transparent);
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+/* ===== SOUND WAVE VISUALIZER ===== */
+.sound-wave {
+    position: fixed;
+    bottom: 20px;
+    right: 80px;
+    display: flex;
+    gap: 3px;
+    align-items: flex-end;
+    height: 30px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.sound-wave.active {
+    opacity: 1;
+}
+
+.sound-wave-bar {
+    width: 3px;
+    background: linear-gradient(to top, var(--primary-500), var(--primary-300));
+    border-radius: 2px;
+    animation: wave-pulse 0.6s ease-in-out infinite;
+}
+
+.sound-wave-bar:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.sound-wave-bar:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.sound-wave-bar:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.sound-wave-bar:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.sound-wave-bar:nth-child(5) {
+    animation-delay: 0.2s;
+}
+
+.sound-wave-bar:nth-child(6) {
+    animation-delay: 0.1s;
+}
+
+@keyframes wave-pulse {
+
+    0%,
+    100% {
+        height: 8px;
+    }
+
+    50% {
+        height: 24px;
+    }
+}
+
+/* ===== PARALLAX LAYERS ===== */
+.parallax-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.1s ease-out;
+}
+
+.parallax-layer-1 {
+    transform: translateZ(-100px) scale(2);
+}
+
+.parallax-layer-2 {
+    transform: translateZ(-200px) scale(3);
+}
+
+/* ===== LOADING SCREEN ===== */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 30px;
+    animation: pulse-logo 2s ease-in-out infinite;
+}
+
+@keyframes pulse-logo {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.loading-bar {
+    width: 200px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loading-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-500), var(--primary-300));
+    border-radius: 2px;
+    animation: loading-progress 2s ease-in-out infinite;
+}
+
+@keyframes loading-progress {
+    0% {
+        width: 0%;
+        transform: translateX(0);
+    }
+
+    50% {
+        width: 100%;
+        transform: translateX(0);
+    }
+
+    100% {
+        width: 100%;
+        transform: translateX(100%);
+    }
+}
+
+.loading-text {
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+
+    /* Disable custom cursor on mobile */
+    .custom-cursor,
+    .custom-cursor-dot {
+        display: none !important;
+    }
+
+    /* Reduce particle count on mobile */
+    .particle:nth-child(n+20) {
+        display: none;
+    }
+
+    /* Simplify animations on mobile */
+    .page-transition {
+        animation-duration: 0.3s;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+
+    .particle,
+    .page-transition,
+    .loading-screen,
+    .sound-wave-bar {
+        animation: none !important;
+    }
+
+    .custom-cursor {
+        display: none !important;
+    }
+}
+
+/* Dark mode adjustments */
+body.light-mode .particles-container {
+    opacity: 0.5;
+}
+
+body.light-mode .particle {
+    background: var(--primary-600);
+}
+
+body.light-mode .loading-screen {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+}
+
+body.light-mode .loading-text {
+    color: rgba(0, 0, 0, 0.7);
+}
