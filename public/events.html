@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="./Assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="./Assets/images/lay.svg">
+    <link rel="icon" type="image/x-icon" href="./Assets/images/lay.webp">
     <!-- In your head section, make sure you have this -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -99,7 +99,7 @@
             <div class="nav-container">
                 <!-- Logo on the left -->
                 <div class="nav-logo">
-                    <img src="./Assets/images/LayF.png" alt="Lay Films" class="logo-img">
+                    <img loading="lazy" src="./Assets/images/LayF.png" alt="Lay Films" class="logo-img">
                 </div>
 
                 <!-- Navigation Menu in center -->
@@ -156,9 +156,9 @@
             <section class="hero-showcase">
                 <div class="showcase-slider">
                     <div class="slide active">
-                        <img src="./Assets/images/Wedding1.png" alt="Featured Event" class="slide-image">
+                        <img loading="lazy" src="./Assets/images/untitled-09193.webp" alt="Featured Event" class="slide-image">
                         <div class="slide-overlay">
-                            <h1>Events Portfolio</h1>
+                            <h1>Events</h1>
                             <p>Moments Captured, Stories Told</p>
                         </div>
                     </div>
@@ -169,7 +169,7 @@
             <section class="curated-gallery">
                 <!-- Feature 1 - Full width showcase -->
                 <div class="gallery-item feature-item">
-                    <img src="./Assets/images/T37.jpg" alt="Premium Corporate Event" class="gallery-image">
+                    <img loading="lazy" src="./Assets/images/untitled--50.webp" alt="Premium Corporate Event" class="gallery-image">
                     <div class="gallery-overlay">
                         <span class="gallery-caption">Corporate Excellence</span>
                     </div>
@@ -178,23 +178,27 @@
                 <!-- Two-column showcase -->
                 <div class="gallery-row">
                     <div class="gallery-item">
-                        <img src="./Assets/images/T31.jpg" alt="Luxury Wedding" class="gallery-image">
+                        <img loading="lazy" src="./Assets/images/untitled-09259.webp" alt="Luxury Wedding" class="gallery-image">
                         <div class="gallery-overlay">
-                            <span class="gallery-caption">Elegant Weddings</span>
+                            <span class="gallery-caption">Elegant Events</span>
                         </div>
                     </div>
                     <div class="gallery-item">
-                        <img src="./Assets/images/T2.jpg" alt="Commercial Shoot" class="gallery-image">
+                        <img loading="lazy" src="./Assets/images/untitled-08242.webp" alt="Commercial Shoot" class="gallery-image">
                         <div class="gallery-overlay">
-                            <span class="gallery-caption">Commercial Vision</span>
+                            <span class="gallery-caption">Vision</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Video Highlight Reel -->
-                <div class="gallery-item video-highlight">
-                    <div class="video-poster" data-video="BEST_EVENT_VIDEO_ID">
-                        <img src="./Assets/images/T37.jpg" alt="Event Highlights" class="gallery-image">
+                <div class="gallery-item video-highlight" style="position: relative;">
+                    <video id="inlineEventVideo" class="gallery-image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px; background: #000; display: none;" controls>
+                        <source src="./Assets/images/David Mopel & Apolina Nyambura Ruracio Trailer.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-poster" id="inlineVideoPoster" style="width: 100%; height: 100%; cursor: pointer;">
+                        <img loading="lazy" src="./Assets/images/Screenshot 2026-02-06 222955.webp" alt="Event Highlights" class="gallery-image" style="width: 100%; height: 100%; object-fit: cover;">
                         <div class="video-play-overlay">
                             <div class="play-circle">
                                 <i class="fas fa-play"></i>
@@ -207,19 +211,19 @@
                 <!-- Three-column showcase -->
                 <div class="gallery-row triple">
                     <div class="gallery-item">
-                        <img src="./Assets/images/potrait6.jpg" alt="Event Moment" class="gallery-image">
+                        <img loading="lazy" src="./Assets/images/potrait6.webp" alt="Event Moment" class="gallery-image">
                     </div>
                     <div class="gallery-item">
-                        <img src="./Assets/images/potrait7.jpg" alt="Event Moment" class="gallery-image">
+                        <img loading="lazy" src="./Assets/images/untitled--19.webp" alt="Event Moment" class="gallery-image">
                     </div>
                     <div class="gallery-item">
-                        <img src="./Assets/images/potrait9.jpg" alt="Event Moment" class="gallery-image">
+                        <img loading="lazy" src="./Assets/images/LAY08437.webp" alt="Event Moment" class="gallery-image">
                     </div>
                 </div>
 
                 <!-- Another full-width feature -->
                 <div class="gallery-item feature-item">
-                    <img src="./Assets/images/T29.jpg" alt="Grand Event" class="gallery-image">
+                    <img loading="lazy" src="./Assets/images/untitled--77.webp" alt="Grand Event" class="gallery-image">
                     <div class="gallery-overlay">
                         <span class="gallery-caption">Grand Celebrations</span>
                     </div>
@@ -246,22 +250,11 @@
                     <i class="fas fa-chevron-right"></i>
                 </button>
                 <div class="lightbox-content">
-                    <img src="" alt="" class="lightbox-image">
+                    <img loading="lazy" src="" alt="" class="lightbox-image">
                     <div class="lightbox-caption"></div>
                 </div>
             </div>
 
-            <!-- Video Modal -->
-            <div class="video-modal">
-                <div class="modal-content">
-                    <button class="modal-close">
-                        <i class="fas fa-times"></i>
-                    </button>
-                    <div class="video-container">
-                        <iframe width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
         </main>
 
 
@@ -316,6 +309,20 @@
 
 
 
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const inlineVideoPoster = document.getElementById('inlineVideoPoster');
+                const inlineEventVideo = document.getElementById('inlineEventVideo');
+                
+                if (inlineVideoPoster && inlineEventVideo) {
+                    inlineVideoPoster.addEventListener('click', () => {
+                        inlineVideoPoster.style.display = 'none';
+                        inlineEventVideo.style.display = 'block';
+                        inlineEventVideo.play().catch(e => console.log('Autoplay prevented', e));
+                    });
+                }
+            });
+        </script>
         <script src="./Assets/javascript/script.js"></script>
 
 </body>

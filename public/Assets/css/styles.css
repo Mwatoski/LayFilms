@@ -2538,3 +2538,75 @@ body.light-mode .footer-bottom p {
         justify-content: center;
     }
 }
+
+/* ===========================
+   EVENTS PAGE RESPONSIVENESS
+   =========================== */
+@media (max-width: 768px) {
+    .hero-showcase {
+        height: 60vh !important;
+    }
+
+    .slide-overlay {
+        left: 5% !important;
+        bottom: 15% !important;
+        width: 90% !important;
+    }
+
+    .slide-overlay h1 {
+        font-size: 2.8rem !important;
+        line-height: 1.1;
+    }
+
+    .slide-overlay p {
+        font-size: 1.1rem !important;
+    }
+
+    /* Stack gallery items */
+    .gallery-row,
+    .gallery-row.triple {
+        grid-template-columns: 1fr !important;
+        gap: 2px !important;
+        display: grid !important;
+    }
+
+    .gallery-item {
+        height: 50vh !important;
+    }
+
+    .feature-item {
+        height: 50vh !important;
+    }
+
+    .video-highlight {
+        height: 50vh !important;
+        margin: 1rem 0 !important;
+    }
+
+    /* Video Play Overlay adjustments */
+    .play-circle {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .play-circle i {
+        font-size: 1.5rem !important;
+    }
+
+    .video-label {
+        font-size: 0.9rem !important;
+    }
+
+    .portfolio-cta {
+        height: 40vh !important;
+    }
+
+    .cta-content h2 {
+        font-size: 2rem !important;
+    }
+
+    .cta-button {
+        padding: 1rem 2rem !important;
+        font-size: 1rem !important;
+    }
+}

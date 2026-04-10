@@ -132,7 +132,7 @@ function updateThemeColors(isLightMode) {
     const textElements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, strong, em, a, li');
     const strongTags = document.querySelectorAll('strong');
     const intro = document.querySelector('.intro');
-    
+
     if (isLightMode) {
         // Light mode colors
         textElements.forEach(el => {
@@ -140,12 +140,12 @@ function updateThemeColors(isLightMode) {
                 el.style.color = '';
             }
         });
-        
+
         strongTags.forEach(tag => {
             tag.style.color = '#000';
             tag.style.fontWeight = '700';
         });
-        
+
         if (intro) {
             intro.style.color = '#333';
             const introStrong = intro.querySelectorAll('strong');
@@ -159,12 +159,12 @@ function updateThemeColors(isLightMode) {
         textElements.forEach(el => {
             el.style.color = '';
         });
-        
+
         strongTags.forEach(tag => {
             tag.style.color = '';
             tag.style.fontWeight = '';
         });
-        
+
         if (intro) {
             intro.style.color = '';
             const introStrong = intro.querySelectorAll('strong');
@@ -228,7 +228,7 @@ if (darkModeToggle || darkModeToggleMobile) {
 }
 
 // Also update colors when page loads completely
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     const isLightMode = body.classList.contains('light-mode');
     updateThemeColors(isLightMode);
 });
@@ -667,6 +667,38 @@ document.addEventListener('visibilitychange', function () {
     }
 });
 
+// ===== VIDEO LAZY LOADING =====
+function initVideoLazyLoading() {
+    const lazyVideos = document.querySelectorAll('video');
+    if ('IntersectionObserver' in window) {
+        const videoObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                const video = entry.target;
+                if (entry.isIntersecting) {
+                    // Check if it's already preloading or playing
+                    if (video.preload === 'none') {
+                        video.preload = 'auto'; // Will trigger the load
+                    }
+                    if (video.autoplay) {
+                        video.play().catch(e => {
+                            // Autoplay might be blocked by browser policy; ignore or log
+                            console.log('Autoplay prevented by browser:', e);
+                        });
+                    }
+                } else {
+                    if (video.autoplay && !video.paused) {
+                        video.pause();
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        lazyVideos.forEach(video => {
+            videoObserver.observe(video);
+        });
+    }
+}
+
 // ===== INITIALIZE EVERYTHING =====
 document.addEventListener('DOMContentLoaded', function () {
     console.log('DOM loaded - initializing all scripts');
@@ -676,6 +708,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initPortfolioNavigation();
     initReelShowcase();
     initSmoothScrolling();
+    initVideoLazyLoading();
 
     console.log('All scripts initialized successfully');
 });
@@ -768,7 +801,7 @@ class AnimatedStats {
             { element: '.stat-item:nth-child(2) .stat-number', target: 200, duration: 2500, isYears: false },
             { element: '.stat-item:nth-child(3) .stat-number', target: 399, duration: 3000, isYears: false }
         ];
-        
+
         this.initialized = false;
         this.init();
     }
@@ -815,7 +848,7 @@ class AnimatedStats {
         setInterval(() => {
             // Update projects count (2nd stat)
             this.updateRandomStat(1, 1, 3); // Add 1-3 projects randomly
-            
+
             // Update clients count (3rd stat)
             this.updateRandomStat(2, 1, 5); // Add 1-5 clients randomly
         }, 30000); // Update every 30 seconds
@@ -832,34 +865,69 @@ class AnimatedStats {
 
         // Animate the update
         this.animateValueChange(element, currentValue, newValue, 1000);
-        
+
         // Update the target for future animations
         stat.target = newValue;
     }
 
     animateValueChange(element, start, end, duration) {
         const startTime = performance.now();
-        
+
         function update(currentTime) {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            
+
             // Easing function for smooth animation
             const easeOut = 1 - Math.pow(1 - progress, 3);
             const currentValue = Math.floor(start + (end - start) * easeOut);
-            
+
             element.textContent = currentValue + '+';
-            
+
             if (progress < 1) {
                 requestAnimationFrame(update);
             }
         }
-        
+
         requestAnimationFrame(update);
     }
 }
 
 // Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     new AnimatedStats();
+
+    // ===== CUSTOM VIDEO PLAYER FOR EVENTS =====
+    const videoHighlight = document.querySelector('.video-highlight');
+    if (videoHighlight) {
+        const videoContainer = videoHighlight.querySelector('.video-poster');
+        if (videoContainer) {
+            const video = videoContainer.querySelector('.gallery-video');
+            const overlay = videoContainer.querySelector('.video-play-overlay');
+
+            if (video && overlay) {
+                overlay.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    console.log('Custom video player: starting playback');
+
+                    // Hide overlay
+                    overlay.style.opacity = '0';
+                    overlay.style.pointerEvents = 'none';
+
+                    // Show controls
+                    video.setAttribute('controls', 'true');
+
+                    // Play video
+                    video.play().catch(err => console.error('Error playing video:', err));
+                });
+
+                video.addEventListener('ended', function () {
+                    console.log('Custom video player: video ended');
+                    video.removeAttribute('controls');
+                    overlay.style.opacity = '1';
+                    overlay.style.pointerEvents = 'all';
+                    video.load(); // Reset to poster
+                });
+            }
+        }
+    }
 });

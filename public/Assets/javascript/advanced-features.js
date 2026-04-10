@@ -366,10 +366,10 @@ function initAdvancedFeatures() {
     console.log('🚀 Initializing Advanced Features...');
 
     // Loading screen (runs first)
-    initLoadingScreen();
+    // initLoadingScreen(); // Removed per user request
 
     // Core advanced features
-    initPageTransitions();
+    // initPageTransitions(); // Removed per user request
     initParticles();
     initEnhancedThemeToggle();
 
@@ -398,12 +398,12 @@ if (document.readyState === 'loading') {
 
 // Export for external use
 window.LayFilmsAdvanced = {
-    initPageTransitions,
+    // initPageTransitions,
     initCustomCursor,
     initParticles,
     initSoundEffects,
     initEnhancedParallax,
-    initLoadingScreen,
+    // initLoadingScreen,
     initEnhancedThemeToggle,
     soundManager
 };
