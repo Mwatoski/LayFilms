@@ -3,23 +3,43 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    
+    <title>Lay Films Productions | Best Film &amp; Videography Services in Kenya</title>
     <meta name="description"
-        content="Lay Films Productions - Professional Equipment & Studio Resources. Explore our state-of-the-art gear, cameras, lighting, and studio facilities.">
+        content="Lay Films Productions - Professional film production, videography, and motion graphics services in Kenya. Capture your story with stunning visuals!">
     <meta name="keywords"
-        content="film equipment, camera gear, studio rental, lighting equipment, professional cameras, film production gear, Kenya">
+        content="film production, videography, motion graphics, cinematography, Lay Films, corporate videos, commercial ads, event filming, Kenya">
     <meta name="author" content="Lay Films Productions">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Our Equipment | Lay Films Productions | Professional Studio Resources</title>
 
-    <link rel="stylesheet" href="./Assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lay Films Productions | Best Film &amp; Videography Services in Kenya">
+    <meta property="og:description"
+        content="Professional film production, videography, and motion graphics services in Kenya. Capture your story with stunning visuals!">
+    <meta property="og:image" content="./Assets/images/LAY08582-Enhanced-NR.webp">
+
     <link rel="icon" type="image/x-icon" href="./Assets/images/lay.webp">
+
+    <!-- Typography: Google Fonts Montserrat (Bold, Modern Cinema Aesthetic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- Design System & Styles -->
+    <link rel="stylesheet" href="./Assets/css/design-system.css">
+    <link rel="stylesheet" href="./Assets/css/styles.css">
+    <link rel="stylesheet" href="./Assets/css/enhancements.css">
+    <link rel="stylesheet" href="./Assets/css/advanced-features.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Particles.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
         /* Resources Page Specific Styles */
         .resources-hero {
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            
             min-height: 60vh;
             display: flex;
             align-items: center;
@@ -403,44 +423,7 @@
             transform: translateY(-3px);
         }
 
-        /* Light Mode Support */
-        body.light-mode .resources-hero,
-        body.light-mode .equipment-categories,
-        body.light-mode .featured-equipment,
-        body.light-mode .studio-section {
-            background: #ffffff;
-        }
-
-        body.light-mode .resources-hero h1,
-        body.light-mode .category-title,
-        body.light-mode .section-header h2,
-        body.light-mode .equipment-title,
-        body.light-mode .studio-info h2,
-        body.light-mode .rental-content h2 {
-            color: #111;
-        }
-
-        body.light-mode .resources-hero p,
-        body.light-mode .category-description,
-        body.light-mode .section-header p,
-        body.light-mode .equipment-specs,
-        body.light-mode .studio-info p,
-        body.light-mode .rental-content p,
-        body.light-mode .feature span {
-            color: #333;
-        }
-
-        body.light-mode .category-card,
-        body.light-mode .equipment-card {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-        }
-
-        body.light-mode .category-description,
-        body.light-mode .equipment-specs,
-        body.light-mode .category-specs {
-            color: #666;
-        }
+        
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
@@ -484,61 +467,97 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html">
-                    <img loading="lazy" src="./Assets/images/LayF.png" alt="Lay Films" class="logo-img">
-                </a>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main Navigation">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" aria-label="Lay Films Productions Home">
+                        <img src="./Assets/images/LayF.png" alt="Lay Films Productions" class="logo-img" width="50" height="50">
+                    </a>
+                </div>
+                <div class="nav-right-controls">
+                    <button class="hamburger" id="hamburger-btn" type="button"
+                            aria-label="Toggle navigation menu"
+                            aria-controls="nav-drawer"
+                            aria-expanded="false">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+
+        <aside class="nav-drawer nav-menu" id="nav-drawer" aria-label="Navigation Drawer">
+            <div class="drawer-header">
+                <div class="drawer-brand">
+                    <img src="./Assets/images/LayF.png" alt="Lay Films Logo" class="logo-img" width="38" height="38">
+                    <span class="drawer-brand-name">LAY FILMS</span>
+                </div>
+                <button class="drawer-close-btn" id="drawer-close-btn" type="button" aria-label="Close navigation menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
 
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html#work" class="nav-link">WORK</a>
-                </li>
-                <li class="nav-item">
-                    <a href="shop.html" class="nav-link">SHOP</a>
-                </li>
-                <li class="nav-item">
-                    <a href="resources.html" class="nav-link">RESOURCES</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">CONTACT</a>
-                </li>
-                <!-- Desktop Theme Toggle -->
-                <li class="nav-item theme-toggle-desktop">
-                    <div class="theme-toggle">
-                        <input type="checkbox" id="dark-mode-toggle" class="toggle-checkbox">
-                        <label for="dark-mode-toggle" class="toggle-label">
-                            <span class="toggle-handle"></span>
-                            <span class="sun-icon">☀️</span>
-                            <span class="moon-icon">🌙</span>
-                        </label>
-                    </div>
-                </li>
-                <!-- Mobile Theme Toggle -->
-                <li class="nav-item theme-toggle-mobile">
-                    <div class="theme-toggle">
-                        <input type="checkbox" id="dark-mode-toggle-mobile" class="toggle-checkbox">
-                        <label for="dark-mode-toggle-mobile" class="toggle-label">
-                            <span class="toggle-handle"></span>
-                            <span class="sun-icon">☀️</span>
-                            <span class="moon-icon">🌙</span>
-                        </label>
-                    </div>
-                </li>
-            </ul>
+            <div class="drawer-body">
+                <ul class="drawer-nav-list">
+                    <li class="drawer-nav-item">
+                        <a href="index.html" class="drawer-nav-link"><span class="drawer-link-number">01</span> HOME</a>
+                    </li>
+                    <li class="drawer-nav-item">
+                        <a href="aboutUs.html" class="drawer-nav-link"><span class="drawer-link-number">02</span> ABOUT US</a>
+                    </li>
+                    <li class="drawer-nav-item">
+                        <a href="commercial.html" class="drawer-nav-link active"><span class="drawer-link-number">03</span> PORTFOLIO</a>
+                    </li>
+                    <li class="drawer-nav-item">
+                        <a href="shop.html" class="drawer-nav-link"><span class="drawer-link-number">07</span> SHOP</a>
+                    </li>
+                    <li class="drawer-nav-item">
+                        <a href="resources.html" class="drawer-nav-link"><span class="drawer-link-number">08</span> RESOURCES</a>
+                    </li>
+                </ul>
 
-            <button class="hamburger" type="button" aria-label="Toggle menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-        </div>
-    </nav>
+                <div class="drawer-cta-wrap">
+                    <a href="quotation.html" class="drawer-cta-btn">GET A QUOTE <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="drawer-contact-section">
+                    <h4 class="drawer-contact-title">STUDIO CONTACT</h4>
+                    <a href="tel:+254707942420" class="drawer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+254 707 942 420</span>
+                    </a>
+                    <a href="mailto:info@layfilmsproductions.com" class="drawer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>info@layfilmsproductions.com</span>
+                    </a>
+                    <div class="drawer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Nairobi, Kenya</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </header>
 
     <!-- Hero Section -->
     <section class="resources-hero">
+            <video
+        class="story-bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="your-poster-image.jpg"
+        aria-hidden="true">
+        <source src="./Assets/videos/BOUNCE LOGO WITH SOUNE.mp4" type="video/mp4">
+        <!-- Optional: add a webm for better compression -->
+        <!-- <source src="your-video.webm" type="video/webm"> -->
+    </video>
         <div class="resources-hero-content">
             <div class="resources-badge">
                 <span class="badge-dot"></span>
@@ -849,82 +868,53 @@
     </section>
 
     <!-- Rental Section -->
-    <section class="rental-section">
-        <div class="rental-content">
-            <h2>Equipment Rental Services</h2>
-            <p>Need professional gear for your project? Rent our equipment with flexible packages and expert support.
-            </p>
-
-            <div class="rental-features">
-                <div class="rental-feature">
-                    <i class="fas fa-clock"></i>
-                    <h3>Flexible Rental</h3>
-                    <p>Daily, weekly, and monthly rates</p>
-                </div>
-                <div class="rental-feature">
-                    <i class="fas fa-truck"></i>
-                    <h3>Delivery Available</h3>
-                    <p>Equipment delivery to your location</p>
-                </div>
-                <div class="rental-feature">
-                    <i class="fas fa-user-graduate"></i>
-                    <h3>Training Included</h3>
-                    <p>Basic operation training provided</p>
-                </div>
-
-            </div>
-
-            <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I'm%20interested%20in%20equipment%20rental"
-                class="rental-btn" target="_blank">
-                <i class="fas fa-calendar-alt"></i> Request Rental Quote
-            </a>
-        </div>
-    </section>
+    
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
+<footer class="footer" id="footer">
         <div class="footer-container">
             <div class="footer-column">
                 <h3>Quick Links</h3>
-                <a href="about.html">About Us</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html">Contact</a>
+                <a href="aboutUs.html">About Us</a>
+                <a href="#work">Portfolio</a>
+                <a href="quotation.html">Get a Quote</a>
+                <a href="shop.html">Shop</a>
             </div>
 
             <div class="footer-column">
                 <h3>Follow Us</h3>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/people/Lay-Films-Production-Company/100091605957522/"
-                        target="_blank">
+                    <a href="https://www.facebook.com/people/Lay-Films-Production-Company/100091605957522/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                         <i class="fa-brands fa-facebook"></i>
                     </a>
-                    <a href="https://www.twitter.com/LayFilms" target="_blank">
+                    <a href="https://www.twitter.com/LayFilms" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                         <i class="fa-brands fa-x-twitter"></i>
                     </a>
-                    <a href="https://www.instagram.com/lay_films_productions" target="_blank">
+                    <a href="https://www.instagram.com/lay_films_productions" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
-                    <a href="https://youtube.com/@layfilmsproductions?si=RrGIje_SKaFr1AbA" target="_blank">
+                    <a href="https://youtube.com/@layfilmsproductions?si=RrGIje_SKaFr1AbA" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                         <i class="fa-brands fa-youtube"></i>
                     </a>
-                    <a href="https://www.tiktok.com/@layfilmsproductions?_t=ZM-8u8TOE5lLjq&_r=1" target="_blank">
+                    <a href="https://www.tiktok.com/@layfilmsproductions?_t=ZM-8u8TOE5lLjq&_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                         <i class="fa-brands fa-tiktok"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/wandera-edwin-505bb8351/" target="_blank">
+                    <a href="https://www.linkedin.com/in/wandera-edwin-505bb8351/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <i class="fa-brands fa-linkedin"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="footer-column">
+            <div class="footer-column" id="contact">
                 <h3>Contact Us</h3>
                 <p><i class="fa-solid fa-phone"></i> +254 707 942 420</p>
                 <p><i class="fa-solid fa-envelope"></i> info@layfilmsproductions.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> Nairobi, Kenya</p>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025 Lay Films Productions. All rights reserved.</p>
+            <p>&copy; 2026 Lay Films Productions. All rights reserved.</p>
         </div>
     </footer>
 

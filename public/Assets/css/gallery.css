@@ -1,0 +1,1392 @@
+/*
+ * gallery.css — Shared Gallery Page Styles
+ * Lay Films Productions
+ *
+ * Used by all category portfolio pages:
+ *   commercial.html, interviews.html, wedding.html, documentary.html,
+ *   sports.html, concerts.html, animation.html, restaurant.html, portraits.html
+ *
+ * Lay Films green identity: #19d27c
+ */
+
+/* =====================================================================
+   BASE RESET
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    background: #050505;
+    color: #ffffff;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hide theme toggles (not used on these pages) */
+.theme-toggle-desktop,
+.theme-toggle-mobile { display: none !important; }
+
+/* =====================================================================
+   1. INTRODUCTION SECTION
+   ===================================================================== */
+.ca-intro {
+    background: #050505;
+    text-align: center;
+    
+}
+
+.ca-intro-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #19d27c;
+    margin-bottom: 1.5rem;
+}
+
+.ca-intro-eyebrow::before,
+.ca-intro-eyebrow::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1.5px;
+    background: #19d27c;
+    opacity: 0.6;
+}
+
+.ca-intro-heading {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 1.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.ca-intro-divider {
+    width: 56px;
+    height: 3px;
+    background: #19d27c;
+    border-radius: 2px;
+    margin: 0 auto 1.75rem;
+    box-shadow: 0 0 10px rgba(25, 210, 124, 0.4);
+}
+
+.ca-intro-desc {
+    font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+    font-weight: 300;
+    line-height: 1.8;
+    color: #9ca3af;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* =====================================================================
+   2. CATEGORY NAVIGATION (links, not buttons)
+   ===================================================================== */
+.ca-filter-bar {
+    background: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: sticky;
+    top: 72px;
+    z-index: 50;
+    
+    backdrop-filter: blur(8px) !important;
+    
+}
+
+/* Horizontally scrollable category row */
+.ca-categories-wrap {
+    position: relative;
+    place-items: center;
+}
+
+/* Fade edges on mobile to hint scrollability */
+.ca-categories-wrap::before,
+.ca-categories-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.ca-categories {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.ca-categories::-webkit-scrollbar { display: none; }
+
+/* Category link (replaces buttons — uses <a href>) */
+.ca-cat-link {
+    flex-shrink: 0;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgb(252, 250, 250);
+    padding: 0.5rem;
+    white-space: nowrap;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+.ca-cat-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    height: 2px;
+    background: #19d27c;
+    transition: left 0.25s ease, right 0.25s ease;
+}
+
+.ca-cat-link:hover { color: rgba(255, 255, 255, 0.9); }
+.ca-cat-link:hover::after { left: 1.1rem; right: 1.1rem; }
+
+/* Active state: current page category */
+.ca-cat-link.active {
+    color: #19d27c;
+}
+.ca-cat-link.active::after {
+    left: 1.1rem;
+    right: 1.1rem;
+}
+
+/* =====================================================================
+   3. MEDIA TYPE FILTERS
+   ===================================================================== */
+.ca-media-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.65rem 1.5rem;
+}
+
+.ca-media-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.ca-media-btn:hover { color: rgba(255, 255, 255, 0.85); }
+.ca-media-btn.active {
+    color: #19d27c;
+    background: rgba(25, 210, 124, 0.1);
+}
+
+.ca-media-sep {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.18);
+    user-select: none;
+}
+
+/* =====================================================================
+   4. RESULTS INDICATOR
+   ===================================================================== */
+.ca-results-bar {
+    background: #050505;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.ca-results-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.35);
+    text-transform: uppercase;
+}
+
+.ca-results-count {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #19d27c;
+    letter-spacing: 1px;
+}
+
+/* =====================================================================
+   5. GALLERY GRID
+   ===================================================================== */
+.ca-gallery {
+    background: #050505;
+    padding: 2px 0 0;
+}
+
+/* Masonry-style grid with CSS Grid */
+.ca-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 60px;
+    gap: 3px;
+    padding: 3px;
+}
+
+/* Gallery card base */
+.ca-card {
+    position: relative;
+    
+    background: #0a0d0b;
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.35s ease;
+}
+
+.ca-card:hover { transform: scale(0.985); z-index: 2; }
+
+/* Card size classes */
+.ca-card-wide   { grid-column: span 8;  grid-row: span 7; }
+.ca-card-sq     { grid-column: span 4;  grid-row: span 7; }
+.ca-card-third  { grid-column: span 4;  grid-row: span 6; }
+.ca-card-half   { grid-column: span 6;  grid-row: span 7; }
+.ca-card-full   { grid-column: span 12; grid-row: span 8; }
+.ca-card-vid    { grid-column: span 8;  grid-row: span 9; }
+.ca-card-vid-sm { grid-column: span 4;  grid-row: span 9; }
+.ca-card-reel   { grid-column: span 3;  grid-row: span 9; }
+
+.ca-card-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: block;
+}
+
+.ca-card:hover .ca-card-media { transform: scale(1.06); }
+
+/* Overlay */
+.ca-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 55%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 1.5rem;
+}
+
+
+
+.ca-card-caption {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0 0 0.3rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.ca-card-tag {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #19d27c;
+}
+
+/* Video play button */
+.ca-card-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(25, 210, 124, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.ca-card:hover .ca-card-play {
+    background: #19d27c;
+    transform: translate(-50%, -50%) scale(1.12);
+    box-shadow: 0 0 25px rgba(25, 210, 124, 0.5);
+}
+
+.ca-card-play i { color: #000; font-size: 1.1rem; margin-left: 3px; }
+
+/* Reel badge */
+.ca-card-reel-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(25, 210, 124, 0.9);
+    color: #000;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+.reel-item{
+    aspect-ratio: 9/16;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: grid;
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.35s ease;
+
+}
+/* Hidden card */
+.ca-card.hidden { display: none; }
+
+/* Empty / No Results */
+.ca-empty {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 40vh;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.ca-empty.visible { display: flex; }
+
+.ca-empty-icon    { font-size: 3rem; color: rgba(255, 255, 255, 0.1); margin-bottom: 1.5rem; }
+.ca-empty-heading { font-size: 1.25rem; font-weight: 600; color: rgba(255, 255, 255, 0.4); margin: 0 0 0.75rem; }
+.ca-empty-sub     { font-size: 0.9rem; color: rgba(255, 255, 255, 0.25); line-height: 1.6; }
+
+/* =====================================================================
+   6. LIGHTBOX
+   ===================================================================== */
+.ca-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.97);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.ca-lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.ca-lb-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.25s ease;
+}
+.ca-lb-close:hover { background: #19d27c; border-color: #19d27c; color: #000; }
+
+.ca-lb-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.25s ease;
+}
+.ca-lb-nav:hover { background: #19d27c; border-color: #19d27c; color: #000; transform: translateY(-50%) scale(1.08); }
+.ca-lb-prev { left: 1.5rem; }
+.ca-lb-next { right: 1.5rem; }
+
+.ca-lb-content {
+    max-width: 92%;
+    max-height: 92%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ca-lb-img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.ca-lb-caption {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* =====================================================================
+   7. VIDEO MODAL
+   ===================================================================== */
+.ca-video-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.97);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.ca-video-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.ca-vm-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.25s ease;
+}
+.ca-vm-close:hover { background: #19d27c; border-color: #19d27c; color: #000; }
+
+.ca-vm-inner {
+    width: 90%;
+    max-width: 1100px;
+    position: relative;
+}
+
+.ca-vm-video-wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ca-vm-video-wrap video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* YouTube iframe inside the modal */
+.ca-vm-youtube #ca-yt-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ca-vm-youtube #ca-yt-container iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 8px;
+}
+
+/* =====================================================================
+   8. CALL TO ACTION
+   ===================================================================== */
+.ca-cta {
+    background: #050505;
+    border-top: 1px solid rgba(25, 210, 124, 0.12);
+    text-align: center;
+    padding: clamp(4rem, 7vw, 6rem) 1.5rem;
+}
+
+.ca-cta-heading {
+    font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.75rem;
+}
+
+.ca-cta-sub {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 auto 2.25rem;
+    max-width: 480px;
+    line-height: 1.7;
+}
+
+.ca-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: #19d27c;
+    color: #000;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 0.9rem 2.25rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(25, 210, 124, 0.35);
+}
+
+.ca-cta-btn:hover {
+    background: #33d58d;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(25, 210, 124, 0.5);
+}
+
+/* =====================================================================
+   9. WHATSAPP FLOAT
+   ===================================================================== */
+.floating-message-icon {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+}
+.floating-message-icon:hover { transform: scale(1.1); background: #1db954; }
+
+/* =====================================================================
+   10. FOOTER
+   ===================================================================== */
+.footer {
+    background: #030503;
+    border-top: 1px solid rgba(25, 210, 124, 0.12);
+    padding: 3rem 0 1.5rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 0 2rem 2rem;
+}
+
+.footer-column h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #19d27c;
+    margin: 0 0 1.25rem;
+}
+
+.footer-column a,
+.footer-column p {
+    display: block;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    line-height: 2;
+    transition: color 0.2s ease;
+}
+
+.footer-column a:hover { color: #19d27c; }
+
+.footer-column .social-icons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-column .social-icons a {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1;
+}
+
+.footer-column .social-icons a:hover { color: #19d27c; }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 1.25rem 2rem 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0;
+}
+
+/* =====================================================================
+   11. RESPONSIVE
+   ===================================================================== */
+@media (max-width: 1024px) {
+    .desktop-nav-links,
+    .desktop-quote-btn { display: none !important; }
+
+    .navbar { padding: 1rem 1.75rem; }
+
+    .ca-grid {
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 55px;
+    }
+
+    .ca-card-wide   { grid-column: span 4; grid-row: span 6; }
+    .ca-card-sq     { grid-column: span 2; grid-row: span 6; }
+    .ca-card-third  { grid-column: span 2; grid-row: span 5; }
+    .ca-card-half   { grid-column: span 3; grid-row: span 6; }
+    .ca-card-full   { grid-column: span 6; grid-row: span 7; }
+    .ca-card-vid    { grid-column: span 4; grid-row: span 8; }
+    .ca-card-vid-sm { grid-column: span 2; grid-row: span 8; }
+    
+
+    .footer-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .navbar { padding: 0.9rem 1.25rem; }
+    
+    .ca-cat-link { font-size: 0.75rem; padding: 1rem 0.95rem; letter-spacing: 0.5px; }
+
+    .ca-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 50px;
+    }
+
+    .ca-card-wide   { grid-column: span 3; grid-row: span 5; }
+    .ca-card-sq     { grid-column: span 1; grid-row: span 5; }
+    .ca-card-third  { grid-column: span 2; grid-row: span 5; }
+    .ca-card-half   { grid-column: span 2; grid-row: span 5; }
+    .ca-card-full   { grid-column: span 4; grid-row: span 7; }
+    .ca-card-vid    { grid-column: span 4; grid-row: span 7; }
+    
+    .ca-card-vid-sm { grid-column: span 4; grid-row: span 7; }
+
+    .footer-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .navbar { padding: 0.75rem 1rem; }
+    .logo-img { height: 38px; }
+    .hamburger { width: 42px; height: 42px; }
+
+    
+    .ca-intro { padding: 4rem 1rem 3rem; }
+    .ca-intro-heading { font-size: 1.9rem; }
+    .ca-cat-link { font-size: 0.7rem; padding: 0.9rem 0.75rem; }
+    .ca-results-bar { padding: 0.75rem 1rem; }
+
+    .ca-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 48px;
+    }
+
+    .ca-card-wide   { grid-column: span 2; grid-row: span 5; }
+    .ca-card-sq     { grid-column: span 1; grid-row: span 5; }
+    .ca-card-third  { grid-column: span 1; grid-row: span 5; }
+    .ca-card-half   { grid-column: span 1; grid-row: span 5; }
+    .ca-card-full   { grid-column: span 2; grid-row: span 6; }
+    .ca-card-vid    { grid-column: span 2; grid-row: span 6; }
+    .ca-card-reel   { grid-column: span 2; grid-row: span 7; }
+    .ca-card-vid-sm { grid-column: span 2; grid-row: span 6; }
+
+    .ca-lb-prev { left: 0.5rem; }
+    .ca-lb-next { right: 0.5rem; }
+    .ca-vm-inner { width: 96%; }
+}
+
+/* =====================================================================
+   12. MOBILE EXPERIENCE — LAY FILMS PRODUCTIONS
+   ===================================================================== */
+
+@media (max-width: 768px) {
+
+    /* Category navigation */
+    
+
+ 
+
+    /* Media filter buttons */
+    .ca-media-row {
+        width: 100%;
+        padding: 0.65rem 0.4rem;
+        justify-content: space-evenly;
+        gap: 0.15rem;
+    }
+
+   
+
+    /* Results indicator */
+    .ca-results-bar {
+        padding: 0.85rem 1rem;
+    }
+
+    /* Introduction */
+    .ca-intro-desc {
+        max-width: 95%;
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    /* Lightbox controls */
+    .ca-lb-close,
+    .ca-vm-close {
+        width: 44px;
+        height: 44px;
+        top: 0.75rem;
+        right: 0.75rem;
+    }
+
+    .ca-lb-nav {
+        width: 42px;
+        height: 42px;
+    }
+
+    .ca-lb-prev { left: 0.5rem; }
+    .ca-lb-next { right: 0.5rem; }
+
+    /* Video player */
+    .ca-vm-inner {
+        width: 96%;
+        max-width: 100%;
+    }
+
+    /* CTA */
+    .ca-cta {
+        padding: 3.5rem 1.25rem;
+    }
+
+    .ca-cta-btn {
+        min-height: 48px;
+        padding: 0.9rem 1.8rem;
+    }
+
+    /* Footer */
+    .footer-container {
+        padding: 0 1.25rem 2rem;
+        gap: 1.75rem;
+    }
+
+    .floating-message-icon {
+        width: 50px;
+        height: 50px;
+        right: 1rem;
+        bottom: 1rem;
+    }
+}
+
+
+/* =====================================================================
+   13. SMARTPHONE OPTIMISATION
+   ===================================================================== */
+
+@media (max-width: 480px) {
+
+    .ca-intro {
+        padding: 3rem 1rem 0.5rem;
+    }
+
+    .ca-intro-eyebrow {
+        font-size: 0.62rem;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+    }
+
+    .ca-intro-heading {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .ca-intro-desc {
+        font-size: 0.85rem;
+        line-height: 1.7;
+    }
+
+    /* Category navigation */
+   
+
+   
+
+    /* Media filters */
+    .ca-media-row {
+        padding: 0.5rem 0.2rem;
+    }
+
+    .ca-media-btn {
+        font-size: 0.59rem;
+        letter-spacing: 0.3px;
+        padding: 0.6rem 0.25rem;
+    }
+
+    .ca-media-sep {
+        font-size: 0.5rem;
+    }
+
+    /* Lightbox */
+    .ca-lb-content {
+        max-width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .ca-lb-img {
+        max-width: 100%;
+        max-height: 72dvh;
+    }
+
+    .ca-lb-caption {
+        font-size: 0.7rem;
+        text-align: center;
+    }
+
+    .ca-lb-nav {
+        width: 38px;
+        height: 38px;
+        font-size: 0.85rem;
+    }
+
+    /* Video */
+    .ca-vm-inner {
+        width: 100%;
+    }
+
+    .ca-vm-video-wrap {
+        border-radius: 0;
+    }
+
+    /* CTA */
+    .ca-cta-heading {
+        font-size: 1.55rem;
+        line-height: 1.3;
+    }
+
+    .ca-cta-sub {
+        font-size: 0.85rem;
+    }
+
+    .ca-cta-btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    /* Footer */
+    .footer {
+        padding-top: 2.5rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1.25rem 1.5rem;
+    }
+
+    .footer-column h3 {
+        font-size: 0.8rem;
+    }
+
+    .footer-column a,
+    .footer-column p {
+        font-size: 0.82rem;
+    }
+
+    .footer-bottom {
+        padding: 1rem 0.75rem 0;
+    }
+
+    .footer-bottom p {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* =====================================================================
+   14. TOUCHSCREEN AND ACCESSIBILITY
+   ===================================================================== */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .ca-media-btn,
+    .ca-cat-link,
+    .ca-lb-close,
+    .ca-lb-nav,
+    .ca-vm-close {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+
+.hero-showcase .ca-filter-bar {
+    position: absolute;
+    top: 72px; /* clears fixed navbar; adjust if your navbar height differs */
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background: rgba(8, 8, 8, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-showcase .ca-categories-wrap::before {
+    background: transparent;
+}
+
+.hero-showcase .ca-categories-wrap::after {
+    background:  transparent;
+}
+.hero-showcase {
+    height: 100vh;
+    position: relative;
+    
+}
+.showcase-slider {
+    height: 100%;
+    position: relative;
+}
+.slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.75);
+    display: block;
+}
+.slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-overlay {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    max-width: 680px;
+    text-align: left;
+    color: #ffffff;
+    z-index: 2;
+    
+}
+
+.slide-overlay h1,
+.slide-overlay .ca-intro-heading {
+    font-size: 5rem;
+    font-weight: 300;
+    margin: 0 0 1rem;
+    letter-spacing: -2px;
+    text-align: left;
+    backdrop-filter: blur(5px) !important;
+    color: #19d27c;
+}
+
+.slide-overlay p,
+.slide-overlay .ca-intro-desc {
+    margin: 0;
+    text-align: left;
+}
+.slide-overlay p {
+    font-size: 1.0rem;
+    backdrop-filter: blur(5px) !important;
+    color: white;
+    letter-spacing: 2px;
+}
+@media (max-width: 768px) {
+    .hero-showcase {
+        height: 60vh !important;
+    }
+
+    .slide-overlay {
+        left: 5% !important;
+        bottom: 15% !important;
+        width: 90% !important;
+    }
+
+    .slide-overlay h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.1;
+    }
+
+    .slide-overlay p {
+        font-size: 0.8rem !important;
+    }
+}
+
+/* ==========================================================
+   LAY FILMS - COMMERCIAL PAGE RESPONSIVE NAVIGATION
+   ========================================================== */
+
+/* Desktop */
+.site-header {
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar {
+    width: 100%;
+    backdrop-filter: blur(8px) !important;
+    z-index: 1001;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    
+
+}
+
+.nav-logo {
+    flex-shrink: 0;
+}
+
+.ca-filter-bar {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    top: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ca-categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 1024px) {
+
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    .nav-logo,
+    .nav-right-controls {
+        flex-shrink: 0;
+    }
+
+    .ca-filter-bar {
+        order: 3;
+        flex: 0 0 100%;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .ca-categories {
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .ca-categories::-webkit-scrollbar {
+        display: none;
+    }
+
+    .ca-cat-link {
+        flex-shrink: 0;
+    }
+
+    .nav-right-controls {
+        margin-left: auto;
+    }
+}
+
+/* ==========================================================
+   MOBILE PHONES
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 0.7rem 1rem;
+    }
+
+    .nav-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-logo img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+    }
+
+    .nav-right-controls {
+        display: flex;
+        align-items: center;
+    }
+
+    .hamburger {
+        width: 42px;
+        height: 42px;
+    }
+
+    /* Portfolio navigation occupies second row */
+
+    .ca-filter-bar {
+        order: 3;
+        flex: 0 0 calc(100% + 2rem);
+        width: calc(100% + 2rem);
+        margin: 0.7rem -1rem -0.7rem;
+        background: transparent;
+        border-top: 1px solid rgba(255,255,255,0.07);
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Category row */
+
+    .ca-categories-wrap {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .ca-categories {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0;
+        padding: 0 0.5rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .ca-categories::-webkit-scrollbar {
+        display: none;
+    }
+
+    .ca-cat-link {
+        flex: 0 0 auto;
+        font-size: 0.65rem;
+        letter-spacing: 0.3px;
+        padding: 0.9rem 0.75rem;
+    }
+
+    /* Media filter row */
+
+    .ca-media-row {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        padding: 0.45rem 0.5rem;
+        gap: 0.2rem;
+        border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .ca-media-btn {
+        flex: 1;
+        min-width: 0;
+        font-size: 0.6rem;
+        letter-spacing: 0.7px;
+        padding: 0.6rem 0.2rem;
+        text-align: center;
+    }
+
+    .ca-media-sep {
+        font-size: 0.5rem;
+    }
+}
+
+/* ==========================================================
+   SMALL PHONES
+   ========================================================== */
+
+@media (max-width: 380px) {
+
+    .ca-cat-link {
+        font-size: 0.58rem;
+        padding: 0.85rem 0.6rem;
+    }
+
+    .ca-media-btn {
+        font-size: 0.53rem;
+        letter-spacing: 0.3px;
+    }
+}
+/* Fix horizontal scrolling for portfolio categories */
+@media (max-width: 768px) {
+    .ca-filter-bar {
+        width: 100%;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .ca-categories-wrap {
+        width: 100%;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .ca-categories {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        touch-action: pan-x;
+        cursor: grab;
+    }
+
+    .ca-categories::-webkit-scrollbar {
+        display: none;
+    }
+
+    .ca-cat-link {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+}
+/* Inline browser video/reel player inside gallery card */
+.ca-inline-player {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 6;
+}
+
+.ca-inline-player iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.ca-inline-close {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.65rem;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 7;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ca-inline-close:hover {
+    background: #19d27c;
+    color: #000;
+}
+
+/* Hide thumbnail overlay, play button, and reel badge while playing inline */
+.ca-card.is-playing .ca-card-overlay,
+.ca-card.is-playing .ca-card-play,
+.ca-card.is-playing .ca-card-reel-badge {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+.ca-card.is-playing:hover {
+    transform: none;
+}

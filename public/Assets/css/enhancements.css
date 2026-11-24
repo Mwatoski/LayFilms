@@ -38,7 +38,7 @@
 
 /* ===== ENHANCED HERO SECTION ===== */
 .hero-section {
- 
+
     position: relative;
     overflow: hidden;
 }
@@ -242,7 +242,7 @@
 
 /* Enhanced view button */
 .view-button {
-  
+
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: all var(--duration-base) var(--ease-bounce) !important;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -524,5 +524,1139 @@ body.light-mode .portfolio-category:hover {
         animation: none !important;
         opacity: 1 !important;
         transform: none !important;
+    }
+}
+
+/* ==========================================================================
+   CINEMATIC VIDEO MOSAIC & GREEN ACCENT NAVIGATION
+   Lay Films Productions — Video-Wall Hero & Emerald Brand Identity
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap');
+
+/* Brand Green Cinema Palette */
+:root {
+    --cinema-green: #19d27c;
+    --cinema-green-hover: #33d58d;
+    --cinema-green-dark: #0e8851;
+    --cinema-green-deep: #06150d;
+    --cinema-green-glow: rgba(25, 210, 124, 0.4);
+    --cinema-black: #000000;
+    --cinema-charcoal: #0e1210;
+    --font-heading-cinema: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ===== 1. TRANSPARENT NAVIGATION, DESKTOP LINKS & GREEN CIRCULAR DRAWER ===== */
+.site-header {
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    border: transparent;
+}
+
+.navbar {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px transparent !important;
+    box-shadow: none !important;
+    transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, padding 0.3s ease !important;
+    padding: 1.25rem 3rem !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+
+.nav-container {
+    max-width: 1680px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.nav-logo {
+    z-index: 1002;
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.06) !important;
+    filter: drop-shadow(0 0 12px rgba(25, 210, 124, 0.4));
+}
+
+/* Desktop Horizontal Navigation Links (1024px+) */
+.desktop-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.85rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.desktop-nav-link {
+    font-family: var(--font-heading-cinema);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #e5e7eb;
+    text-decoration: none;
+    padding: 0.4rem 0.15rem;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+.desktop-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--cinema-green);
+    transition: width 0.25s ease;
+    box-shadow: 0 0 8px var(--cinema-green-glow);
+}
+
+.desktop-nav-link:hover,
+.desktop-nav-link.active {
+    color: var(--cinema-green);
+}
+
+.desktop-nav-link:hover::after,
+.desktop-nav-link.active::after {
+    width: 100%;
+}
+
+/* Right Navigation Controls: Quote CTA + Green Circular Hamburger */
+.nav-right-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.desktop-quote-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1.35rem;
+    border-radius: 9999px;
+    background: rgba(25, 210, 124, 0.12);
+    border: 1.5px solid var(--cinema-green);
+    color: var(--cinema-green);
+    font-family: var(--font-heading-cinema);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.desktop-quote-btn:hover {
+    background: var(--cinema-green);
+    color: #000000;
+    box-shadow: 0 0 20px var(--cinema-green-glow);
+    transform: translateY(-1px);
+}
+
+/* Green Circular Hamburger Menu (Lay Films Brand Accent) */
+.hamburger {
+    display: flex !important;
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: var(--cinema-green) !important;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 18px var(--cinema-green-glow);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1002;
+    flex-direction: column;
+}
+
+.hamburger:hover {
+    background-color: var(--cinema-green-hover) !important;
+    transform: scale(1.08);
+    box-shadow: 0 6px 24px rgba(25, 210, 124, 0.65);
+}
+
+.hamburger-line {
+    width: 20px;
+    height: 2px;
+    background: #000000 !important;
+    margin: 2.5px 0;
+    transition: all 0.3s ease;
+    display: block;
+    border-radius: 2px;
+}
+
+.hamburger.active {
+    background-color: #06150d !important;
+    border: 1.5px solid var(--cinema-green);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 15px var(--cinema-green-glow);
+}
+
+.hamburger.active .hamburger-line {
+    background: var(--cinema-green) !important;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Dark Translucent Backdrop for Drawer */
+.nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1040;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.nav-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Off-canvas Navigation Drawer */
+.nav-drawer {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    width: min(380px, 90vw) !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: transparent !important;
+    backdrop-filter: blur(28px) !important;
+    -webkit-backdrop-filter: blur(28px) !important;
+    border-left: 1px solid rgba(25, 210, 124, 0.22) !important;
+    z-index: 1050 !important;
+    transform: translateX(100%) !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.95) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 !important;
+}
+
+.nav-drawer.active {
+    transform: translateX(0) !important;
+}
+
+.drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.75rem 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+}
+
+.drawer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.drawer-logo-img {
+    height: 36px;
+    width: auto;
+}
+
+.drawer-brand-name {
+    font-family: var(--font-heading-cinema);
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    color: #ffffff;
+}
+
+.drawer-close-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.25s ease;
+}
+
+.drawer-close-btn:hover {
+    background: rgba(25, 210, 124, 0.2);
+    border-color: var(--cinema-green);
+    color: var(--cinema-green);
+    transform: rotate(90deg);
+}
+
+.drawer-body {
+    padding: 1.25rem 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 1.25rem;
+}
+
+.drawer-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.drawer-nav-item {
+    width: 100%;
+}
+
+.drawer-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 8px;
+    color: #e5e7eb;
+    font-family: var(--font-heading-cinema);
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.drawer-link-number {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--cinema-green);
+    opacity: 0.8;
+    font-family: monospace;
+    letter-spacing: 1px;
+}
+
+.drawer-nav-link:hover,
+.drawer-nav-link.active {
+    color: var(--cinema-green);
+    background: rgba(25, 210, 124, 0.08);
+    padding-left: 1.2rem;
+}
+
+.drawer-nav-link.active {
+    border-left: 3px solid var(--cinema-green);
+    background: rgba(25, 210, 124, 0.12);
+}
+
+.drawer-cta-wrap {
+    margin-top: 0.5rem;
+}
+
+.drawer-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    width: 100%;
+    padding: 0.85rem 1.5rem;
+    border-radius: 9999px;
+    background: var(--cinema-green);
+    color: #000000;
+    font-family: var(--font-heading-cinema);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 4px 18px var(--cinema-green-glow);
+    transition: all 0.25s ease;
+}
+
+.drawer-cta-btn:hover {
+    background: var(--cinema-green-hover);
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(25, 210, 124, 0.6);
+}
+
+.drawer-contact-section {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.drawer-contact-title {
+    font-family: var(--font-heading-cinema);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    margin: 0 0 0.25rem;
+}
+
+.drawer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.84rem;
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    word-break: break-word;
+}
+
+.drawer-contact-item:hover {
+    color: var(--cinema-green);
+}
+
+.drawer-contact-item i {
+    color: var(--cinema-green);
+    width: 18px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Hide desktop toggle duplicates in drawer */
+.theme-toggle-desktop,
+.theme-toggle-mobile {
+    display: none !important;
+}
+
+/* ===== 2. FULL-SCREEN CINEMATIC VIDEO MOSAIC HERO ===== */
+.video-mosaic-hero {
+    position: relative !important;
+    width: 100% !important;
+    height: 100vh !important;
+    min-height: 650px !important;
+    background-color: #000000 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.video-mosaic-hero::before {
+    display: none !important;
+    /* override generic hero before */
+}
+
+.video-mosaic-grid {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    gap: 8px;
+    /* Small, consistent gaps */
+    padding: 8px;
+    box-sizing: border-box;
+    z-index: 1;
+    background-color: #000000;
+}
+
+/* Mosaic Tiles */
+.mosaic-tile {
+    position: relative;
+    overflow: hidden;
+    background-color: #040906;
+    border-radius: 4px;
+}
+
+/* Staggered Row Positions (3 Columns) */
+.mosaic-tile-1 {
+    grid-column: 1;
+    grid-row: 1 / 8;
+    /* Tall - rows 1-7 */
+}
+
+.mosaic-tile-2 {
+    grid-column: 1;
+    grid-row: 8 / 13;
+    /* Standard - rows 8-12 */
+}
+
+.mosaic-tile-3 {
+    grid-column: 2;
+    grid-row: 1 / 5;
+    /* Standard - rows 1-4 */
+}
+
+.mosaic-tile-4 {
+    grid-column: 2;
+    grid-row: 5 / 9;
+    /* Center - rows 5-8 */
+    z-index: 2;
+    
+   
+    background: radial-gradient(ellipse at center, #292313 0%, #090909 72%);
+    box-shadow:
+        0 0 0 1px rgba(226, 190, 105, 0.18),
+        0 0 22px rgba(226, 190, 105, 0.25),
+        0 12px 36px rgba(0, 0, 0, 0.55);
+    transform: scale(1.035);
+    transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+}
+
+.mosaic-tile-4 .mosaic-video {
+    object-fit: cover;
+    transform: scale(1.9);
+    transform-origin: center;
+    
+    
+}
+/* Shadow overlay on all mosaic videos EXCEPT tile 4 */
+.video-mosaic-hero .mosaic-tile .mosaic-overlay {
+    background: rgba(0, 0, 0, 0.65); /* adjust opacity to taste */
+}
+
+/* Optional: strengthen it on hover for the same tiles */
+.video-mosaic-hero .mosaic-tile:not(.mosaic-tile-3):hover .mosaic-overlay {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.mosaic-tile-3 .mosaic-overlay {
+    background: radial-gradient(ellipse at center, transparent 48%, rgba(0, 0, 0, 0.22) 100%);
+}
+
+.mosaic-tile-4:hover {
+    z-index: 4;
+    transform: scale(1.075);
+    border-color: rgba(255, 226, 155, 0.96);
+    box-shadow:
+        0 0 0 1px rgba(255, 226, 155, 0.32),
+        0 0 34px rgba(226, 190, 105, 0.42),
+        0 16px 42px rgba(0, 0, 0, 0.65);
+}
+
+.mosaic-tile-5 {
+    grid-column: 2;
+    grid-row: 9 / 13;
+    /* Standard - rows 9-12 */
+}
+
+.mosaic-tile-6 {
+    grid-column: 3;
+    grid-row: 1 / 6;
+    /* Standard - rows 1-5 */
+}
+
+.mosaic-tile-7 {
+    grid-column: 3;
+    grid-row: 6 / 13;
+    /* Tall - rows 6-12 */
+}
+
+/* Mosaic Video Styling */
+.mosaic-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.mosaic-video.loaded {
+    opacity: 1;
+}
+
+/* Keep YouTube embeds cropped like the surrounding cover-fit video tiles. */
+.mosaic-youtube-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 177.78%;
+    height: 100%;
+    border: 0;
+    transform: translate(-50%, -50%);
+}
+
+/* Subtle Dark Overlay on Individual Tiles */
+.mosaic-overlay {
+    position: absolute;
+    inset: 0;
+
+    transition: background 0.3s ease;
+    pointer-events: none;
+}
+
+.mosaic-tile:hover .mosaic-overlay {
+    background: rgba(0, 0, 0, 0.22);
+}
+
+/* Global Central Radial Vignette for Contrast & Readability */
+
+
+/* Central Content Overlay */
+.hero-central-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    pointer-events: none;
+}
+
+.hero-central-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    pointer-events: auto;
+}
+
+.mosaic-title {
+    font-family: var(--font-heading-cinema) !important;
+    font-size: clamp(2.5rem, 6.5vw, 5.5rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.05 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    color: var(--cinema-green) ;
+    margin: 0 0 1.25rem 0 !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95), 0 2px 10px rgba(0, 0, 0, 0.85) !important;
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.mosaic-title:hover {
+    color: var(--cinema-green) !important;
+    text-shadow: 0 0 40px var(--cinema-green-glow), 0 4px 30px rgba(0, 0, 0, 0.95) !important;
+}
+
+.mosaic-subtitle {
+    font-family: var(--font-heading-cinema);
+    font-size: clamp(0.95rem, 1.8vw, 1.35rem);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: #e5e7eb;
+    margin: 0;
+    line-height: 1.6;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9);
+    transition: color 0.3s ease;
+}
+
+.mosaic-subtitle:hover {
+    color: var(--cinema-green);
+}
+
+/* Animated Scroll Cue */
+.hero-scroll-cue {
+    position: absolute;
+    bottom: 2.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.3s ease;
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.hero-scroll-cue:hover {
+    color: var(--cinema-green);
+}
+
+.scroll-text {
+    font-family: var(--font-heading-cinema);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+
+.scroll-chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    animation: scrollBounce 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes scrollBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+/* ===== 3. PORTFOLIO SHOWCASE INTRODUCTION (Magical Pictures Reference) ===== */
+/* Particles layer inside the hero */
+#particles-js.particles-container {
+    position: absolute;
+    inset: 0;                 /* fill the hero */
+    width: 100%;
+    height: 100%;
+    z-index: 3;               /* above tiles (1) & vignette (2), below central text (10) */
+    pointer-events: none;     /* let clicks pass through to buttons/links */
+}
+
+/* Ensure the canvas particles.js creates fills the container */
+#particles-js.particles-container canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+.portfolio-intro-section {
+    background-color: #050505;
+    padding: clamp(5.5rem, 8vw, 8.5rem) 1.5rem;
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    text-align: center;
+}
+
+.portfolio-intro-container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.portfolio-intro-heading {
+    font-family: var(--font-heading-cinema);
+    font-size: clamp(2rem, 3.8vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 1.25rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.portfolio-intro-underline {
+    width: 60px;
+    height: 3px;
+    background-color: var(--cinema-green);
+    border-radius: 2px;
+    margin: 0 auto 2rem auto;
+    box-shadow: 0 0 12px var(--cinema-green-glow);
+}
+
+.portfolio-intro-description {
+    font-family: var(--font-heading-cinema);
+    font-size: clamp(0.98rem, 1.45vw, 1.125rem);
+    font-weight: 300;
+    line-height: 1.8;
+    color: #C5C5C5;
+    max-width: 880px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.portfolio-intro-cta-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn-discover-work {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cinema-green);
+    color: #000000 !important;
+    font-family: var(--font-heading-cinema);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 0.95rem 2.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(25, 210, 124, 0.35);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.btn-discover-work:hover {
+    background-color: var(--cinema-green-hover);
+    color: #000000 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(25, 210, 124, 0.55);
+}
+
+.btn-discover-work:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* ===== 4. SELECTED WORKS PORTFOLIO SHOWCASE ===== */
+.portfolio-showcase {
+    background-color: #000000;
+    padding: 5rem 0 6rem;
+    position: relative;
+    z-index: 5;
+}
+
+.portfolio-grid-large {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
+}
+
+.portfolio-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.portfolio-category {
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    aspect-ratio: 16/10;
+    background-color: #060b08;
+}
+
+.portfolio-category:hover {
+    border-color: rgba(25, 210, 124, 0.5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85), 0 0 25px rgba(25, 210, 124, 0.2);
+    transform: translateY(-6px);
+}
+
+.category-media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.category-image,
+.category-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-category:hover .category-image,
+.portfolio-category:hover .category-video {
+    transform: scale(1.08);
+}
+
+.category-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0.1) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    transition: background 0.3s ease;
+}
+
+.portfolio-category:hover .category-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.96) 0%, rgba(4, 15, 9, 0.55) 60%, rgba(0, 0, 0, 0.15) 100%);
+}
+
+.category-info {
+    width: 100%;
+}
+
+.category-title {
+    font-family: var(--font-heading-cinema);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.35rem 0;
+    line-height: 1.25;
+}
+
+.category-count {
+    color: var(--cinema-green);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0 0 0.85rem 0;
+}
+
+.view-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ffffff;
+    font-family: var(--font-heading-cinema);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-category:hover .view-button {
+    color: var(--cinema-green);
+    transform: translateX(6px);
+}
+
+/* ===== 5. STATS SECTION ===== */
+.stats-section {
+    padding: 5rem 0;
+    background: #000;
+    
+
+    position: relative;
+    z-index: 5;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-number-wrap {
+    font-family: var(--font-heading-cinema);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: var(--cinema-green);
+    text-shadow: 0 0 25px rgba(25, 210, 124, 0.35);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-plus {
+    font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.stat-title {
+    font-family: var(--font-heading-cinema);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0 0 0.25rem;
+}
+
+.stat-desc {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    margin: 0;
+}
+
+/* ===== 6. COMPREHENSIVE RESPONSIVE BREAKPOINTS ===== */
+
+/* Laptop & Tablet Landscape (<= 1024px) */
+
+
+/* Tablet Portrait (<= 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 1.5rem !important;
+    }
+
+    .navbar.scrolled {
+        padding: 0.75rem 1.5rem !important;
+    }
+
+    .portfolio-intro-section {
+        padding: 4.5rem 1.25rem;
+    }
+
+    .portfolio-intro-heading {
+        font-size: 1.85rem;
+    }
+
+    .portfolio-intro-description {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .portfolio-grid-large {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .portfolio-category {
+        aspect-ratio: 16/11;
+    }
+
+    .category-overlay {
+        padding: 1.5rem;
+    }
+
+    .category-title {
+        font-size: 1.35rem;
+    }
+}
+
+/* Mobile Devices (<= 600px & <= 480px) */
+@media (max-width: 600px) {
+    .video-mosaic-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        gap: 4px;
+        padding: 4px;
+    }
+
+    /* 4 high-impact video tiles on mobile for smooth performance */
+
+    .mosaic-tile-2 {
+        grid-column: 1;
+        grid-row: 5 / 9;
+    }
+
+    .mosaic-tile-7 {
+        grid-column: 1 ;
+        /* Starts at column line 1 and ends at column line 3 (spans both columns) */
+        grid-row: 1 / 5;
+        
+    }
+
+    .mosaic-tile-6 {
+        grid-column: 2;
+        grid-row: 5 / 9;
+    }
+
+    .mosaic-tile-5 {
+        grid-column: 2;
+        grid-row: 1 / 5;
+    }
+    
+    .mosaic-tile-4,
+    .mosaic-tile-3 {
+        display: none;
+    }
+
+    .mosaic-title {
+        font-size: clamp(1.85rem, 8vw, 2.75rem) !important;
+        letter-spacing: 0.03em !important;
+        line-height: 1.1 !important;
+    }
+
+    .mosaic-subtitle {
+        font-size: 0.92rem;
+        letter-spacing: 0.04em;
+    }
+    /* Shadow overlay on all mosaic videos EXCEPT tile 4 */
+
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.85rem 1.15rem !important;
+    }
+
+    .logo-img {
+        height: 38px;
+    }
+
+    .hamburger {
+        width: 44px;
+        height: 44px;
+    }
+
+    .hamburger-line {
+        width: 18px;
+    }
+
+    .nav-drawer {
+        width: min(320px, 92vw) !important;
+    }
+
+    .drawer-header {
+        padding: 1.25rem 1.25rem 1rem;
+    }
+
+    .drawer-body {
+        padding: 1rem 1.25rem 1.5rem;
+        gap: 1rem;
+    }
+
+    .drawer-nav-link {
+        font-size: 0.88rem;
+        padding: 0.65rem 0.75rem;
+    }
+
+    .portfolio-intro-section {
+        padding: 4rem 1rem;
+    }
+
+    .portfolio-intro-heading {
+        font-size: 1.6rem;
+    }
+
+    .portfolio-intro-description {
+        font-size: 0.92rem;
+    }
+
+    .btn-discover-work {
+        width: 100%;
+        max-width: 280px;
+        padding: 0.85rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
     }
 }

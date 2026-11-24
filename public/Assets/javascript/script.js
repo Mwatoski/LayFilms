@@ -1,54 +1,97 @@
-// ===== MOBILE MENU FUNCTIONALITY =====
-// ===== IMPROVED MOBILE MENU FUNCTIONALITY =====
+// ===== MOBILE & DRAWER MENU FUNCTIONALITY =====
 const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+const navBackdrop = document.querySelector('.nav-backdrop');
+const drawerCloseBtn = document.querySelector('#drawer-close-btn');
 
-if (hamburger && navMenu) {
-    // Better touch handling for mobile
+function getDrawer() {
+    return document.querySelector('.nav-drawer') || document.querySelector('.nav-menu');
+}
+
+function closeNavDrawer() {
+    if (hamburger) {
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+    }
+    const drawer = getDrawer();
+    if (drawer) {
+        drawer.classList.remove('active');
+    }
+    const backdrop = document.querySelector('.nav-backdrop');
+    if (backdrop) {
+        backdrop.classList.remove('active');
+    }
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+}
+
+function openNavDrawer() {
+    if (hamburger) {
+        hamburger.classList.add('active');
+        hamburger.setAttribute('aria-expanded', 'true');
+    }
+    const drawer = getDrawer();
+    if (drawer) {
+        drawer.classList.add('active');
+    }
+    const backdrop = document.querySelector('.nav-backdrop');
+    if (backdrop) {
+        backdrop.classList.add('active');
+    }
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+}
+
+function toggleNavDrawer() {
+    const drawer = getDrawer();
+    if (drawer && drawer.classList.contains('active')) {
+        closeNavDrawer();
+    } else {
+        openNavDrawer();
+    }
+}
+
+if (hamburger) {
     hamburger.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-
-        // Prevent body scroll when menu is open on mobile
-        if (window.innerWidth <= 768) {
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-            document.documentElement.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-        }
+        toggleNavDrawer();
     });
 
-    // Close menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', (e) => {
-        // Small delay to show the click feedback
-        setTimeout(() => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
-        }, 300);
-    }));
+    if (drawerCloseBtn) {
+        drawerCloseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeNavDrawer();
+        });
+    }
 
-    // Close menu when tapping outside on mobile
+    if (navBackdrop) {
+        navBackdrop.addEventListener('click', () => {
+            closeNavDrawer();
+        });
+    }
+
+    // Close menu when clicking on any link inside the drawer
+    document.querySelectorAll('.nav-link, .drawer-nav-link, .desktop-nav-link, .drawer-cta-btn').forEach(n => {
+        n.addEventListener('click', () => {
+            setTimeout(closeNavDrawer, 150);
+        });
+    });
+
+    // Close menu when tapping outside the drawer
     document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768 && navMenu.classList.contains('active')) {
-            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
-                document.documentElement.style.overflow = '';
+        const drawer = getDrawer();
+        if (drawer && drawer.classList.contains('active')) {
+            if (!drawer.contains(e.target) && !hamburger.contains(e.target)) {
+                closeNavDrawer();
             }
         }
     });
 
     // Close menu on escape key
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
+        const drawer = getDrawer();
+        if (e.key === 'Escape' && drawer && drawer.classList.contains('active')) {
+            closeNavDrawer();
         }
     });
 }
@@ -82,12 +125,9 @@ let resizeTimer;
 window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
-        // Close mobile menu when switching to desktop
-        if (window.innerWidth > 768 && navMenu && navMenu.classList.contains('active')) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
+        // Close mobile drawer when switching to desktop
+        if (window.innerWidth >= 1024) {
+            closeNavDrawer();
         }
 
         // Re-initialize components that need recalculating
@@ -217,11 +257,8 @@ if (darkModeToggle || darkModeToggleMobile) {
             updateThemeColors(isLightMode);
 
             // Close mobile menu when toggle is pressed
-            if (window.innerWidth <= 768) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
-                document.documentElement.style.overflow = '';
+            if (window.innerWidth < 1024) {
+                closeNavDrawer();
             }
         });
     }
@@ -615,13 +652,23 @@ function initReelShowcase() {
 function initSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            const href = this.getAttribute('href');
+            if (!href || href === '#' || href.length <= 1) return;
+            try {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    const navHeight = 70;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            } catch (err) {
+                // Ignore invalid selectors
             }
         });
     });

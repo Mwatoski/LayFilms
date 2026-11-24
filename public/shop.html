@@ -3,447 +3,122 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    
+    <title>Lay Films Productions | Best Film &amp; Videography Services in Kenya</title>
     <meta name="description"
-        content="Lay Films Productions Official Merchandise - Premium branded apparel and accessories. Show your support with our exclusive collection.">
+        content="Lay Films Productions - Professional film production, videography, and motion graphics services in Kenya. Capture your story with stunning visuals!">
     <meta name="keywords"
-        content="Lay Films merchandise, branded apparel, film production merch, custom cups, hoodies, t-shirts, Kenya">
+        content="film production, videography, motion graphics, cinematography, Lay Films, corporate videos, commercial ads, event filming, Kenya">
     <meta name="author" content="Lay Films Productions">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Shop | Lay Films Productions Official Merchandise</title>
 
-    <link rel="stylesheet" href="./Assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lay Films Productions | Best Film &amp; Videography Services in Kenya">
+    <meta property="og:description"
+        content="Professional film production, videography, and motion graphics services in Kenya. Capture your story with stunning visuals!">
+    <meta property="og:image" content="./Assets/images/LAY08582-Enhanced-NR.webp">
+
     <link rel="icon" type="image/x-icon" href="./Assets/images/lay.webp">
 
-    <style>
-        /* Shop Page Specific Styles */
-        .shop-hero {
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            padding: 2rem;
-        }
+    <!-- Typography: Google Fonts Montserrat (Bold, Modern Cinema Aesthetic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
 
-        .shop-hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-        }
+    <!-- Design System & Styles -->
+    <link rel="stylesheet" href="./Assets/css/design-system.css">
+    <link rel="stylesheet" href="./Assets/css/styles.css">
+    <link rel="stylesheet" href="./Assets/css/enhancements.css">
+    <link rel="stylesheet" href="./Assets/css/advanced-features.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        .shop-hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
-
-        .shop-hero p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .shop-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(25, 210, 124, 0.1);
-            color: #19d27c;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(25, 210, 124, 0.2);
-        }
-
-        /* Products Grid */
-        .shop-products {
-            padding: 80px 2rem;
-            background: #000;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .product-card {
-            background: #1a1a1a;
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border: 1px solid #333;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(25, 210, 124, 0.2);
-            border-color: #19d27c;
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #19d27c;
-            color: #000;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 10;
-        }
-
-        /* Product Image Carousel */
-        .product-image-container {
-            position: relative;
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
-            background: #2a2a2a;
-        }
-
-        .product-carousel {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .product-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-        }
-
-        .product-image.active {
-            opacity: 1;
-        }
-
-        .carousel-controls {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 5;
-        }
-
-        .carousel-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-dot.active {
-            background: #19d27c;
-            transform: scale(1.2);
-        }
-
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 15px;
-            z-index: 5;
-        }
-
-        .carousel-btn {
-            width: 36px;
-            height: 36px;
-            background: rgba(0, 0, 0, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0;
-        }
-
-        .product-card:hover .carousel-btn {
-            opacity: 1;
-        }
-
-        .carousel-btn:hover {
-            background: rgba(25, 210, 124, 0.8);
-            border-color: #19d27c;
-        }
-
-        .product-info {
-            padding: 2rem;
-        }
-
-        .product-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-description {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 1rem;
-            line-height: 1.5;
-            font-size: 0.95rem;
-        }
-
-        .product-price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #19d27c;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-old-price {
-            text-decoration: line-through;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 1rem;
-            margin-left: 0.5rem;
-        }
-
-        .product-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .buy-button {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            background: #19d27c;
-            color: #000;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        .buy-button:hover {
-            background: #16b86a;
-            transform: translateY(-2px);
-        }
-
-        .whatsapp-button {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            background: #25D366;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        .whatsapp-button:hover {
-            background: #1ebe57;
-            transform: translateY(-2px);
-        }
-
-        /* Features Section */
-        .shop-features {
-            padding: 60px 2rem;
-            background: #0a0a0a;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feature-items {
-            text-align: center;
-
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: #19d27c;
-            margin-bottom: 1rem;
-        }
-
-        .feature-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .feature-description {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
-        }
-
-        /* Light Mode Support */
-        body.light-mode .shop-hero,
-        body.light-mode .shop-products,
-        body.light-mode .shop-features {
-            background: #ffffff;
-        }
-
-        body.light-mode .shop-hero h1,
-        body.light-mode .product-title,
-        body.light-mode .feature-title {
-            color: #111;
-        }
-
-        body.light-mode .shop-hero p,
-        body.light-mode .product-description,
-        body.light-mode .feature-description {
-            color: #333;
-        }
-
-        body.light-mode .product-card {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-        }
-
-        body.light-mode .product-info {
-            color: #111;
-        }
-
-        body.light-mode .product-description {
-            color: #666;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .shop-hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .shop-hero p {
-                font-size: 1.1rem;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .product-actions {
-                flex-direction: column;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .carousel-nav {
-                display: none;
-            }
-
-            .carousel-controls {
-                display: flex;
-            }
-        }
-    </style>
+    <!-- Particles.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html">
-                    <img loading="lazy" src="./Assets/images/LayF.png" alt="Lay Films" class="logo-img">
-                </a>
+       <header class="site-header">
+        <nav class="navbar" aria-label="Main Navigation">
+            <div class="nav-container">
+                <!-- Brand Logo on the left -->
+                <div class="nav-logo">
+                    <a href="index.html" aria-label="Lay Films Productions Home">
+                        <img src="./Assets/images/LayF.png" alt="Lay Films Productions" class="logo-img" width="50" height="50">
+                    </a>
+                </div>
+
+                <div class="nav-right-controls">
+                    
+                    <button class="hamburger" id="hamburger-btn" type="button" aria-label="Toggle navigation menu" aria-controls="nav-drawer" aria-expanded="false">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Dark Translucent Backdrop for Drawer -->
+        <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+
+        <!-- Off-canvas Navigation Drawer -->
+        <aside class="nav-drawer nav-menu" id="nav-drawer" aria-label="Navigation Drawer">
+            <div class="drawer-header">
+                <div class="drawer-brand">
+                    <img src="./Assets/images/LayF.png" alt="Lay Films Logo" class="logo-img" width="38" height="38">
+                    <span class="drawer-brand-name">LAY FILMS</span>
+                </div>
+                <button class="drawer-close-btn" id="drawer-close-btn" type="button" aria-label="Close navigation menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
 
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html#work" class="nav-link">WORK</a>
-                </li>
-                <li class="nav-item">
-                    <a href="shop.html" class="nav-link">SHOP</a>
-                </li>
-                <li class="nav-item">
-                    <a href="resources.html" class="nav-link">RESOURCES</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">CONTACT</a>
-                </li>
-                <!-- Desktop Theme Toggle -->
-                <li class="nav-item theme-toggle-desktop">
-                    <div class="theme-toggle">
-                        <input type="checkbox" id="dark-mode-toggle" class="toggle-checkbox">
-                        <label for="dark-mode-toggle" class="toggle-label">
-                            <span class="toggle-handle"></span>
-                            <span class="sun-icon">☀️</span>
-                            <span class="moon-icon">🌙</span>
-                        </label>
-                    </div>
-                </li>
-                <!-- Mobile Theme Toggle -->
-                <li class="nav-item theme-toggle-mobile">
-                    <div class="theme-toggle">
-                        <input type="checkbox" id="dark-mode-toggle-mobile" class="toggle-checkbox">
-                        <label for="dark-mode-toggle-mobile" class="toggle-label">
-                            <span class="toggle-handle"></span>
-                            <span class="sun-icon">☀️</span>
-                            <span class="moon-icon">🌙</span>
-                        </label>
-                    </div>
-                </li>
-            </ul>
+            <div class="drawer-body">
+                <ul class="drawer-nav-list">
+                    <li class="drawer-nav-item">
+                        <a href="index.html" class="drawer-nav-link active"><span class="drawer-link-number">01</span> HOME</a>
+                    </li>
+                    <li class="drawer-nav-item">
+                        <a href="commercial.html" class="drawer-nav-link"><span class="drawer-link-number">02</span> Portfolio</a>
+                    </li>
+                    <li class="drawer-nav-item">
+                        <a href="aboutUs.html" class="drawer-nav-link"><span class="drawer-link-number">03</span> ABOUT US</a>
+                    </li>
+                    <li class="drawer-nav-item">
+                        <a href="shop.html" class="drawer-nav-link"><span class="drawer-link-number">04</span> SHOP</a>
+                    </li>
+                    <li class="drawer-nav-item">
+                        <a href="resources.html" class="drawer-nav-link"><span class="drawer-link-number">05</span> RESOURCES</a>
+                    </li>
+                </ul>
 
-            <button class="hamburger" type="button" aria-label="Toggle menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-        </div>
-    </nav>
+                <div class="drawer-cta-wrap">
+                    <a href="quotation.html" class="drawer-cta-btn">GET A QUOTE <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Studio Contact Information inside Drawer -->
+                <div class="drawer-contact-section">
+                    <h4 class="drawer-contact-title">STUDIO CONTACT</h4>
+                    <a href="tel:+254707942420" class="drawer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+254 707 942 420</span>
+                    </a>
+                    <a href="mailto:info@layfilmsproductions.com" class="drawer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>info@layfilmsproductions.com</span>
+                    </a>
+                    <div class="drawer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Nairobi, Kenya</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </header>
 
     <!-- Hero Section -->
-    <section class="shop-hero">
-        <div class="shop-hero-content">
-            <div class="shop-badge">
-                <span class="badge-dot"></span>
-                Official Merchandise
-            </div>
-            <h1>Wear The Vision</h1>
-            <p>Premium Lay Films Productions merchandise - Show your support with our exclusive collection of apparel
-                and accessories designed for creators and film enthusiasts.</p>
-        </div>
-    </section>
+
 
     <!-- Products Section -->
     <section class="shop-products">

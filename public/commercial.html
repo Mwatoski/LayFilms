@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>Commercials | Lay Films Productions</title>
+    <meta name="description"
+        content="Lay Films Productions – Professional commercial video production in Kenya. Brand adverts, product films, and corporate content.">
+    <meta name="keywords" content="commercial adverts, corporate video Kenya, brand video, Lay Films Productions">
+    <meta name="author" content="Lay Films Productions">
+
+    <link rel="icon" type="image/x-icon" href="./Assets/images/lay.webp">
+
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Shared & base stylesheets -->
+    <link rel="stylesheet" href="./Assets/css/enhancements.css">
+
+    <link rel="stylesheet" href="./Assets/css/gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ===============================================================
+         NAVIGATION
+         =============================================================== -->
+    <header class="site-header">
+        <nav class="navbar" id="main-navbar" aria-label="Main Navigation">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" aria-label="Lay Films Productions Home">
+                        <img src="./Assets/images/LayF.png" alt="Lay Films Productions" class="logo-img" width="50"
+                            height="50">
+                    </a>
+                </div>
+
+                <div class="ca-filter-bar" id="ca-filter-bar" role="navigation" aria-label="Portfolio navigation">
+                    <!-- Category navigation — links to separate pages -->
+                    <div class="ca-categories-wrap">
+                        <div class="ca-categories" id="ca-categories">
+                            <a href="commercial.html" class="ca-cat-link active" aria-current="page">
+                                Corporate &amp; Commercial
+                            </a>
+                            <a href="events.html" class="ca-cat-link">Events</a>
+                            
+                            <a href="restaurant.html" class="ca-cat-link">Restaurant &amp; Hotels</a>
+                            <a href="interviews.html" class="ca-cat-link">Interviews &amp; Films</a>
+                            <a href="animation.html" class="ca-cat-link">Animation &amp; Graphics</a>
+                            <a href="portraits.html" class="ca-cat-link">Portraits &amp; Family</a>
+                        </div>
+                    </div>
+
+                    <!-- Media type filters -->
+                    <div class="ca-media-row" role="group" aria-label="Media type filters">
+                        <button class="ca-media-btn active" data-media="all" aria-pressed="true">ALL</button>
+                        <span class="ca-media-sep">|</span>
+                        <button class="ca-media-btn" data-media="image" aria-pressed="false">IMAGES</button>
+                        <span class="ca-media-sep">|</span>
+                        <button class="ca-media-btn" data-media="video" aria-pressed="false">VIDEOS</button>
+                        <span class="ca-media-sep">|</span>
+                        <button class="ca-media-btn" data-media="reel" aria-pressed="false">REELS</button>
+                    </div>
+                </div>
+                <div class="nav-right-controls">
+                    <button class="hamburger" id="hamburger-btn" type="button" aria-label="Toggle navigation menu"
+                        aria-controls="nav-drawer" aria-expanded="false">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+
+        <aside class="nav-drawer nav-menu" id="nav-drawer" aria-label="Navigation Drawer">
+            <div class="drawer-header">
+                <div class="drawer-brand">
+                    <img src="./Assets/images/LayF.png" alt="Lay Films Logo" class="logo-img" width="38" height="38">
+                    <span class="drawer-brand-name">LAY FILMS</span>
+                </div>
+                <button class="drawer-close-btn" id="drawer-close-btn" type="button" aria-label="Close navigation menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="drawer-body">
+                <ul class="drawer-nav-list">
+                    <li class="drawer-nav-item">
+                        <a href="index.html" class="drawer-nav-link"><span class="drawer-link-number">01</span> HOME</a>
+                    </li>
+                    <li class="drawer-nav-item">
+                        <a href="aboutUs.html" class="drawer-nav-link"><span class="drawer-link-number">02</span> ABOUT
+                            US</a>
+                    </li>
+                    <li class="drawer-nav-item">
+                        <a href="commercial.html" class="drawer-nav-link active"><span
+                                class="drawer-link-number">03</span> PORTFOLIO</a>
+                    </li>
+                    <li class="drawer-nav-item">
+                        <a href="shop.html" class="drawer-nav-link"><span class="drawer-link-number">07</span> SHOP</a>
+                    </li>
+                    <li class="drawer-nav-item">
+                        <a href="resources.html" class="drawer-nav-link"><span class="drawer-link-number">08</span>
+                            RESOURCES</a>
+                    </li>
+                </ul>
+
+                <div class="drawer-cta-wrap">
+                    <a href="quotation.html" class="drawer-cta-btn">GET A QUOTE <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="drawer-contact-section">
+                    <h4 class="drawer-contact-title">STUDIO CONTACT</h4>
+                    <a href="tel:+254707942420" class="drawer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+254 707 942 420</span>
+                    </a>
+                    <a href="mailto:info@layfilmsproductions.com" class="drawer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>info@layfilmsproductions.com</span>
+                    </a>
+                    <div class="drawer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Nairobi, Kenya</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </header>
+
+    <div class="ca-page">
+        <section class="hero-showcase">
+            <div class="showcase-slider">
+                <div class="slide active">
+                    <img loading="eager" src="./Assets/images/commercial/1.webp" alt="Featured Event"
+                        class="slide-image">
+                    <div class="slide-overlay-title"></div>
+                    <div class="slide-overlay">
+                        <h1 class="ca-intro-heading" id="ca-page-title">Corporate &amp; Commercial</h1>
+                        <p class="ca-intro-desc">
+                            Professional commercial video production — brand adverts, product films, corporate content,
+                            and event highlights.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+
+        <section class="ca-gallery" aria-label="Commercials portfolio gallery">
+            <div class="ca-grid" id="ca-grid">
+
+                <!-- Commercial — image, wide -->
+                <div class="ca-card ca-card-wide" data-type="image" data-caption="Commercial Vision"
+                    data-src="./Assets/images/commercial/1.webp" tabindex="0" role="button"
+                    aria-label="Commercial Vision – open image">
+                    <img loading="eager" src="./Assets/images/commercial/LAY03567-Enhanced-NR.webp" alt="Commercial Shoot – Excellence"
+                        class="ca-card-media">
+                    <div class="ca-card-overlay">
+                        <p class="ca-card-caption">Corporate Vision</p>
+                        <span class="ca-card-tag">Corporate</span>
+                    </div>
+                </div>
+
+                <!-- Commercial — image, square -->
+                <div class="ca-card ca-card-sq" data-type="image" data-caption="Brand Story"
+                    data-src="./Assets/images/commercial/3.webp" tabindex="0" role="button"
+                    aria-label="Brand Story – open image">
+                    <img loading="eager" src="./Assets/images/commercial/3.webp" alt="Commercial Brand Shoot"
+                        class="ca-card-media">
+                    <div class="ca-card-overlay">
+                        <p class="ca-card-caption">Brand Story</p>
+                        <span class="ca-card-tag">Commercial</span>
+                    </div>
+                </div>
+
+                <!-- Commercial — image, third -->
+                <div class="ca-card ca-card-third" data-type="image" data-caption="Product Showcase"
+                    data-src="./Assets/images/commercial/4.webp" tabindex="0" role="button"
+                    aria-label="Product Showcase – open image">
+                    <img loading="lazy" src="./Assets/images/commercial/4.webp" alt="Commercial Product Shoot"
+                        class="ca-card-media">
+                    <div class="ca-card-overlay">
+                        <p class="ca-card-caption">Product Showcase</p>
+                        <span class="ca-card-tag">Commercial</span>
+                    </div>
+                </div>
+
+                <!-- Commercial — image, third -->
+                <div class="ca-card ca-card-third" data-type="image" data-caption="Corporate Identity"
+                    data-src="./Assets/images/commercial/8.webp" tabindex="0" role="button"
+                    aria-label="Corporate Identity – open image">
+                    <img loading="lazy" src="./Assets/images/commercial/8.webp" alt="Corporate Commercial"
+                        class="ca-card-media">
+                    <div class="ca-card-overlay">
+                        <p class="ca-card-caption">Corporate Identity</p>
+                        <span class="ca-card-tag">Commercial</span>
+                    </div>
+                </div>
+
+                <!-- Commercial — image, third -->
+                <div class="ca-card ca-card-third" data-type="image" data-caption="Commercial Still"
+                    data-src="./Assets/images/commercial/11.webp" tabindex="0" role="button"
+                    aria-label="Commercial Still – open image">
+                    <img loading="lazy" src="./Assets/images/commercial/11.webp" alt="Commercial Still"
+                        class="ca-card-media">
+                    <div class="ca-card-overlay">
+                        <p class="ca-card-caption">Commercial Still</p>
+                        <span class="ca-card-tag">Commercial</span>
+                    </div>
+                </div>
+
+                <!-- Counter Dew — video, full (YouTube) -->
+                <div class="ca-card ca-card-full ca-card-is-video" data-type="video"
+                    data-caption="Counter Dew – Product Advert" data-youtube-id="vfJeBGD-1HI" tabindex="0" role="button"
+                    aria-label="Counter Dew Product Advert – play video">
+                    <img loading="lazy" src="./Assets/images/commercial/11.webp"
+                        alt="Counter Dew Commercial" class="ca-card-media">
+                    <div class="ca-card-play" aria-hidden="true">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="ca-card-overlay">
+                        <p class="ca-card-caption">SAP | Corporate Brand Film</p>
+                        <span class="ca-card-tag">Coperate · Video</span>
+                    </div>
+                </div>
+
+                <!-- On The Map Boutique — video, wide (YouTube) -->
+                <div class="ca-card ca-card-vid ca-card-is-video" data-type="video" data-caption="On The Map Boutique"
+                    data-youtube-id="YOUTUBE_ID_2" tabindex="0" role="button"
+                    aria-label="On The Map Boutique – play video">
+                    <img loading="lazy" src="./Assets/images/commercial/17.webp" alt="On The Map Boutique Commercial"
+                        class="ca-card-media">
+                    <div class="ca-card-reel-badge">VIDEO</div>
+                    <div class="ca-card-play" aria-hidden="true">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="ca-card-overlay">
+                        <p class="ca-card-caption">On The Map Boutique</p>
+                        <span class="ca-card-tag">Commercial · Video</span>
+                    </div>
+                </div>
+
+                <!-- Grand Celebrations — image, vid-sm -->
+                <div class="ca-card ca-card-vid-sm" data-type="image" data-caption="Grand Celebrations"
+                    data-src="./Assets/images/commercial/5.webp" tabindex="0" role="button"
+                    aria-label="Grand Celebrations – open image">
+                    <img loading="lazy" src="./Assets/images/commercial/5.webp" alt="Grand Event" class="ca-card-media">
+                    <div class="ca-card-overlay">
+                        <p class="ca-card-caption">Grand Celebrations</p>
+                        <span class="ca-card-tag">Commercial</span>
+                    </div>
+                </div>
+                <!-- Highlights — image, vid-sm -->
+                <div class="ca-card ca-card-vid-sm" data-type="image" data-caption="Highlights"
+                    data-src="./Assets/images/commercial/6.webp" tabindex="0" role="button"
+                    aria-label="Highlights – open image">
+                    <img loading="lazy" src="./Assets/images/commercial/6.webp" alt="Event Highlights"
+                        class="ca-card-media">
+                    <div class="ca-card-overlay">
+                        <p class="ca-card-caption">Highlights</p>
+                        <span class="ca-card-tag">Commercial</span>
+                    </div>
+                </div>
+
+                <!-- Boutique Reel — reel, wide (YouTube) -->
+                <div class="ca-card ca-card-reel ca-card-is-video" data-type="reel" data-caption="Boutique Reel"
+                    data-youtube-id="u-n2g7MzBH4" tabindex="0" role="button" aria-label="Boutique Reel – play reel">
+                    <img loading="lazy" src="./Assets/images/commercial/13.webp"
+                        alt="On The Map Boutique Reel" class="ca-card-media">
+                    <div class="ca-card-reel-badge">REEL</div>
+                    <div class="ca-card-play" aria-hidden="true">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="ca-card-overlay">
+                        <p class="ca-card-caption">Boutique Reel</p>
+                        <span class="ca-card-tag">Commercial · Reel</span>
+                    </div>
+                </div>
+                <div class="ca-card ca-card-reel ca-card-is-video" data-type="reel" data-caption="Boutique Reel"
+                    data-youtube-id="SCNf5V6UBCg" tabindex="0" role="button" aria-label="Boutique Reel – play reel">
+                    <img loading="lazy" src="./Assets/images/commercial/14.webp" alt="On The Map Boutique Reel"
+                        class="ca-card-media">
+                    <div class="ca-card-reel-badge">REEL</div>
+                    <div class="ca-card-play" aria-hidden="true">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="ca-card-overlay">
+                        <p class="ca-card-caption">Boutique Reel</p>
+                        <span class="ca-card-tag">Commercial · Reel</span>
+                    </div>
+                </div>
+                <div class="ca-card ca-card-reel ca-card-is-video" data-type="reel" data-caption="Boutique Reel"
+                    data-youtube-id="4nUWiYxwubI" tabindex="0" role="button" aria-label="Boutique Reel – play reel">
+                    <img loading="lazy" src="./Assets/images/commercial/16.webp" alt="On The Map Boutique Reel"
+                        class="ca-card-media">
+                    <div class="ca-card-reel-badge">REEL</div>
+                    <div class="ca-card-play" aria-hidden="true">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="ca-card-overlay">
+                        <p class="ca-card-caption">Boutique Reel</p>
+                        <span class="ca-card-tag">Commercial · Reel</span>
+                    </div>
+                </div>
+                <div class="ca-card ca-card-reel ca-card-is-video" data-type="reel" data-caption="Boutique Reel"
+                    data-youtube-id="vfJeBGD-1HI" tabindex="0" role="button" aria-label="Boutique Reel – play reel">
+                    <img loading="lazy" src="./Assets/images/commercial/15.webp" alt="On The Map Boutique Reel"
+                        class="ca-card-media">
+                    <div class="ca-card-reel-badge">REEL</div>
+                    <div class="ca-card-play" aria-hidden="true">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="ca-card-overlay">
+                        <p class="ca-card-caption">Boutique Reel</p>
+                        <span class="ca-card-tag">Commercial · Reel</span>
+                    </div>
+                </div>
+
+                <!-- Highlights — image, vid-sm -->
+
+
+            </div><!-- /#ca-grid -->
+
+            <!-- Empty state -->
+            <div class="ca-empty" id="ca-empty" aria-live="polite">
+                <div class="ca-empty-icon"><i class="fas fa-film"></i></div>
+                <p class="ca-empty-heading">No items found</p>
+                <p class="ca-empty-sub">Try a different media type filter.</p>
+            </div>
+        </section>
+
+
+        <!-- ===============================================================
+             4. LIGHTBOX
+             =============================================================== -->
+        <div class="ca-lightbox" id="ca-lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+            <button class="ca-lb-close" id="ca-lb-close" aria-label="Close lightbox">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="ca-lb-nav ca-lb-prev" id="ca-lb-prev" aria-label="Previous image">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="ca-lb-nav ca-lb-next" id="ca-lb-next" aria-label="Next image">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="ca-lb-content">
+                <img src="" alt="" class="ca-lb-img" id="ca-lb-img">
+                <p class="ca-lb-caption" id="ca-lb-caption"></p>
+            </div>
+        </div>
+
+        <!-- ===============================================================
+             5. YOUTUBE VIDEO MODAL
+             =============================================================== -->
+        <div class="ca-video-modal" id="ca-video-modal" role="dialog" aria-modal="true" aria-label="Video player">
+            <button class="ca-vm-close" id="ca-vm-close" aria-label="Close video">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="ca-vm-inner">
+                <div class="ca-vm-video-wrap ca-vm-youtube">
+                    <!-- iframe is injected dynamically by gallery.js -->
+                    <div id="ca-yt-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===============================================================
+             6. CALL TO ACTION
+             =============================================================== -->
+        <section class="ca-cta" aria-label="Book a shoot">
+            <h2 class="ca-cta-heading">Ready to Tell Your Brand's Story?</h2>
+            <p class="ca-cta-sub">From concept to delivery, we produce professional commercial content that moves
+                audiences.</p>
+            <a href="quotation.html" class="ca-cta-btn">
+                Book a Production <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/254707942420?text=Hello%20Lay%20Films%20Productions,%20I%20would%20like%20to%20inquire%20about%20your%20services."
+            class="floating-message-icon" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+        <!-- ===============================================================
+             FOOTER
+             =============================================================== -->
+        <footer class="footer" id="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="aboutUs.html">About Us</a>
+                    <a href="commercial.html">Portfolio</a>
+                    <a href="quotation.html">Get a Quote</a>
+                    <a href="shop.html">Shop</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/people/Lay-Films-Production-Company/100091605957522/"
+                            target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i
+                                class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.twitter.com/LayFilms" target="_blank" rel="noopener noreferrer"
+                            aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/lay_films_productions" target="_blank"
+                            rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@layfilmsproductions?si=RrGIje_SKaFr1AbA" target="_blank"
+                            rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@layfilmsproductions?_t=ZM-8u8TOE5lLjq&_r=1" target="_blank"
+                            rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/in/wandera-edwin-505bb8351/" target="_blank"
+                            rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column" id="contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fa-solid fa-phone"></i> +254 707 942 420</p>
+                    <p><i class="fa-solid fa-envelope"></i> info@layfilmsproductions.com</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Nairobi, Kenya</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lay Films Productions. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div><!-- /.ca-page -->
+
+    <!-- Shared gallery script -->
+    <script src="./Assets/javascript/gallery.js"></script>
+
+</body>
+
+</html>
