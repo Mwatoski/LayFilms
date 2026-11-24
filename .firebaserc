@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "lay-films"
-  }
+    "default": "lay-films-productions"
+  },
+  "targets": {},
+  "etags": {}
 }
