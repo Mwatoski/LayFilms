@@ -46,10 +46,11 @@
                             <a href="commercial.html" class="ca-cat-link " aria-current="page">
                                 Corporate &amp; Commercial
                             </a>
-                            <a href="events.html" class="ca-cat-link">Events</a>
+                            
                            
                             <a href="restaurant.html" class="ca-cat-link">Restaurant &amp; Hotels</a>
-                            <a href="interviews.html" class="ca-cat-link">Interviews &amp; Films</a>
+                            <a href="interviews.html" class="ca-cat-link">Films, Interviews &amp; Music Videos</a>
+                            <a href="events.html" class="ca-cat-link">Events</a>
                              <a href="animation.html" class="ca-cat-link active">Animation &amp; Graphics</a>
                             <a href="portraits.html" class="ca-cat-link">Portraits &amp; Family</a>
                         </div>
@@ -138,23 +139,38 @@
     </header>
 
     <div class="ca-page">
-        <section class="hero-showcase">
-            <div class="showcase-slider">
-                <div class="slide active">
-                    <img loading="eager" src="./Assets/images/annimation/M1.webp" alt="Featured Event"
-                        class="slide-image">
-                    <div class="slide-overlay-title"></div>
-                    <div class="slide-overlay">
-                        <h1 class="ca-intro-heading" id="ca-page-title">Animation &amp; Graphics</h1>
-                        <p class="ca-intro-desc">
-                            Creative visual storytelling — motion graphics, 2D and 3D animation, animated explainers, and engaging digital visuals.
-                        </p>
-                    </div>
-                </div>
+        
+<section class="hero-showcase hero-video-showcase">
+    <div class="showcase-slider">
+        <div class="slide active">
+
+            <video class="slide-video"
+                   autoplay
+                   muted
+                   loop
+                   playsinline
+                   preload="auto"
+                   poster="./Assets/images/annimation/M1.webp">
+                <source src="./Assets/videos/BOUNCE LOGO WITH SOUNE.mp4"
+                        type="video/mp4">
+            </video>
+
+            <div class="slide-overlay-title"></div>
+
+            <div class="slide-overlay">
+                <h1 class="ca-intro-heading" id="ca-page-title">
+                    Animation &amp; Graphics
+                </h1>
+                <p class="ca-intro-desc">
+                    Creative visual storytelling — motion graphics, 2D and 3D animation,
+                    animated explainers, and engaging digital visuals.
+                </p>
             </div>
 
+        </div>
+    </div>
+</section>
 
-        </section>
 
      
 
@@ -166,152 +182,122 @@
         <section class="ca-gallery" aria-label="Commercials portfolio gallery">
             <div class="ca-grid" id="ca-grid">
 
-                <!-- Commercial — image, wide -->
-                <div class="ca-card ca-card-wide " data-type="video" data-caption="Commercial Vision"
-                    data-video-src="./Assets/images/LAY08582-Enhanced-NR.webp" tabindex="0" role="button"
-                    aria-label="Commercial Vision – open image">
-                    <img loading="eager" src="./Assets/images/LAY08582-Enhanced-NR.webp"
-                        alt="Commercial Shoot – Excellence" class="ca-card-media">
+                <!-- Bounce Logo Animation — video, wide -->
+                <div class="ca-card ca-card-wide ca-card-is-video" data-type="video" data-caption="Bounce Logo Animation"
+                    data-video-src="./Assets/videos/BOUNCE LOGO WITH SOUNE.mp4" tabindex="0" role="button"
+                    aria-label="Bounce Logo Animation – play video">
+                    <img loading="eager" src="./Assets/images/annimation/13.png"
+                        alt="Bounce Logo Animation" class="ca-card-media">
                     <div class="ca-card-play" aria-hidden="true">
                         <i class="fas fa-play"></i>
                     </div>
                     <div class="ca-card-overlay">
-                        <p class="ca-card-caption">Commercial Vision</p>
-                        <span class="ca-card-tag">Commercial</span>
+                        <p class="ca-card-caption">Bounce Logo Animation</p>
+                        <span class="ca-card-tag">Animation · Motion Graphics</span>
                     </div>
                 </div>
 
-                <!-- Commercial — image, square -->
-                <div class="ca-card ca-card-sq" data-type="image" data-caption="Brand Story"
-                    data-src="./Assets/images/LAY05778-Enhanced-NR.webp" tabindex="0" role="button"
-                    aria-label="Brand Story – open image">
-                    <img loading="eager" src="./Assets/images/" alt="Commercial Brand Shoot" class="ca-card-media">
+                <!-- Motion Graphics Reel — video, square -->
+                <div class="ca-card ca-card-sq ca-card-is-video" data-type="video" data-caption="Motion Graphics Reel"
+                    data-video-src="./Assets/images/motion videos/motion.mp4" tabindex="0" role="button"
+                    aria-label="Motion Graphics Reel – play video">
+                    <img loading="eager" src="./Assets/images/annimation/2.png" alt="Motion Graphics Reel" class="ca-card-media">
                     <div class="ca-card-play" aria-hidden="true">
                         <i class="fas fa-play"></i>
                     </div>
                     <div class="ca-card-overlay">
-                        <p class="ca-card-caption">Brand Story</p>
-                        <span class="ca-card-tag">Commercial</span>
+                        <p class="ca-card-caption">Motion Graphics Reel</p>
+                        <span class="ca-card-tag">Animation · Video</span>
                     </div>
                 </div>
 
-                <!-- Commercial — image, third -->
-                <div class="ca-card ca-card-third" data-type="image" data-caption="Product Showcase"
-                    data-src="./Assets/images/LAY05771-Enhanced-NR.webp" tabindex="0" role="button"
-                    aria-label="Product Showcase – open image">
-                    <img loading="lazy" src="./Assets/images/LAY05771-Enhanced-NR.webp" alt="Commercial Product Shoot"
+                <!-- Extreme Shoes Ad — video, third -->
+                <div class="ca-card ca-card-third ca-card-is-video" data-type="video" data-caption="Extreme Shoes Advert"
+                    data-video-src="./Assets/images/motion videos/1.mp4" tabindex="0" role="button"
+                    aria-label="Extreme Shoes Advert – play video">
+                    <img loading="lazy" src="./Assets/images/annimation/1.png" alt="Extreme Shoes Advert"
                         class="ca-card-media">
                     <div class="ca-card-play" aria-hidden="true">
                         <i class="fas fa-play"></i>
                     </div>
                     <div class="ca-card-overlay">
-                        <p class="ca-card-caption">Product Showcase</p>
-                        <span class="ca-card-tag">Commercial</span>
+                        <p class="ca-card-caption">Extreme Shoes Advert</p>
+                        <span class="ca-card-tag">Animation · Commercial</span>
                     </div>
                 </div>
 
-                <!-- Commercial — image, third -->
-                <div class="ca-card ca-card-third" data-type="image" data-caption="Corporate Identity"
-                    data-src="./Assets/images/LAY08682.webp" tabindex="0" role="button"
-                    aria-label="Corporate Identity – open image">
-                    <img loading="lazy" src="./Assets/images/LAY08682.webp" alt="Corporate Commercial"
+                <!-- Drinks Advert — video, third -->
+                <div class="ca-card ca-card-third ca-card-is-video" data-type="video" data-caption="Drinks Advert"
+                    data-video-src="./Assets/images/motion videos/2.mp4" tabindex="0" role="button"
+                    aria-label="Drinks Advert – play video">
+                    <img loading="lazy" src="./Assets/images/annimation/3.png" alt="Drinks Advert"
                         class="ca-card-media">
                     <div class="ca-card-play" aria-hidden="true">
                         <i class="fas fa-play"></i>
                     </div>
                     <div class="ca-card-overlay">
-                        <p class="ca-card-caption">Corporate Identity</p>
-                        <span class="ca-card-tag">Commercial</span>
+                        <p class="ca-card-caption">Drinks Advert</p>
+                        <span class="ca-card-tag">Animation · Commercial</span>
                     </div>
                 </div>
 
-                <!-- Commercial — image, third -->
-                <div class="ca-card ca-card-third" data-type="image" data-caption="Commercial Still"
-                    data-src="./Assets/images/untitled-09405.webp" tabindex="0" role="button"
-                    aria-label="Commercial Still – open image">
-                    <img loading="lazy" src="./Assets/images/untitled-09405.webp" alt="Commercial Still"
+                <!-- IG Repost — video, third -->
+                <div class="ca-card ca-card-third ca-card-is-video" data-type="video" data-caption="IG Repost"
+                    data-video-src="./Assets/images/motion videos/3.mp4" tabindex="0" role="button"
+                    aria-label="IG Repost – play video">
+                    <img loading="lazy" src="./Assets/images/annimation/4.png" alt="IG Repost"
                         class="ca-card-media">
                     <div class="ca-card-play" aria-hidden="true">
                         <i class="fas fa-play"></i>
                     </div>
                     <div class="ca-card-overlay">
-                        <p class="ca-card-caption">Commercial Still</p>
-                        <span class="ca-card-tag">Commercial</span>
+                        <p class="ca-card-caption">IG Repost</p>
+                        <span class="ca-card-tag">Animation · Social</span>
                     </div>
                 </div>
 
-                <!-- Counter Dew — video, full -->
-                <div class="ca-card ca-card-full ca-card-is-video" data-type="video"
-                    data-caption="Counter Dew – Product Advert" data-video-src="./Assets/images/Counter  Dew.mp4"
-                    tabindex="0" role="button" aria-label="Counter Dew Product Advert – play video">
-                    <img loading="lazy" src="./Assets/images/fg_(1).webp" alt="Counter Dew Commercial"
-                        class="ca-card-media">
-                    <div class="ca-card-play" aria-hidden="true">
-                        <i class="fas fa-play"></i>
-                    </div>
-                    <div class="ca-card-overlay">
-                        <p class="ca-card-caption">Counter Dew</p>
-                        <span class="ca-card-tag">Commercial · Video</span>
-                    </div>
-                </div>
-
-                <!-- On The Map Boutique — video, wide -->
-                <div class="ca-card ca-card-vid ca-card-is-video" data-type="video" data-caption="On The Map Boutique"
-                    data-video-src="./Assets/images/On The Map.mp4" tabindex="0" role="button"
-                    aria-label="On The Map Boutique – play video">
-                    <img loading="lazy" src="./Assets/images/DSC02493.webp" alt="On The Map Boutique Commercial"
-                        class="ca-card-media">
-                    <div class="ca-card-play" aria-hidden="true">
-                        <i class="fas fa-play"></i>
-                    </div>
-                    <div class="ca-card-overlay">
-                        <p class="ca-card-caption">On The Map Boutique</p>
-                        <span class="ca-card-tag">Commercial · Video</span>
-                    </div>
-                </div>
-
-                <!-- Grand Celebrations — image, vid-sm -->
-                <div class="ca-card ca-card-vid-sm" data-type="image" data-caption="Grand Celebrations"
-                    data-src="./Assets/images/5.webp" tabindex="0" role="button"
-                    aria-label="Grand Celebrations – open image">
-                    <img loading="lazy" src="./Assets/images/5.webp" alt="Grand Event" class="ca-card-media">
-                    <div class="ca-card-play" aria-hidden="true">
-                        <i class="fas fa-play"></i>
-                    </div>
-                    <div class="ca-card-overlay">
-                        <p class="ca-card-caption">Grand Celebrations</p>
-                        <span class="ca-card-tag">Commercial</span>
-                    </div>
-                </div>
-
-                <!-- Boutique Reel — reel, wide -->
-                <div class="ca-card ca-card-vid ca-card-is-video" data-type="reel" data-caption="Boutique Reel"
-                    data-video-src="./Assets/images/Onthemapboutique.mp4" tabindex="0" role="button"
-                    aria-label="Boutique Reel – play reel">
-                    <img loading="lazy" src="./Assets/images/potrait7.webp" alt="On The Map Boutique Reel"
+                <!-- Container Reel — video, full -->
+                <div class="ca-card ca-card-full ca-card-is-video" data-type="reel"
+                    data-caption="Container Reel" data-video-src="./Assets/videos/CONTAINER REEL.mp4"
+                    tabindex="0" role="button" aria-label="Container Reel – play reel">
+                    <img loading="lazy" src="./Assets/images/commercial/2.webp" alt="Container Reel"
                         class="ca-card-media">
                     <div class="ca-card-reel-badge">REEL</div>
                     <div class="ca-card-play" aria-hidden="true">
                         <i class="fas fa-play"></i>
                     </div>
                     <div class="ca-card-overlay">
-                        <p class="ca-card-caption">Boutique Reel</p>
-                        <span class="ca-card-tag">Commercial · Reel</span>
+                        <p class="ca-card-caption">Container Reel</p>
+                        <span class="ca-card-tag">Animation · Reel</span>
                     </div>
                 </div>
 
-                <!-- Highlights — image, vid-sm -->
-                <div class="ca-card ca-card-vid-sm" data-type="image" data-caption="Highlights"
-                    data-src="./Assets/images/untitled-08282.webp" tabindex="0" role="button"
-                    aria-label="Highlights – open image">
-                    <img loading="lazy" src="./Assets/images/untitled-08282.webp" alt="Event Highlights"
+                <!-- Motion Clip 1 — video, wide -->
+                <div class="ca-card ca-card-vid ca-card-is-video" data-type="video" data-caption="Motion Clip"
+                    data-video-src="./Assets/images/motion videos/1.mp4" tabindex="0" role="button"
+                    aria-label="Motion Clip – play video">
+                    <img loading="lazy" src="./Assets/images/annimation/M1.webp" alt="Motion Clip"
                         class="ca-card-media">
                     <div class="ca-card-play" aria-hidden="true">
                         <i class="fas fa-play"></i>
                     </div>
                     <div class="ca-card-overlay">
-                        <p class="ca-card-caption">Highlights</p>
-                        <span class="ca-card-tag">Commercial</span>
+                        <p class="ca-card-caption">Motion Clip</p>
+                        <span class="ca-card-tag">Animation · Video</span>
+                    </div>
+                </div>
+
+                <!-- Motion Clip 2 — video, vid-sm -->
+                <div class="ca-card ca-card-vid-sm ca-card-is-video" data-type="video" data-caption="Motion Clip 2"
+                    data-video-src="./Assets/videos/2.mp4" tabindex="0" role="button"
+                    aria-label="Motion Clip 2 – play video">
+                    <img loading="lazy" src="./Assets/images/annimation/M2.webp" alt="Motion Clip 2" class="ca-card-media">
+                    <div class="ca-card-play" aria-hidden="true">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="ca-card-overlay">
+                        <p class="ca-card-caption">Motion Clip 2</p>
+                        <span class="ca-card-tag">Animation · Video</span>
                     </div>
                 </div>
 

@@ -300,14 +300,63 @@
     });
 
     /* =====================================================================
+       5b. LOCAL VIDEO MODAL (plays local mp4 files in the existing modal)
+       ===================================================================== */
+    var localVideoModal = document.getElementById('ca-video-modal');
+    var localModalVideo = document.getElementById('ca-modal-video');
+    var localVmClose    = document.getElementById('ca-vm-close');
+
+    function openLocalVideoModal(src, caption) {
+        if (!localVideoModal || !localModalVideo) return;
+        var source = localModalVideo.querySelector('source');
+        if (source) {
+            source.src = src;
+        } else {
+            localModalVideo.src = src;
+        }
+        localModalVideo.load();
+        localModalVideo.play();
+        localVideoModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        // Update aria label with caption
+        if (caption) localVideoModal.setAttribute('aria-label', caption);
+    }
+
+    function closeLocalVideoModal() {
+        if (!localVideoModal || !localModalVideo) return;
+        localModalVideo.pause();
+        localModalVideo.currentTime = 0;
+        var source = localModalVideo.querySelector('source');
+        if (source) source.src = '';
+        localModalVideo.load();
+        localVideoModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (localVmClose) localVmClose.addEventListener('click', closeLocalVideoModal);
+    if (localVideoModal) {
+        localVideoModal.addEventListener('click', function (e) {
+            if (e.target === localVideoModal) closeLocalVideoModal();
+        });
+    }
+    document.addEventListener('keydown', function (e) {
+        if (localVideoModal && localVideoModal.classList.contains('active') && e.key === 'Escape') {
+            closeLocalVideoModal();
+        }
+    });
+
+    /* =====================================================================
        6. WIRE UP CARD CLICKS
        ===================================================================== */
     cards.forEach(function (card) {
         card.addEventListener('click', function () {
             if (card.classList.contains('ca-card-is-video')) {
-                var youtubeId = card.dataset.youtubeId;
+                var youtubeId  = card.dataset.youtubeId;
+                var localVideo = card.dataset.videoSrc;
                 if (youtubeId) {
                     playInlineYouTube(card, youtubeId);
+                } else if (localVideo) {
+                    openLocalVideoModal(localVideo, card.dataset.caption || '');
                 }
             } else if (card.dataset.src) {
                 openLightbox(card);
